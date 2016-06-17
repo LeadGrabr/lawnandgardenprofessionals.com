@@ -2,6 +2,7 @@ import { default as React } from 'react'
 import { services } from 'data'
 import { PageHeader, Service } from 'components'
 import { Container } from 'rebass'
+import { default as Nav } from './Nav'
 
 const AllServicesPage = () =>
   <div>
@@ -14,6 +15,7 @@ const AllServicesPage = () =>
     />
     <Container>
       {services.map((props, key) => <Service {...props} />)}
+      <Nav />
     </Container>
   </div>
 
