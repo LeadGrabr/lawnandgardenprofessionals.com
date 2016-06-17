@@ -1,9 +1,10 @@
 import { default as React, PropTypes } from 'react'
-import { Breadcrumbs, Container, Heading } from 'rebass'
+import { Base, Breadcrumbs, Container, Heading } from 'rebass'
 import { Flex } from 'reflexbox'
 
 const PageHeader = ({ breadcrumbs, heading }, { colors: { lightGray } }) =>
-  <div
+  <Base
+    mb={3}
     style={{
       backgroundColor: lightGray,
       backgroundImage: `url(${process.env.STATIC_ASSETS}/leaves-pattern.png)`,
@@ -21,7 +22,7 @@ const PageHeader = ({ breadcrumbs, heading }, { colors: { lightGray } }) =>
         <Breadcrumbs links={breadcrumbs} />
       </If>
     </Flex>
-  </div>
+  </Base>
 
 PageHeader.propTypes = {
   breadcrumbs: PropTypes.arrayOf([PropTypes.object]),

@@ -13,8 +13,8 @@ export default (
       <Route path=':location' component={v.Location} />
     </Route>
     <Route path='services' component={v.Services}>
-      <IndexRoute component={v.AllServices} />
-      <Route path=':service' component={v.Service} />
+      <IndexRoute component={v.AllServicesPage} />
+      <Route path=':service' component={v.ServicePage} />
     </Route>
     <Route path='testimonials' component={v.Testimonials}>
       <IndexRoute component={v.AllTestimonials} />

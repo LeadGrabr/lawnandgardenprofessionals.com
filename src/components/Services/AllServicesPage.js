@@ -1,8 +1,9 @@
 import { default as React } from 'react'
 import { services } from 'data'
-import { PageHeader } from 'components'
+import { PageHeader, Service } from 'components'
+import { Container } from 'rebass'
 
-const AllServices = () =>
+const AllServicesPage = () =>
   <div>
     <PageHeader
       breadcrumbs={[
@@ -11,9 +12,9 @@ const AllServices = () =>
       ]}
       heading='Our Services'
     />
-    {services.map(() =>
-      <div />
-    )}
+    <Container>
+      {services.map((props, key) => <Service {...props} />)}
+    </Container>
   </div>
 
-export default AllServices
+export default AllServicesPage

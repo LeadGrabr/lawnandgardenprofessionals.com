@@ -1,0 +1,13 @@
+.top {
+  height: 100%;
+  width: 100%;
+  &:after {
+    content: '';
+    position: absolute;
+    right: -9999rem;
+    top: 0;
+    background-color: white;
+    width: 9999rem;
+    height: 64px;
+  }
+}

@@ -23,7 +23,7 @@ export const colors = {
   error: baseColors.red
 }
 
-const scale = [0, 10, 14, 38, 64]
+const scale = [0, 10, 20, 42, 64]
 const fontSizes = [64, 32, 25, 19, 16, 14, 12]
 
 const shadows = [
