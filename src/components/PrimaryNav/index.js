@@ -1,12 +1,17 @@
 import { default as React, Component, PropTypes } from 'react'
 import { Arrow, Menu, NavItem } from 'rebass'
-import { Link } from 'react-router'
 import { default as Collapse } from 'react-collapse'
 import { services as servicesData } from 'data'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import { default as styles } from './style.scss'
 import { setDrawer } from 'redux/modules/navbar'
+
+const initialState = {
+  services: false,
+  locations: false,
+  testimonials: false
+}
 
 @connect(() => ({}), { pushState: push, setDrawer })
 
@@ -17,16 +22,12 @@ export default class PrimaryNav extends Component {
     setDrawer: PropTypes.func.isRequired
   };
 
-  state = {
-    services: false,
-    locations: false,
-    testimonials: false
-  }
+  state = initialState
 
   handleClick ({ target: { name } }) {
     if (this.state[name] === true || !this.state.hasOwnProperty(name)) {
       return this.setState(
-        { [name]: false },
+        initialState,
         () => {
           this.props.pushState(`/${name}`)
           this.props.setDrawer(false)
@@ -65,7 +66,7 @@ export default class PrimaryNav extends Component {
             </NavItem>
           </Menu>
         </Collapse>
-        <NavItem is={Link} to='faqs'>
+        <NavItem name='faqs' {...sharedProps}>
           FAQs
         </NavItem>
         <NavItem name='testimonials' {...sharedProps}>

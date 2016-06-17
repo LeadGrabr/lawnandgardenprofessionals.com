@@ -1,5 +1,5 @@
 import { default as React } from 'react'
 
-const Services = () => <div />
+const Services = (props) => <div {...props} />
 
 export default Services

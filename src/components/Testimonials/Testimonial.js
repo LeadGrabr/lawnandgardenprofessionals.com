@@ -1,5 +1,5 @@
 import { default as React } from 'react'
 
-const Testimonial = () => <div />
+const Testimonial = (props) => <div {...props} />
 
 export default Testimonial

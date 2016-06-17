@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import { default as logo } from './logo.png'
 import { PrimaryNav } from 'components'
 import { setDrawer } from 'redux/modules/navbar'
+import { IndexLink } from 'react-router'
 
 @connect(
   ({ app: { width }, navbar: { drawer } }) => ({
@@ -42,7 +43,7 @@ export default class Navbar extends Component {
               width: '100%'
             }}
           >
-            <Box flex style={{ position: 'relative' }}>
+            <Box is={IndexLink} to='/' flex style={{ position: 'relative' }}>
               <Block
                 backgroundColor='green'
                 color='white'

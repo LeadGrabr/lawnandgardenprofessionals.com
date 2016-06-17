@@ -84,6 +84,9 @@ export default class Theme extends Component {
         Block: {
           borderWidth: 1
         },
+        Breadcrumbs: {
+          marginBottom: 0
+        },
         Heading: {
           color: colors.darkGray
         },
