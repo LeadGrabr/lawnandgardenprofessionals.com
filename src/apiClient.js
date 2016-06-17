@@ -6,9 +6,9 @@ const methods = ['get', 'post', 'put', 'patch', 'del']
 export default class ApiClient {
   constructor () {
     methods.forEach((method) => {
-      this[method] = ({ params, data, headers } = {}) =>
+      this[method] = (path, { params, data, headers } = {}) =>
         new Promise((resolve, reject) => {
-          const url = `${process.env.API_ENDPOINT}`
+          const url = `${process.env.API_ENDPOINT}/${path}`
           const request = superagent[method](url)
           request.set('Accept', 'application/json')
           if (method === 'post') {

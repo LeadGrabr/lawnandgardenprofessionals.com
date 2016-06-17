@@ -10,13 +10,13 @@ import { Provider } from 'react-redux'
 import { default as canUseDOM } from 'can-use-dom'
 import { default as withScroll } from 'scroll-behavior'
 import { syncHistoryWithStore } from 'react-router-redux'
-import { whyDidYouUpdate } from 'why-did-you-update'
+// import { whyDidYouUpdate } from 'why-did-you-update'
 
-if (process.env.DEVELOPMENT && process.env.DEVTOOLS) {
-  whyDidYouUpdate(React, {
-    exclude: /Connect|MdClose/
-  })
-}
+// if (process.env.DEVELOPMENT && process.env.DEVTOOLS) {
+//   whyDidYouUpdate(React, {
+//     exclude: /Connect|MdClose/
+//   })
+// }
 
 if (canUseDOM) {
   let history = withScroll(browserHistory)
@@ -60,6 +60,6 @@ export default ({ assets, path }, callback) => {
         }
       />
     )
-    callback(null, html)
+    callback(null, `<!doctype html>${html}`)
   })
 }

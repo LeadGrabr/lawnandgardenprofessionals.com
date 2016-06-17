@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "author": "James Finkelstein",
+    "location": "Washtenaw County, MI",
+    "text": "For years, fall leaves have been an annoyance since I had to handle the massive amounts of falling foliage. If you live in a green area densely packed with trees, you know what I am talking about. ",
+    "link": "fall-leaves-cleanup.html",
+    "img": "/fall-foliage-ann-arbor-michigan.jpg"
+  },
+  {
+    "id": 2,
+    "author": "Lorie Williams",
+    "location": "Ypsilanti, MI",
+    "text": "Clogged and obstructed gutters were the number one culprit causing water damage to my house. I tried maintaining the gutters on my own, but I inevitably missed a spot or had no time after a long day at work. A friend recommended Lawn and Garden Professionals of Ann Arbor, and I haven't looked back since. ",
+    "link": "gutter-cleaning.html",
+    "img": "/clogged-gutters-ann-arbor.jpg"
+  },
+  {
+    "id": 3,
+    "author": "David Jackson",
+    "location": "Canton, MI",
+    "text": "Like anyone who is looking to update, restore, or renovate the current landscaping design for their home, I had been looking for the best experts. Luckily, I found them. Lawn and Garden Professionals of Ann Arbor lived up to their name. They were professional and attentive to my needs and goals for my home and offered numerous creative ideas on lawn layouts, pattern arrangements, and plant types. They have the expertise to work with you to convert your dream vision into reality.",
+    "link": "landscaping-edging-design.html",
+    "img": "/tulips-manicured-lawn-ann-arbor-michigan.jpg"
+  },
+  {
+    "id": 4,
+    "author": "Austin Brown",
+    "location": "Ann Arbor, MI",
+    "text": "Having a nice looking, a well-manicured lawn is a big source of pride for me. We all enjoy being able to come home to a beautiful yard, and the frequent compliments from friends and family regarding our yard do not hurt either! ",
+    "link": "lawn-care-maintenance-ann-arbor.html",
+    "img": "/lawn-care-ann-arbor-michigan.jpg"
+  }
+]

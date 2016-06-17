@@ -29,14 +29,20 @@
     "ghooks": "^1.2.0",
     "joi": "^8.1.1",
     "joiful-react-forms": "0.1.7",
+    "json-loader": "^0.5.4",
     "jsx-control-statements": "^3.1.2",
     "node-sass": "^3.5.3",
     "react": "^15.0.1",
     "react-addons-update": "^15.0.1",
+    "react-collapse": "^2.2.4",
     "react-dom": "^15.0.1",
+    "react-flex-slick": "^0.5.0",
     "react-google-maps": "^4.9.1",
+    "react-height": "^2.1.0",
     "react-helmet": "^3.0.2",
     "react-icons": "^2.1.0",
+    "react-motion": "^0.4.4",
+    "react-parallax": "^0.4.3",
     "react-redux": "^4.4.5",
     "react-router": "^2.4.0",
     "react-router-redux": "^4.0.4",
@@ -61,11 +67,11 @@
     "static-site-generator-webpack-plugin": "^2.0.1",
     "style-loader": "^0.13.1",
     "superagent": "2.0.0",
-    "why-did-you-update": "0.0.8",
     "url-loader": "^0.5.7",
     "validate-commit-msg": "^2.5.0",
     "webpack": "^1.12.14",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^1.14.1",
+    "why-did-you-update": "0.0.8"
   },
   "scripts": {
     "start": "npm run start-dev",
@@ -78,20 +84,22 @@
     "start-dev": {
       "command": "webpack-dev-server --progress --hot --colors --history-api-fallback --display-error-details",
       "env": {
+        "AUDIENCE": "57150c386a61fb8258af5194",
         "API_ENDPOINT": "http://api.leadgrabr.com/api/v1",
         "BABEL_ENV": "development",
         "DEVELOPMENT": true,
         "DEVTOOLS": true,
-        "GOOGLE_MAPS_APIKEY": "AIzaSyCgDmnVgrSncTpR8vgsyEKSBUm1iXHM7Y4"
+        "STATIC_ASSETS": "http://lawnandgardenprofessionals.com-images.s3-website-us-east-1.amazonaws.com"
       }
     },
     "build-prod": {
       "command": "webpack -p",
       "env": {
+        "AUDIENCE": "57150c386a61fb8258af5194",
         "API_ENDPOINT": "http://api.leadgrabr.com/api/v1",
         "BABEL_ENV": "production",
         "NODE_ENV": "production",
-        "GOOGLE_MAPS_APIKEY": "AIzaSyCgDmnVgrSncTpR8vgsyEKSBUm1iXHM7Y4"
+        "STATIC_ASSETS": "http://lawnandgardenprofessionals.com-images.s3-website-us-east-1.amazonaws.com"
       }
     }
   },
@@ -138,7 +146,11 @@
     "parser": "babel-eslint"
   },
   "babel": {
-    "presets": ["react", "es2015", "stage-0"],
+    "presets": [
+      "react",
+      "es2015",
+      "stage-0"
+    ],
     "plugins": [
       "jsx-control-statements",
       "transform-decorators-legacy"

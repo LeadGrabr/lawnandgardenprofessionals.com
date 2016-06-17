@@ -1,9 +1,24 @@
 import React from 'react'
-import * as views from './components'
+import * as v from './components'
 import { IndexRoute, Route } from 'react-router'
 
 export default (
-  <Route path='/' component={views.App}>
-    <IndexRoute component={views.Home} />
+  <Route path='/' component={v.App}>
+    <IndexRoute component={v.Home} />
+    <Route path='contact' component={v.Contact} />
+    <Route path='faqs' component={v.FAQs} />
+    <Route path='instant-quote' component={v.InstantQuote} />
+    <Route path='locations' component={v.Locations}>
+      <IndexRoute component={v.AllLocations} />
+      <Route path=':location' component={v.Location} />
+    </Route>
+    <Route path='services' component={v.Services}>
+      <IndexRoute component={v.AllServices} />
+      <Route path=':service' component={v.Service} />
+    </Route>
+    <Route path='testimonials' component={v.Testimonials}>
+      <IndexRoute component={v.AllTestimonials} />
+      <Route path=':testimonial' component={v.Testimonial} />
+    </Route>
   </Route>
 )

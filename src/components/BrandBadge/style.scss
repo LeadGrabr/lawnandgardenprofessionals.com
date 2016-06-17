@@ -1,0 +1,11 @@
+@import '../Theme/constants';
+
+.outer:hover {
+  border-bottom: 1px solid $brand-primary !important;
+  .circle {
+    background-color: $brand-primary !important;
+    .icon {
+      color: $white !important;
+    }
+  }
+}

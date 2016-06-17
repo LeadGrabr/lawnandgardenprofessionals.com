@@ -1,7 +1,7 @@
 import ApiClient from '../../apiClient'
 import { AWAIT_MARKER } from 'redux-await'
-const SCREEN_DIMENSIONS = 'a2pix/SCREEN_DIMENSIONS_CHANGE'
-const SUBMIT_LEAD = 'a2pix/SUBMIT_LEAD'
+const SCREEN_DIMENSIONS = 'lgp/SCREEN_DIMENSIONS_CHANGE'
+const SUBMIT_LEAD = 'lgp/SUBMIT_LEAD'
 const client = new ApiClient()
 
 const intitialState = {
@@ -27,7 +27,7 @@ export function createLead (data = {}) {
       [SUBMIT_LEAD]: client.post('Lead', {
         data: {
           ...data,
-          _audience: process.env.AUDIENCE
+          audience: process.env.AUDIENCE
         }
       })
     }

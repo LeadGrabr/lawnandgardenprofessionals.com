@@ -42,12 +42,17 @@ module.exports = {
         loaders: ['babel']
       },
       {
+        test: /\.json$/,
+        include: path.resolve('./src'),
+        loader: 'json-loader'
+      },
+      {
         test: /\.(png|jpg)$/,
         loader: 'url-loader?limit=8192'
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('css?sourceMap!sass?sourceMap')
+        loader: ExtractTextPlugin.extract('css?module&sourceMap&localIdentName=[path][name]---[local]---[hash:base64:5]!sass?module&sourceMap&localIdentName=[path][name]---[local]---[hash:base64:5]')
       }
     ]
   },
@@ -75,7 +80,7 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin('style.css'),
     new StaticSiteGeneratorPlugin('main', routes),
-    new SitemapPlugin('http://benjamintatum.com', routes, 'sitemap.xml'),
+    new SitemapPlugin('http://lawnandgardenprofessionals.com', routes, 'sitemap.xml'),
     new webpack.NormalModuleReplacementPlugin(/^(net|dns|crypto)$/, function () { return {} }),
     new CleanWebpackPlugin(['dist'], {
       root: __dirname,
@@ -84,12 +89,12 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        'API_ENDPOINT': JSON.stringify(process.env.API_ENDPOINT),
-        'DEVELOPMENT': JSON.stringify(process.env.DEVELOPMENT),
-        'DEVTOOLS': JSON.stringify(process.env.DEVTOOLS),
-        'NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-        'AUDIENCE': JSON.stringify(process.env.AUDIENCE),
-        'GOOGLE_MAPS_APIKEY': JSON.stringify(process.env.GOOGLE_MAPS_APIKEY)
+        API_ENDPOINT: JSON.stringify(process.env.API_ENDPOINT),
+        AUDIENCE: JSON.stringify(process.env.AUDIENCE),
+        DEVELOPMENT: JSON.stringify(process.env.DEVELOPMENT),
+        DEVTOOLS: JSON.stringify(process.env.DEVTOOLS),
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        STATIC_ASSETS: JSON.stringify(process.env.STATIC_ASSETS)
       }
     })
   ]

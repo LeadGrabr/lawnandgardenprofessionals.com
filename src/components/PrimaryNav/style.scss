@@ -1,0 +1,5 @@
+@import '../Theme/constants';
+
+.outer :global(.NavItem):hover {
+  background-color: $brand-primary;
+}

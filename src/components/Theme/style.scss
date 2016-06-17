@@ -1,44 +1,43 @@
 @import "constants";
-@import "rebass.overrides";
+// @import "rebass.overrides";
+@import url(http://fonts.googleapis.com/css?family=Roboto:100,300,400,400italic,700,700italic);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic);
 
-* { box-sizing: border-box }
+* { box-sizing: border-box; }
 
-body {
+html, body {
   color: $black;
-  font-family: "Oswald", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: $font-weight-base;
   line-height: 1.5;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lato', sans-serif;
+}
+
+input, select {
+  color: $dark-gray;
+  background-color: $white !important;
+}
+
 a {
-  color: $black;
+  color: $brand-primary;
   text-decoration: none;
 }
 
-button:focus {
-  outline: none;
-}
+// button:focus {
+//   outline: none;
+// }
 
-button[disabled] {
-  cursor: not-allowed !important;
-}
+// button[disabled] {
+//   cursor: not-allowed !important;
+// }
 
-::-webkit-input-placeholder {
-  color: $gray;
-  font-weight: $font-weight-base;
-}
-
-:-moz-placeholder { /* Firefox 18- */
-  color: $gray;
-  font-weight: $font-weight-base;
-}
-
-::-moz-placeholder {  /* Firefox 19+ */
-  color: $gray;
-  font-weight: $font-weight-base;
-}
-
-:-ms-input-placeholder {  
-  color: $gray;
+::-webkit-input-placeholder,
+:-moz-placeholder,
+::-moz-placeholder,
+:-ms-input-placeholder {
+  color: $dark-gray;
   font-weight: $font-weight-base;
 }

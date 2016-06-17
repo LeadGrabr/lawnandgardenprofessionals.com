@@ -1,8 +1,8 @@
 import { default as React } from 'react'
-import { Input } from 'rebass'
+import { Select } from 'rebass'
 
 export default ({ error, ...props }) =>
-  <Input
+  <Select
     invalid={error}
     message={error}
     {...props}
