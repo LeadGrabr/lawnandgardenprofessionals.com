@@ -6,50 +6,56 @@ import { services as servicesData } from 'data'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import { default as styles } from './style.scss'
+import { setDrawer } from 'redux/modules/navbar'
 
-@connect(() => ({}), { pushState: push })
+@connect(() => ({}), { pushState: push, setDrawer })
 
 export default class PrimaryNav extends Component {
 
   static propTypes = {
-    params: PropTypes.object.isRequired,
-    pushState: PropTypes.func.isRequired
+    pushState: PropTypes.func.isRequired,
+    setDrawer: PropTypes.func.isRequired
   };
 
-  state = {}
+  state = {
+    services: false,
+    locations: false,
+    testimonials: false
+  }
 
-  handleClick ({ target }) {
-    if (this.state[target.name]) {
-      return this.props.pushState(`/${target.name}`)
+  handleClick ({ target: { name } }) {
+    if (this.state[name] === true || !this.state.hasOwnProperty(name)) {
+      return this.setState(
+        { [name]: false },
+        () => {
+          this.props.pushState(`/${name}`)
+          this.props.setDrawer(false)
+        }
+      )
     }
-    return this.setState({
-      [target.name]: true
-    })
+    return this.setState({ [name]: true })
   }
 
   render () {
     const { services, locations, testimonials } = this.state
+    const sharedProps = {
+      onClick: this.handleClick.bind(this)
+    }
     return (
       <Menu backgroundColor='black' color='white' className={styles.outer}>
-        <NavItem
-          onClick={::this.handleClick}
-          name='services'
-        >
+        <NavItem name='services' {...sharedProps}>
           Services <Arrow direction={services ? 'up' : 'down'} />
         </NavItem>
         <Collapse isOpened={services}>
           <Menu mb={0}>
-            {servicesData.map(({ path, title }) =>
-              <NavItem is={Link} to={path}>
+            {servicesData.map(({ path, title }, key) =>
+              <NavItem {...sharedProps} name={path} key={key}>
                 {title}
               </NavItem>
             )}
           </Menu>
         </Collapse>
-        <NavItem
-          onClick={::this.handleClick}
-          name='locations'
-        >
+        <NavItem name='locations' {...sharedProps}>
           Locations <Arrow direction={locations ? 'up' : 'down'} />
         </NavItem>
         <Collapse isOpened={locations}>
@@ -62,10 +68,7 @@ export default class PrimaryNav extends Component {
         <NavItem is={Link} to='faqs'>
           FAQs
         </NavItem>
-        <NavItem
-          onClick={::this.handleClick}
-          name='testimonials'
-        >
+        <NavItem name='testimonials' {...sharedProps}>
           Testimonials <Arrow direction={testimonials ? 'up' : 'down'} />
         </NavItem>
         <Collapse isOpened={testimonials}>
@@ -75,10 +78,10 @@ export default class PrimaryNav extends Component {
             </NavItem>
           </Menu>
         </Collapse>
-        <NavItem is={Link} to='instant-quote'>
+        <NavItem name='instant-quote' {...sharedProps}>
           Instant Quote
         </NavItem>
-        <NavItem is={Link} to='contact'>
+        <NavItem name='contact' {...sharedProps}>
           Contact
         </NavItem>
       </Menu>

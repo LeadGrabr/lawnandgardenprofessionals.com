@@ -82,8 +82,8 @@ const BottomBar = (props, { colors: { gray, primary, white }, scale }) => {
               Happy Clients
             </Heading>
           </Flex>
-          {testimonials.map(({ author, img, location, text }) =>
-            <Base py={2}>
+          {testimonials.map(({ author, img, location, text }, key) =>
+            <Base py={2} key={key}>
               <Flex
                 pb={2}
                 style={{

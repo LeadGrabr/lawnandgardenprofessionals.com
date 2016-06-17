@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": "Fall and Spring Cleanup",
-    "path": "/services/fall-and-spring-cleanup",
+    "path": "services/fall-and-spring-cleanup",
     "img": "/rake-leaves.jpg",
     "description": "When autumn comes, and the leaves begin to fall, it hides your yard's beauty. Rediscover your landscaping with our fall and spring cleanup services.",
     "imageTexts": [
@@ -27,28 +27,28 @@
   {
     "id": 2,
     "title": "Lawn Care and Mowing Services",
-    "path": "/services/lawn-care-mowing-tips-services",
+    "path": "services/lawn-care-mowing-tips-services",
     "img": "/lawn-mowing.jpg",
     "description": "Your lawn is the face of your property. Treat it with care, and you'll always make a good first impression. We mow, edge, and manicure our lawns to the finest standards."
   },
   {
     "id": 3,
     "title": "Fertilization and Lawn Maintenance",
-    "path": "/services/lawn-care-fertilization-spring",
+    "path": "services/lawn-care-fertilization-spring",
     "img": "/landscape-design.jpg",
     "description": "Count on us for your next fertilization task and we promise you'll have the most outstanding property in the area."
   },
   {
     "id": 4,
     "title": "Fall Lawn Preparation",
-    "path": "/services/fall-lawn-preparation-maintenance",
+    "path": "services/fall-lawn-preparation-maintenance",
     "img": "/gutter-cleaning.jpg",
     "description": "Nobody likes cleaning the gutters. Except us. And we do it well. Professional gutter cleaning means no water overflow in the spring."
   },
   {
     "id": 5,
     "title": "Tree & Shrub Planting Or Removal",
-    "path": "/services/tree-shrub-planting-removal-landscaping",
+    "path": "services/tree-shrub-planting-removal-landscaping",
     "img": "/landscape-trees-shrubs-ann-arbor-michigan.jpg",
     "description": "Even if you're quite a keen gardener, it's wise to get professional help with tree and shrub planting. We'll ensure you get nothing but joy from your plants and your garden"
   }

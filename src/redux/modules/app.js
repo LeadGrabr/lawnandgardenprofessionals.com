@@ -1,7 +1,7 @@
 import ApiClient from '../../apiClient'
 import { AWAIT_MARKER } from 'redux-await'
-const SCREEN_DIMENSIONS = 'lgp/SCREEN_DIMENSIONS_CHANGE'
-const SUBMIT_LEAD = 'lgp/SUBMIT_LEAD'
+const SCREEN_DIMENSIONS = `${process.env.REDUX_PREFIX}/SCREEN_DIMENSIONS_CHANGE`
+const SUBMIT_LEAD = `${process.env.REDUX_PREFIX}/SUBMIT_LEAD`
 const client = new ApiClient()
 
 const intitialState = {

@@ -6,8 +6,15 @@ import { default as Hamburger } from 'react-icons/lib/md/menu'
 import { connect } from 'react-redux'
 import { default as logo } from './logo.png'
 import { PrimaryNav } from 'components'
+import { setDrawer } from 'redux/modules/navbar'
 
-@connect(({ app: { width } }) => ({ width }))
+@connect(
+  ({ app: { width }, navbar: { drawer } }) => ({
+    drawer,
+    width
+  }),
+  { setDrawer }
+)
 
 export default class Navbar extends Component {
 
@@ -16,22 +23,15 @@ export default class Navbar extends Component {
     scale: PropTypes.array.isRequired
   };
 
-  static propType = {
+  static propTypes = {
+    drawer: PropTypes.bool,
+    setDrawer: PropTypes.func.isRequired,
     width: PropTypes.number.isRequired
   };
 
-  state = {}
-
   render () {
-    const { drawer } = this.state
-    const { width } = this.props
-    const {
-      colors: { gray, white },
-      scale
-    } = this.context
-
-    console.log(width)
-
+    const { drawer, setDrawer, width } = this.props
+    const { colors: { gray, white }, scale } = this.context
     return (
       <Toolbar>
         <div style={{ width: '100%' }}>
@@ -88,7 +88,7 @@ export default class Navbar extends Component {
               Book a service
             </Button>
             <Button
-              onClick={() => this.setState({ drawer: true })}
+              onClick={() => setDrawer(true)}
               theme='default'
             >
               Menu
@@ -110,7 +110,7 @@ export default class Navbar extends Component {
           >
             <ButtonCircle
               backgroundColor='black'
-              onClick={() => this.setState({ drawer: false })}
+              onClick={() => setDrawer(false)}
             >
               <Close color='white' />
             </ButtonCircle>

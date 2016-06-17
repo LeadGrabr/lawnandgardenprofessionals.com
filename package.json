@@ -89,6 +89,7 @@
         "BABEL_ENV": "development",
         "DEVELOPMENT": true,
         "DEVTOOLS": true,
+        "REDUX_PREFIX": "lgp",
         "STATIC_ASSETS": "http://lawnandgardenprofessionals.com-images.s3-website-us-east-1.amazonaws.com"
       }
     },
@@ -99,6 +100,7 @@
         "API_ENDPOINT": "http://api.leadgrabr.com/api/v1",
         "BABEL_ENV": "production",
         "NODE_ENV": "production",
+        "REDUX_PREFIX": "lgp",
         "STATIC_ASSETS": "http://lawnandgardenprofessionals.com-images.s3-website-us-east-1.amazonaws.com"
       }
     }
