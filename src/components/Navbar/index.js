@@ -90,7 +90,7 @@ export default class Navbar extends Component {
             </Container>
           </div>
           <Base
-            p={2}
+            py={2}
             style={{
               borderTopColor: gray,
               borderTopStyle: 'solid',

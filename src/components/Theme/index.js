@@ -98,7 +98,12 @@ export default class Theme extends Component {
           borderWidth: 0
         },
         NavItem: {
-          fontWeight: 400
+          backgroundColor: colors.gray,
+          borderColor: colors.white,
+          borderStyle: 'solid',
+          borderWidth: 1,
+          fontWeight: 400,
+          padding: scale[2]
         },
         Select: {
           color: colors.darkGray

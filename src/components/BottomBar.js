@@ -1,5 +1,5 @@
 import { default as React, PropTypes } from 'react'
-import { Arrow, Avatar, Base, Block, Container, Heading, Space, Text } from 'rebass'
+import { Arrow, Avatar, Base, Block, Container, Divider, Heading, Space, Text } from 'rebass'
 import { default as InfoIcon } from 'react-icons/lib/md/info'
 import { Flex, Box } from 'reflexbox'
 import { default as HamburgerIcon } from 'react-icons/lib/md/menu'
@@ -26,7 +26,13 @@ const BottomBar = (props, { colors: { gray, primary, white }, scale }) => {
   }
   return (
     <div>
-      <Block backgroundColor='darkGray' color='gray' px={2} py={3}>
+      <Block
+        backgroundColor='darkGray'
+        color='gray'
+        px={2}
+        mb={0}
+        py={3}
+      >
         <Container style={{ width: '100%' }} px={0}>
           <Box mb={3}>
             <Flex align='center' mb={3}>
@@ -131,10 +137,19 @@ const BottomBar = (props, { colors: { gray, primary, white }, scale }) => {
           </Box>
         </Container>
       </Block>
-      <Block backgroundColor='black'>
-        <Text>© 2016 Lawn and Garden Professionals. All Rights Reserved</Text>
-        <Text>847 Sumpter Road #411, Belleville, MI 48111</Text>
-        <Text>Call Us Now at 734-786-4475</Text>
+      <Block
+        m={0}
+        py={2}
+        backgroundColor='black'
+        color='gray'
+        style={{
+          textAlign: 'center'
+        }}
+      >
+        <Text small>© 2016 Lawn and Garden Professionals. All Rights Reserved</Text>
+        <Text small>847 Sumpter Road #411, Belleville, MI 48111</Text>
+        <Text small>Call Us Now at 734-786-4475</Text>
+        <Divider width={100} color='gray' />
       </Block>
     </div>
   )

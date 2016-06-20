@@ -31,7 +31,6 @@ export default class App extends Component {
   }
 
   componentDidMount () {
-    // 🌎
     const { screenSize } = this.props
     window.addEventListener(
       'resize',
@@ -60,8 +59,7 @@ export default class App extends Component {
             { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0' }
           ]}
           script={[
-            { src: '//code.jquery.com/jquery-2.1.4.min.js' },
-            { src: '//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.7.0/lodash.min.js' }
+            { src: '//code.jquery.com/jquery-2.1.4.min.js' }
             /* eslint-enable max-len */
           ]}
           title='Lawn & Garden Professionals'

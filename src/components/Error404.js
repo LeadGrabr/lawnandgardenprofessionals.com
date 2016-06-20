@@ -1,7 +1,6 @@
 import { default as React } from 'react'
-import { Heading } from 'rebass'
+import { PageHeader } from 'components'
 
-const Error404 = () =>
-  <Heading>404</Heading>
+const Error404 = () => <PageHeader heading={404} />
 
 export default Error404

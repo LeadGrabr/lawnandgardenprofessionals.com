@@ -25,7 +25,7 @@ const PageHeader = ({ breadcrumbs, heading }, { colors: { lightGray } }) =>
   </Base>
 
 PageHeader.propTypes = {
-  breadcrumbs: PropTypes.arrayOf([PropTypes.object]),
+  breadcrumbs: PropTypes.arrayOf(PropTypes.object),
   heading: PropTypes.string.isRequired
 }
 

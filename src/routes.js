@@ -20,5 +20,6 @@ export default (
       <IndexRoute component={v.AllTestimonials} />
       <Route path=':testimonial' component={v.Testimonial} />
     </Route>
+    <Route path='*' component={v.Error404} />
   </Route>
 )
