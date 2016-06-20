@@ -1,8 +1,9 @@
 import { default as React } from 'react'
 import { services } from 'data'
-import { PageHeader, Service, StickyNote } from 'components'
-import { Button, Container, Heading } from 'rebass'
+import { PageHeader, Service } from 'components'
+import { Container } from 'rebass'
 import { default as Nav } from './Nav'
+import { default as ContactUsBlock } from './ContactUsBlock'
 
 const AllServicesPage = () =>
   <div>
@@ -16,14 +17,7 @@ const AllServicesPage = () =>
     <Container>
       {services.map((props, key) => <Service {...props} />)}
       <Nav />
-      <StickyNote backgroundColor='primary'>
-        <Heading color='white' mb={2}>
-          Have questions about our services?
-        </Heading>
-        <Button style={{ borderWidth: 2, borderStyle: 'solid' }}>
-          Contact us
-        </Button>
-      </StickyNote>
+      <ContactUsBlock />
     </Container>
   </div>
 

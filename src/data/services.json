@@ -5,21 +5,21 @@
     "path": "services/fall-and-spring-cleanup",
     "img": "/rake-leaves.jpg",
     "description": "When autumn comes, and the leaves begin to fall, it hides your yard's beauty. Rediscover your landscaping with our fall and spring cleanup services.",
-    "imageTexts": [
+    "gallery": [
       {
-        "image":"/bee.jpg",
+        "img":"/bee.jpg",
         "text": "After using a mechanical or liquid aerator, the next thing to do is over-seed any bare spots you have in the lawn. For best results, use a thin layer of peat moss and keep the seed and seedling moist for the first four weeks. Top quality seeds are usually worth the few extra bucks because they are more drought resistant, traffic-resistant, and look nicer."
       },
       {
-        "image": "/thatching-weeds.jpg",
+        "img": "/thatching-weeds.jpg",
         "text": "Lawn Thatching helps to rid of unwanted grasses, moss and dead grass material in the yard. Thatching with a power rake is ideal, but a hand rake works in a pinch as well. After removing unwanted grass thatch, the lawn can flourish and do much better"
       },
       {
-        "image": "/leaves.jpg",
+        "img": "/leaves.jpg",
         "text": "Fertilization. In early Spring, we recommend a fertilizer high in nitrogen, but with little or no phosphorous. A fertilizer containing urea or other types of long lasting nitrogen may be ideal. Healthy lawns are more resistant to weeds, droughts, and pests. Long lasting fertilizers are less likely to burn your lawn. Fertilization and over seeding are a great compliment to mechanical and liquid aeration and thatching."
       },
       {
-        "image": "/loosen-up-soil-ann-arbor-michigan.jpg",
+        "img": "/loosen-up-soil-ann-arbor-michigan.jpg",
         "text": "Try to loosen up the soil. Throughout the Winter grass roots are under a lot of stress. Lawn aeration can be done using a mechanical aeration or a liquid lawn aerator. Loosening the soil by aerating your lawn reduces stress and helps the yard to spring back - pun intended. Liquid aeration opens up a path to the roots system for easier absorption of water, air, and nutrients. One proven liquid loosens clays and hard soils naturally and efficiently. Made with a grade A ground penetrate, it penetrates the soil and has humic acid which breaks down harmful pesticides and herbicides into the ground."
       }
     ]

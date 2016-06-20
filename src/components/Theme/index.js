@@ -1,5 +1,5 @@
 import './style.scss'
-import { Component, PropTypes } from 'react'
+import { default as React, Component, PropTypes } from 'react'
 import { default as color } from 'color'
 
 const baseColors = {
@@ -12,7 +12,7 @@ const baseColors = {
   red: '#f52'
 }
 
-export const colors = {
+const colors = {
   ...baseColors,
   primary: baseColors.green,
   // secondary: baseColors.lightBlue,
@@ -36,6 +36,8 @@ const breakpoints = {
   medium: 768,
   large: 1024
 }
+
+const fontWeightBase = 300
 
 export default class Theme extends Component {
 
@@ -120,6 +122,39 @@ export default class Theme extends Component {
   }
 
   render () {
-    return this.props.children
+    return (
+      <div>
+        <style>
+          {
+            `
+              html, body { color: ${colors.black}; }
+              h1 { font-size: ${fontSizes[1]}px; }
+              h2 { font-size: ${fontSizes[2]}px; }
+              h3 { font-size: ${fontSizes[3]}px; }
+              h4 { font-size: ${fontSizes[4]}px; }
+              h5 { font-size: ${fontSizes[5]}px; }
+              h6 { font-size: ${fontSizes[6]}px; }
+              p { font-size: ${fontSizes[4]}px; }
+              a {
+                color: ${colors.primary};
+                text-decoration: none;
+              }
+              input, select {
+                background-color: ${colors.white};
+                color: ${colors.darkGray};
+              }
+              ::-webkit-input-placeholder,
+              :-moz-placeholder,
+              ::-moz-placeholder,
+              :-ms-input-placeholder {
+                color: ${colors.darkGray};
+                font-weight: ${fontWeightBase};
+              }
+            `
+          }
+        </style>
+        {this.props.children}
+      </div>
+    )
   }
 }

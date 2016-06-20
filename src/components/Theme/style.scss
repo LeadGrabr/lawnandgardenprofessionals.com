@@ -6,7 +6,6 @@
 * { box-sizing: border-box; }
 
 html, body {
-  color: $black;
   font-family: 'Roboto', sans-serif;
   font-weight: $font-weight-base;
   line-height: 1.5;
@@ -14,30 +13,4 @@ html, body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Lato', sans-serif;
-}
-
-input, select {
-  color: $dark-gray;
-  background-color: $white !important;
-}
-
-a {
-  color: $brand-primary;
-  text-decoration: none;
-}
-
-// button:focus {
-//   outline: none;
-// }
-
-// button[disabled] {
-//   cursor: not-allowed !important;
-// }
-
-::-webkit-input-placeholder,
-:-moz-placeholder,
-::-moz-placeholder,
-:-ms-input-placeholder {
-  color: $dark-gray;
-  font-weight: $font-weight-base;
 }
