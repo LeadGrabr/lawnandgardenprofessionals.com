@@ -127,6 +127,7 @@ export default class Theme extends Component {
         <style>
           {
             `
+              * { box-sizing: border-box; }
               html, body { color: ${colors.black}; }
               h1 { font-size: ${fontSizes[1]}px; }
               h2 { font-size: ${fontSizes[2]}px; }
@@ -140,8 +141,8 @@ export default class Theme extends Component {
                 text-decoration: none;
               }
               input, select {
-                background-color: ${colors.white};
-                color: ${colors.darkGray};
+                background-color: ${colors.white} !important;
+                color: ${colors.darkGray} !important;
               }
               ::-webkit-input-placeholder,
               :-moz-placeholder,

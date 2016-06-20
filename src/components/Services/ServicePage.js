@@ -3,7 +3,7 @@ import { find } from 'lodash'
 import { services } from 'data'
 import { PageHeader } from 'components'
 import { default as Error404 } from './404'
-import { Container, Text } from 'rebass'
+import { Container, Divider, Text } from 'rebass'
 import { Flex, Box } from 'reflexbox'
 import { default as Nav } from './Nav'
 import { default as ContactUsBlock } from './ContactUsBlock'
@@ -25,7 +25,8 @@ const ServicePage = ({ params }) => {
         ]}
       />
       <Container>
-        <Text children={description} />
+        <Text bold children={description} />
+        <Divider />
         <div
           dangerouslySetInnerHTML={{
             __html: require(`content/${path}.md`)

@@ -1,8 +1,9 @@
 import { default as React, PropTypes } from 'react'
 import { Dots, Slider, PrevArrow, Slides, NextArrow } from 'react-flex-slick'
-import { default as slideOne } from './lawn-1.jpg'
-import { default as slideTwo } from './lawn-2.jpg'
 import { Flex } from 'reflexbox'
+import { default as Slide } from './Slide'
+import { default as ArrowIcon } from 'react-icons/lib/fa/arrow-circle-right'
+import { Space } from 'rebass'
 
 const arrowStyle = {
   marginTop: -10,
@@ -11,22 +12,14 @@ const arrowStyle = {
   top: '50%'
 }
 
-const slideProps = {
-  align: 'center',
-  justify: 'center'
-}
-
 const Carousel = (props, { colors: { black, white } }) => {
   const arrowProps = {
     color: black,
     size: 20
   }
-  const slideStyle = {
-    backgroundSize: 'cover',
-    color: white,
-    height: 600,
-    textAlign: 'center',
-    width: '100%'
+  const arrowIconProps = {
+    size: 13,
+    color: white
   }
   return (
     <Slider style={{ position: 'relative' }}>
@@ -38,24 +31,44 @@ const Carousel = (props, { colors: { black, white } }) => {
         }}
       />
       <Slides>
-        <Flex
-          {...slideProps}
-          style={{
-            ...slideStyle,
-            backgroundImage: `url(${slideOne})`
+        <Slide
+          heading={{
+            children: <span>Making your surroundings<br />beautiful for 40 years</span>
           }}
-        >
-          <h2>Professional Gardening, Landscaping<br />& Maintenance Services</h2>
-        </Flex>
-        <Flex
-          {...slideProps}
-          style={{
-            ...slideStyle,
-            backgroundImage: `url(${slideTwo})`
+          cta={{
+            children: (
+              <Flex align='center'>
+                Lets get started
+                <Space />
+                <ArrowIcon {...arrowIconProps} />
+              </Flex>
+            ),
+            to: '/services',
+            style: { textTransform: 'uppercase' }
           }}
-        >
-          <h2>Making your surroundings<br />beautiful for 40 years</h2>
-        </Flex>
+          style={{
+            backgroundImage: `url(${process.env.STATIC_ASSETS}/lawn-1.jpg)`
+          }}
+        />
+        <Slide
+          heading={{
+            children: <span>Professional Gardening, Landscaping<br />& Maintenance Services</span>
+          }}
+          cta={{
+            children: (
+              <Flex align='center'>
+                See all services
+                <Space />
+                <ArrowIcon {...arrowIconProps} />
+              </Flex>
+            ),
+            to: '/services',
+            style: { textTransform: 'uppercase' }
+          }}
+          style={{
+            backgroundImage: `url(${process.env.STATIC_ASSETS}/lawn-2.jpg)`
+          }}
+        />
       </Slides>
       <NextArrow
         {...arrowProps}
