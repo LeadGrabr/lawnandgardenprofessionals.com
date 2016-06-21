@@ -3,7 +3,7 @@ import { Base, Heading, Text } from 'rebass'
 import { Circle } from 'components'
 import { default as styles } from './style.scss'
 
-const BrandBadge = ({ icon, heading, body }, { colors: { primary, gray, white } }) =>
+const BrandBadge = ({ icon, heading, body, ...props }, { colors: { primary, gray, white } }) =>
   <Base
     className={styles.outer}
     p={2}

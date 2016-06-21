@@ -1,20 +1,16 @@
 import { default as React, PropTypes } from 'react'
-import { BrandBadge, Carousel, Circle, LeadForm } from 'components'
+import { BrandBadgeList, Carousel, Circle, LeadForm } from 'components'
 import { Flex, Box } from 'reflexbox'
 import { default as InfoIcon } from 'react-icons/lib/md/info'
 import { Base, Block, Button, Container, Divider, Heading, Space, Text } from 'rebass'
 import { default as MaleIcon } from 'react-icons/lib/fa/male'
 import { default as lawnGardenImg } from './lawn-and-garden-professionals-of-ann-arbor-michigan@small.jpg'
 import { default as leavesPattern } from './leaves-pattern.png'
-import { default as TrophyIcon } from 'react-icons/lib/fa/trophy'
-import { default as ArrowUpIcon } from 'react-icons/lib/fa/arrow-up'
-import { default as DollarIcon } from 'react-icons/lib/fa/dollar'
-import { default as MapPinIcon } from 'react-icons/lib/md/location-on'
 import { services } from 'data'
 import { Link } from 'react-router'
 import { Parallax } from 'react-parallax'
 
-const Home = (props, { colors: { black, lightGray, primary, white }, shadows }) =>
+const Home = (props, { colors: { primary, white }, shadows }) =>
   <div>
     <Carousel />
     <Flex column>
@@ -105,26 +101,7 @@ const Home = (props, { colors: { black, lightGray, primary, white }, shadows }) 
               </Base>
             </Box>
           </Flex>
-          <BrandBadge
-            icon={TrophyIcon}
-            heading='Trustworthy'
-            body='We handpick our lawn, garden, and landscaping partners in each service area to make sure you get the best mowing, cleanup, or leaf removal that money can buy.'
-          />
-          <BrandBadge
-            icon={ArrowUpIcon}
-            heading='Experienced'
-            body={'We have been mowing lawns and servicing gardens for decades. Your lawn and garden are the first thing people see, and we make sure it\'s a good first impression.'}
-          />
-          <BrandBadge
-            icon={MapPinIcon}
-            heading='Locally Owned'
-            body='Local first service is getting harder to find in the landscaping industry. We make sure you can talk to a local specialist face to face, all week long.'
-          />
-          <BrandBadge
-            icon={DollarIcon}
-            heading='Simple Pricing'
-            body={'Prices for lanscaping shouldn\'t be complicated. Contact us now for an easy quote on your next lawn care project. We respond the same day.'}
-          />
+          <BrandBadgeList />
         </Container>
       </Block>
       <Block py={3} m={2} backgroundColor='white'>

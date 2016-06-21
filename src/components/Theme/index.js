@@ -31,7 +31,7 @@ const shadows = [
   `0px 0px 14px 3px ${color(colors.lightBlue).alpha(0.9).rgbString()}`
 ]
 
-const breakpoints = {
+export const breakpoints = {
   small: 425,
   medium: 768,
   large: 1024
