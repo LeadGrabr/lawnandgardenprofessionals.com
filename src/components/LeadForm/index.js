@@ -48,7 +48,8 @@ export default class LeadForm extends Component {
   render () {
     const { isMediumScreen, isSmallScreen } = this.props
     const boxProps = {
-      pr: 2,
+      mb: isSmallScreen || isMediumScreen ? 1 : 0,
+      pr: isSmallScreen || isMediumScreen ? 0 : 2,
       style: {
         width: isSmallScreen || isMediumScreen ? '100%' : '25%'
       }
@@ -115,7 +116,7 @@ export default class LeadForm extends Component {
               ]}
             />
           </Box>
-          <Box {...boxProps} pr={0}>
+          <Box {...boxProps} mb={0} pr={0}>
             <Button style={{ width: '100%' }}>
               SUBMIT
             </Button>

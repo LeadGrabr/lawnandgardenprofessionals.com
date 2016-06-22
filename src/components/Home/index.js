@@ -59,18 +59,20 @@ export default class Home extends Component {
                     </span>
                   </Heading>
                 </Box>
-                <span
-                  style={{
-                    borderStyle: 'solid',
-                    borderColor: `transparent ${darkGray} transparent transparent`,
-                    borderTopWidth: 0,
-                    borderRightWidth: 40,
-                    borderBottomWidth: 100,
-                    borderLeftWidth: 0,
-                    position: 'absolute',
-                    right: 0
-                  }}
-                />
+                <If condition={!(isMediumScreen || isSmallScreen)}>
+                  <span
+                    style={{
+                      borderStyle: 'solid',
+                      borderColor: `transparent ${darkGray} transparent transparent`,
+                      borderTopWidth: 0,
+                      borderRightWidth: 40,
+                      borderBottomWidth: 100,
+                      borderLeftWidth: 0,
+                      position: 'absolute',
+                      right: 0
+                    }}
+                  />
+                </If>
               </Flex>
               <Base
                 style={{ width: isMediumScreen || isSmallScreen ? '100%' : '75%' }}
