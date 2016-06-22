@@ -3,21 +3,21 @@ import { Base, Heading, Text } from 'rebass'
 import { Circle } from 'components'
 import { default as styles } from './style.scss'
 
-const BrandBadge = ({ icon, heading, body, ...props }, { colors: { primary, gray, white } }) =>
+const BrandBadge = ({ icon, heading, body, ...props }, { colors: { primary, lightGray, white } }) =>
   <Base
     className={styles.outer}
     p={2}
     mb={2}
     style={{
       backgroundColor: white,
-      borderColor: gray,
+      borderColor: lightGray,
       borderStyle: 'solid',
       borderWidth: 1
     }}
   >
     <Circle className={styles.circle}>
       {createElement(icon, {
-        color: primary,
+        style: { color: primary },
         className: styles.icon
       })}
     </Circle>

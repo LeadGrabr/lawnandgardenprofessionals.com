@@ -42,17 +42,19 @@ export function reducer (state = intitialState, action) {
   switch (action.type) {
     case SCREEN_DIMENSIONS: {
       const { width, height } = action.payload
-      const { small, medium } = breakpoints
+      const { small, medium, large } = breakpoints
       const isSmallScreen = width <= small
       const isMediumScreen = !isSmallScreen && width <= medium
-      const isLargeScreen = !isSmallScreen && !isMediumScreen
+      const isLargeScreen = !isSmallScreen && !isMediumScreen && width <= large
+      const isXLargeScreen = !isSmallScreen && !isMediumScreen && !isLargeScreen && width > large
       return {
         ...state,
         height,
         width,
         isSmallScreen,
         isMediumScreen,
-        isLargeScreen
+        isLargeScreen,
+        isXLargeScreen
       }
     }
     default:

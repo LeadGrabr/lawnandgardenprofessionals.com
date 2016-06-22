@@ -6,8 +6,9 @@ const baseColors = {
   green: '#a5c243',
   black: '#3a3a3a',
   white: '#fff',
-  lightGray: '#f7f7f7',
-  gray: '#eee',
+  lighterGray: '#f7f7f7',
+  lightGray: '#eee',
+  gray: '#999',
   darkGray: '#494949',
   red: '#f52'
 }
@@ -27,7 +28,7 @@ const scale = [0, 10, 20, 42, 64]
 const fontSizes = [64, 32, 25, 19, 16, 14, 12]
 
 const shadows = [
-  `0 0 18px 4px ${color(colors.black).alpha(0.1).rgbString()}`,
+  `0 6px 22px -3px ${color(colors.black).alpha(0.1).rgbString()}`,
   `0px 0px 14px 3px ${color(colors.lightBlue).alpha(0.9).rgbString()}`
 ]
 

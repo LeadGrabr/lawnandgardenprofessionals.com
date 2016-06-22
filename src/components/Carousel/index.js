@@ -1,5 +1,5 @@
 import { default as React, PropTypes } from 'react'
-import { Dots, Slider, PrevArrow, Slides, NextArrow } from 'react-flex-slick'
+import { Slider, PrevArrow, Slides, NextArrow } from 'better-react-flex-slick'
 import { Flex } from 'reflexbox'
 import { default as Slide } from './Slide'
 import { default as ArrowIcon } from 'react-icons/lib/fa/arrow-circle-right'
@@ -19,7 +19,7 @@ const Carousel = (props, { colors: { black, white } }) => {
   }
   const arrowIconProps = {
     size: 13,
-    color: white
+    style: { color: white }
   }
   return (
     <Slider style={{ position: 'relative' }}>
@@ -77,7 +77,6 @@ const Carousel = (props, { colors: { black, white } }) => {
           right: 0
         }}
       />
-      <Dots />
     </Slider>
   )
 }

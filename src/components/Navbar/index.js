@@ -33,7 +33,7 @@ export default class Navbar extends Component {
 
   render () {
     const { drawer, setDrawer, width } = this.props
-    const { colors: { gray, primary, white }, scale } = this.context
+    const { colors: { lightGray, primary, white }, scale } = this.context
     return (
       <Toolbar style={{ overflow: 'hidden' }}>
         <div style={{ width: '100%' }}>
@@ -92,7 +92,7 @@ export default class Navbar extends Component {
           <Base
             py={2}
             style={{
-              borderTopColor: gray,
+              borderTopColor: lightGray,
               borderTopStyle: 'solid',
               borderTopWidth: 1,
               width: '100%'

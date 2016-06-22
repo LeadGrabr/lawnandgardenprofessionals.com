@@ -6,6 +6,7 @@ import { Button } from 'rebass'
 import { services } from 'data'
 import { createLead } from 'redux/modules/app'
 import { connect } from 'react-redux'
+import { default as styles } from './style.scss'
 
 @connect(() => ({}), { submit: createLead })
 
@@ -39,13 +40,21 @@ export default class LeadForm extends Component {
   render () {
     return (
       <JoifulForm
-        onChange={(e, formValues) =>
-          this.setState({ formValues })
-        }
+        className={styles.form}
+        onChange={(e, formValues) => this.setState({ formValues })}
         onSubmit={::this.handleSubmit}
         schema={{
           name: Joi.string().required(),
           email: Joi.string().email().required(),
+          phone: Joi.string().regex(/^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/gi).options({
+            language: {
+              string: {
+                regex: {
+                  base: 'entry "{{!value}}" doesn\'t look like a valid US phone number, such as: 248-333-5555'
+                }
+              }
+            }
+          }),
           service: Joi.string().min(3)
         }}
         values={this.state.formValues}
@@ -59,14 +68,21 @@ export default class LeadForm extends Component {
             <JoifulInput
               hideLabel
               name='name'
-              placeholder='Your Name'
+              placeholder='Name (Required)'
             />
           </Box>
           <Box col={12}>
             <JoifulInput
               hideLabel
               name='email'
-              placeholder='Your Email'
+              placeholder='Email (Required)'
+            />
+          </Box>
+          <Box col={12}>
+            <JoifulInput
+              hideLabel
+              name='phone'
+              placeholder='Phone (Required)'
             />
           </Box>
           <Box col={12}>
@@ -76,11 +92,7 @@ export default class LeadForm extends Component {
               name='service'
               options={[
                 { children: 'Select Service' },
-                ...services.map(({ title }) =>
-                  ({
-                    children: title
-                  })
-                )
+                ...services.map(({ title }) => ({ children: title, value: title }))
               ]}
             />
           </Box>

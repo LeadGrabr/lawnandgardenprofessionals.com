@@ -6,7 +6,10 @@ const Service = ({ description, img, path, title, ...props }) =>
   <Base {...props}>
     <img
       src={`${process.env.STATIC_ASSETS}${img}`}
-      style={{ width: '100%' }}
+      style={{
+        maxWidth: '100%',
+        width: '100%'
+      }}
     />
     <Heading my={2} level={4} children={title} />
     <Text my={2} children={description} />

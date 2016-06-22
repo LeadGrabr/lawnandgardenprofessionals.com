@@ -1,6 +1,5 @@
 import { default as React } from 'react'
-import { services } from 'data'
-import { PageHeader, Service } from 'components'
+import { PageHeader, ServiceList } from 'components'
 import { Container } from 'rebass'
 import { default as Nav } from './Nav'
 import { default as ContactUsBlock } from './ContactUsBlock'
@@ -15,7 +14,7 @@ const AllServicesPage = () =>
       heading='Our Services'
     />
     <Container>
-      {services.map((props, key) => <Service {...props} />)}
+      <ServiceList />
       <Nav />
       <ContactUsBlock />
     </Container>

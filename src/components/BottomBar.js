@@ -45,8 +45,10 @@ export default class BottomBar extends Component {
     }
 
     const caretProps = {
-      color: gray,
-      size: 10
+      size: 10,
+      style: {
+        color: gray
+      }
     }
 
     return (
@@ -55,7 +57,7 @@ export default class BottomBar extends Component {
           backgroundColor='darkGray'
           color='gray'
           px={2}
-          mb={0}
+          my={0}
           py={3}
         >
           <Flex
@@ -67,7 +69,7 @@ export default class BottomBar extends Component {
           >
             <Box col={isSmall ? 12 : 6} mb={3} pr={2}>
               <Flex align='center' mb={3}>
-                <InfoIcon color={primary} />
+                <InfoIcon style={{ color: primary }} />
                 <Space />
                 <Heading level={4} color={white} style={{ textTransform: 'uppercase' }}>
                   Lawn and Garden Professionals
@@ -83,7 +85,7 @@ export default class BottomBar extends Component {
             </Box>
             <Box col={isSmall ? 12 : 6} mb={3}>
               <Flex align='center' mb={2}>
-                <HamburgerIcon color={primary} />
+                <HamburgerIcon style={{ color: primary }} />
                 <Space />
                 <Heading level={4} color={white} style={{ textTransform: 'uppercase' }}>
                   Quick Links
@@ -114,7 +116,7 @@ export default class BottomBar extends Component {
             </Box>
             <Box auto>
               <Flex align='center' mb={3}>
-                <CommentIcon color={primary} />
+                <CommentIcon style={{ color: primary }} />
                 <Space />
                 <Heading level={4} color={white} style={{ textTransform: 'uppercase' }}>
                   Happy Clients
@@ -132,7 +134,7 @@ export default class BottomBar extends Component {
                     }}
                   >
                     <Box mr={1}>
-                      <QuoteIcon color={primary} size={30} />
+                      <QuoteIcon style={{ color: primary }} size={30} />
                     </Box>
                     <Text mt={0} children={text} />
                     <Arrow

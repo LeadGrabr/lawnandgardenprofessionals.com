@@ -7,40 +7,44 @@ import { default as DollarIcon } from 'react-icons/lib/fa/dollar'
 import { default as MapPinIcon } from 'react-icons/lib/md/location-on'
 import { connect } from 'react-redux'
 
-@connect(({ app: { isLargeScreen, isMediumScreen } }) => ({
+@connect(({ app: { isXLargeScreen, isLargeScreen, isMediumScreen, isSmallScreen } }) => ({
+  isXLargeScreen,
   isLargeScreen,
-  isMediumScreen
+  isMediumScreen,
+  isSmallScreen
 }))
 
 export default class BrandBadgeList extends Component {
 
   static propTypes = {
+    isXLargeScreen: PropTypes.bool,
     isLargeScreen: PropTypes.bool,
-    isMediumScreen: PropTypes.bool
+    isMediumScreen: PropTypes.bool,
+    isSmallScreen: PropTypes.bool
   };
 
   boxCols () {
-    if (this.props.isLargeScreen) {
+    if (this.props.isXLargeScreen) {
       return 3
     }
-    if (this.props.isMediumScreen) {
+    if (this.props.isLargeScreen) {
       return 6
     }
     return 12
   }
 
   isColumn () {
-    if (this.props.isLargeScreen || this.props.isMediumScreen) {
-      return false
+    if (this.props.isSmallScreen || this.props.isMediumScreen) {
+      return true
     }
-    return true
+    return false
   }
 
   render () {
     const boxProps = {
       col: this.boxCols()
     }
-    const { isLargeScreen } = this.props
+    const { isXLargeScreen } = this.props
     const column = this.isColumn()
     const padding = column ? 0 : 1
     return (
@@ -52,14 +56,14 @@ export default class BrandBadgeList extends Component {
             body='We handpick our lawn, garden, and landscaping partners in each service area to make sure you get the best mowing, cleanup, or leaf removal that money can buy.'
           />
         </Box>
-        <Box {...boxProps} pl={padding} pr={isLargeScreen ? padding : 0}>
+        <Box {...boxProps} pl={padding} pr={isXLargeScreen ? padding : 0}>
           <BrandBadge
             icon={ArrowUpIcon}
             heading='Experienced'
             body={'We have been mowing lawns and servicing gardens for decades. Your lawn and garden are the first thing people see, and we make sure it\'s a good first impression.'}
           />
         </Box>
-        <Box {...boxProps} pr={padding} pl={isLargeScreen ? padding : 0}>
+        <Box {...boxProps} pr={padding} pl={isXLargeScreen ? padding : 0}>
           <BrandBadge
             icon={MapPinIcon}
             heading='Locally Owned'

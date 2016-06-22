@@ -1,14 +1,14 @@
 import { default as React, PropTypes } from 'react'
 import { Base } from 'rebass'
 
-const Circle = (props, { colors: { gray, white } }) =>
+const Circle = (props, { colors: { lightGray, white } }) =>
   <Base
     circle
     mr={2}
-    p={2}
+    p={1}
     style={{
       backgroundColor: white,
-      borderColor: gray,
+      borderColor: lightGray,
       borderStyle: 'solid',
       borderWidth: 1,
       display: 'inline-block'
