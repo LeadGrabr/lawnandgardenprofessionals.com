@@ -25,7 +25,7 @@ const colors = {
 }
 
 const scale = [0, 10, 20, 42, 64]
-const fontSizes = [64, 32, 25, 19, 16, 14, 12]
+const fontSizes = [64, 32, 25, 21, 18, 14, 12]
 
 const shadows = [
   `0 6px 22px -3px ${color(colors.black).alpha(0.1).rgbString()}`,
@@ -60,7 +60,9 @@ export default class Theme extends Component {
   getChildContext () {
     return {
       betterReactSpinkit: {
-        color: colors.primary,
+        style: {
+          color: colors.primary
+        },
         size: 50
       },
       breakpoints,

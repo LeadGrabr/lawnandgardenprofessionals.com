@@ -10,6 +10,8 @@ import { setDrawer } from 'redux/modules/navbar'
 import { IndexLink } from 'react-router'
 import { default as styles } from './style.scss'
 
+export const logoWidth = 257
+
 @connect(
   ({ app: { width }, navbar: { drawer } }) => ({
     drawer,
@@ -65,7 +67,7 @@ export default class Navbar extends Component {
                       backgroundRepeat: 'no-repeat',
                       backgroundSize: 200,
                       textIndent: -9999,
-                      width: 257
+                      width: logoWidth
                     }}
                   >
                     Greenskeeper
@@ -132,7 +134,7 @@ export default class Navbar extends Component {
               backgroundColor='black'
               onClick={() => setDrawer(false)}
             >
-              <Close color='white' />
+              <Close style={{ color: 'white' }} />
             </ButtonCircle>
           </Flex>
           <PrimaryNav />

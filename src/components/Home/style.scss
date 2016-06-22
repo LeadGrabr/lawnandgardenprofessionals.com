@@ -1,0 +1,13 @@
+@import '../Theme/constants';
+
+.instantQuote {
+  &:before {
+    content: '';
+    position: absolute;
+    left: -9999rem;
+    top: 0;
+    background-color: $black;
+    width: 9999rem;
+    height: 9999rem;
+  }
+}

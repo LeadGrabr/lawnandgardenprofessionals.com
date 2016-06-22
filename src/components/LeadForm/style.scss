@@ -1,5 +1,12 @@
 @import '../Theme/constants';
 
-.form :global(.Text) {
-  color: $white !important;
+.form {
+  :global(.Text) {
+    color: $white !important;
+    position: absolute;
+    margin-top: nth($scale, 2);
+  }
+  :global(.Input) {
+    position: relative;
+  }
 }

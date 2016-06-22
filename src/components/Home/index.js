@@ -2,12 +2,14 @@ import { default as React, Component, PropTypes } from 'react'
 import { BrandBadgeList, Carousel, Circle, LeadForm, ServiceList } from 'components'
 import { Flex, Box } from 'reflexbox'
 import { default as InfoIcon } from 'react-icons/lib/md/info'
-import { Base, Block, Button, Container, Divider, Heading, Space, Text } from 'rebass'
+import { Base, Block, Button, Container, Divider, Heading, Text } from 'rebass'
 import { default as MaleIcon } from 'react-icons/lib/fa/male'
 import { default as lawnGardenImg } from './lawn-and-garden-professionals-of-ann-arbor-michigan@small.jpg'
 import { default as leavesPattern } from './leaves-pattern.png'
 import { Parallax } from 'react-parallax'
 import { connect } from 'react-redux'
+import { logoWidth } from 'components/Navbar'
+import { default as styles } from './style.scss'
 
 @connect(({ app: { isLargeScreen, isMediumScreen, isSmallScreen } }) => ({
   isLargeScreen, isMediumScreen, isSmallScreen
@@ -27,30 +29,62 @@ export default class Home extends Component {
   };
 
   render () {
-    const { colors: { primary, white }, shadows } = this.context
+    const { colors: { darkGray, primary, white }, shadows } = this.context
     const { isMediumScreen, isSmallScreen } = this.props
     return (
       <div>
         <Carousel />
         <Flex column>
-          <Block m={0} backgroundColor='black'>
-            <Flex
-              p={2}
-              is={Container}
-              align='center'
-            >
-              <InfoIcon style={{ color: primary }} />
-              <Space x={2} />
-              <Heading style={{ color: white }}>
-                Get an Instant Quote
-              </Heading>
+
+          <div style={{ backgroundColor: darkGray, overflow: 'hidden' }}>
+            <Flex is={Container} backgroundColor='black' px={0} column={isMediumScreen || isSmallScreen}>
+              <Flex
+                align='center'
+                className={styles.instantQuote}
+                style={{
+                  position: 'relative',
+                  height: isMediumScreen || isSmallScreen ? 100 : 'auto',
+                  width: isMediumScreen || isSmallScreen ? '100%' : logoWidth
+                }}
+                m={0}
+                px={isMediumScreen || isSmallScreen ? 2 : 0}
+              >
+                <Box px={1}>
+                  <InfoIcon style={{ color: primary }} />
+                </Box>
+                <Box>
+                  <Heading level={4} color='white'>
+                    <span style={{ whiteSpace: 'nowrap' }}>
+                      Get an Instant Quote
+                    </span>
+                  </Heading>
+                </Box>
+                <span
+                  style={{
+                    borderStyle: 'solid',
+                    borderColor: `transparent ${darkGray} transparent transparent`,
+                    borderTopWidth: 0,
+                    borderRightWidth: 40,
+                    borderBottomWidth: 100,
+                    borderLeftWidth: 0,
+                    position: 'absolute',
+                    right: 0
+                  }}
+                />
+              </Flex>
+              <Base
+                style={{ width: isMediumScreen || isSmallScreen ? '100%' : '75%' }}
+                py={1}
+                m={0}
+                backgroundColor='darkGray'
+              >
+                <Container px={0}>
+                  <LeadForm />
+                </Container>
+              </Base>
             </Flex>
-          </Block>
-          <Block py={1} m={0} backgroundColor='darkGray'>
-            <Container px={0}>
-              <LeadForm />
-            </Container>
-          </Block>
+          </div>
+
           <Block my={0} p={2} backgroundColor='white' style={{ boxShadow: shadows[0] }}>
             <Flex is={Container} wrap px={0}>
               <Box

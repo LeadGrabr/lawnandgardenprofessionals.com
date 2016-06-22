@@ -8,11 +8,19 @@ import { createLead } from 'redux/modules/app'
 import { connect } from 'react-redux'
 import { default as styles } from './style.scss'
 
-@connect(() => ({}), { submit: createLead })
+@connect(
+  ({ app: { isSmallScreen, isMediumScreen } }) => ({
+    isSmallScreen,
+    isMediumScreen
+  }),
+  { submit: createLead }
+)
 
 export default class LeadForm extends Component {
 
   static propTypes = {
+    isSmallScreen: PropTypes.bool,
+    isMediumScreen: PropTypes.bool,
     status: PropTypes.oneOf([
       'pending',
       'success',
@@ -38,6 +46,13 @@ export default class LeadForm extends Component {
   }
 
   render () {
+    const { isMediumScreen, isSmallScreen } = this.props
+    const boxProps = {
+      pr: 2,
+      style: {
+        width: isSmallScreen || isMediumScreen ? '100%' : '25%'
+      }
+    }
     return (
       <JoifulForm
         className={styles.form}
@@ -46,7 +61,7 @@ export default class LeadForm extends Component {
         schema={{
           name: Joi.string().required(),
           email: Joi.string().email().required(),
-          phone: Joi.string().regex(/^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/gi).options({
+          phone: Joi.string().regex(/^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/gi).required().options({
             language: {
               string: {
                 regex: {
@@ -61,45 +76,47 @@ export default class LeadForm extends Component {
       >
         <Flex
           align='center'
-          column
+          column={isSmallScreen || isMediumScreen}
           p={2}
         >
-          <Box col={12}>
+          <Box {...boxProps}>
             <JoifulInput
               hideLabel
               name='name'
-              placeholder='Name (Required)'
+              placeholder='Name'
+              m={0}
             />
           </Box>
-          <Box col={12}>
+          <Box {...boxProps}>
             <JoifulInput
               hideLabel
               name='email'
-              placeholder='Email (Required)'
+              placeholder='Email'
+              m={0}
             />
           </Box>
-          <Box col={12}>
+          <Box {...boxProps}>
             <JoifulInput
               hideLabel
               name='phone'
-              placeholder='Phone (Required)'
+              placeholder='Phone'
+              m={0}
             />
           </Box>
-          <Box col={12}>
+          <Box {...boxProps}>
             <JoifulInput
               is='select'
               hideLabel
+              m={0}
               name='service'
               options={[
-                { children: 'Select Service' },
+                { children: 'Service' },
                 ...services.map(({ title }) => ({ children: title, value: title }))
               ]}
             />
           </Box>
-          <Box col={12}>
-            <Button
-              style={{ width: '100%' }}
-            >
+          <Box {...boxProps} pr={0}>
+            <Button style={{ width: '100%' }}>
               SUBMIT
             </Button>
           </Box>
