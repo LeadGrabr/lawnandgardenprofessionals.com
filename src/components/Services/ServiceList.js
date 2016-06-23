@@ -12,7 +12,7 @@ export default class ServiceList extends Component {
     screenSize: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge'])
   };
 
-  boxCols() {
+  boxCols () {
     switch (this.props.screenSize) {
       case 'xlarge':
         return 3
@@ -46,8 +46,6 @@ export default class ServiceList extends Component {
   }
 
   render () {
-    const { screenSize } = this.props
-    const isColumn = screenSize === 'small' || screenSize === 'medium'
     const cols = this.boxCols()
     return (
       <Flex wrap>

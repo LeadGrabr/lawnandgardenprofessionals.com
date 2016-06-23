@@ -16,7 +16,7 @@ export default class Service extends Component {
     title: PropTypes.string.isRequired
   };
 
-  imgMaxHeight() {
+  imgMaxHeight () {
     switch (this.props.screenSize) {
       case 'xlarge':
         return 300
