@@ -9,22 +9,20 @@ import { default as Nav } from './Nav'
 import { default as ContactUsBlock } from './ContactUsBlock'
 import { connect } from 'react-redux'
 
-@connect(({ app: { isLargeScreen, isMediumScreen } }) => ({
-  isLargeScreen, isMediumScreen
-}))
+@connect(({ app: { screenSize } }) => ({ screenSize }))
 
 export default class ServicePage extends Component {
 
   static propTypes = {
-    isLargeScreen: PropTypes.bool,
-    isMediumScreen: PropTypes.bool
+    screenSize: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge'])
   };
 
   galleryColumns () {
-    if (this.props.isLargeScreen) {
+    const { screenSize } = this.props
+    if (screenSize === 'large') {
       return 6
     }
-    if (this.props.isMediumScreen) {
+    if (screenSize === 'medium') {
       return 6
     }
     return 12
@@ -37,6 +35,7 @@ export default class ServicePage extends Component {
     }
     const { description, gallery, path, title } = service
     const galleryColumns = this.galleryColumns()
+    const { STATIC_ASSETS } = process.env
     return (
       <div>
         <PageHeader
@@ -61,7 +60,7 @@ export default class ServicePage extends Component {
                 <Box key={key} col={galleryColumns} pl={key === 0 ? 0 : 1} pr={key === gallery.length ? 0 : 1}>
                   <img
                     alt={text}
-                    src={`${process.env.STATIC_ASSETS}${img}`}
+                    src={`${STATIC_ASSETS}${img}`}
                     style={{
                       maxWidth: '100%'
                     }}

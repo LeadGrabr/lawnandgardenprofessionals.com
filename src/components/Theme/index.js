@@ -25,7 +25,7 @@ const colors = {
 }
 
 const scale = [0, 10, 20, 42, 64]
-const fontSizes = [64, 32, 25, 21, 18, 14, 12]
+const fontSizes = [64, 32, 25, 18, 14, 12, 11]
 
 const shadows = [
   `0 6px 22px -3px ${color(colors.black).alpha(0.1).rgbString()}`,
@@ -87,7 +87,11 @@ export default class Theme extends Component {
         scale,
         shadows,
         Block: {
-          borderWidth: 1
+          borderWidth: 1,
+          marginBottom: scale[0],
+          marginTop: scale[0],
+          paddingBottom: scale[3],
+          paddingTop: scale[3]
         },
         Breadcrumbs: {
           marginBottom: 0
@@ -131,7 +135,11 @@ export default class Theme extends Component {
           {
             `
               * { box-sizing: border-box; }
-              html, body { color: ${colors.black}; }
+              html, body {
+                background-color: ${colors.lightGray};
+                background-image: url(${process.env.STATIC_ASSETS}/leaves-pattern.png);
+                color: ${colors.black};
+              }
               h1 { font-size: ${fontSizes[1]}px; }
               h2 { font-size: ${fontSizes[2]}px; }
               h3 { font-size: ${fontSizes[3]}px; }

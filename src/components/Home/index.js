@@ -1,26 +1,22 @@
 import { default as React, Component, PropTypes } from 'react'
-import { BrandBadgeList, Carousel, Circle, LeadForm, ServiceList } from 'components'
+import { Carousel, Circle, LeadForm, ServiceList } from 'components'
 import { Flex, Box } from 'reflexbox'
 import { default as InfoIcon } from 'react-icons/lib/md/info'
 import { Base, Block, Button, Container, Divider, Heading, Text } from 'rebass'
 import { default as MaleIcon } from 'react-icons/lib/fa/male'
 import { default as lawnGardenImg } from './lawn-and-garden-professionals-of-ann-arbor-michigan@small.jpg'
-import { default as leavesPattern } from './leaves-pattern.png'
 import { Parallax } from 'react-parallax'
 import { connect } from 'react-redux'
 import { logoWidth } from 'components/Navbar'
 import { default as styles } from './style.scss'
+import { default as BrandBadgeList } from './BrandBadgeList'
 
-@connect(({ app: { isLargeScreen, isMediumScreen, isSmallScreen } }) => ({
-  isLargeScreen, isMediumScreen, isSmallScreen
-}))
+@connect(({ app: { screenSize } }) => ({ screenSize }))
 
 export default class Home extends Component {
 
   static propTypes = {
-    isLargeScreen: PropTypes.bool,
-    isMediumScreen: PropTypes.bool,
-    isSmallScreen: PropTypes.bool
+    screenSize: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge'])
   };
 
   static contextTypes = {
@@ -29,27 +25,35 @@ export default class Home extends Component {
   };
 
   render () {
-    const { colors: { darkGray, primary, white }, shadows } = this.context
-    const { isMediumScreen, isSmallScreen } = this.props
+    const { colors: { black, darkGray, primary, white }, shadows } = this.context
+    const { screenSize } = this.props
+    const { STATIC_ASSETS } = process.env
+    const isSmallOrMedium = screenSize === 'medium' || screenSize === 'small'
     return (
       <div>
         <Carousel />
         <Flex column>
 
           <div style={{ backgroundColor: darkGray, overflow: 'hidden' }}>
-            <Flex is={Container} backgroundColor='black' px={0} column={isMediumScreen || isSmallScreen}>
+            <Flex
+              is={Container}
+              backgroundColor='darkGray'
+              px={isSmallOrMedium ? 0 : 2}
+              column={isSmallOrMedium}
+            >
               <Flex
                 align='center'
                 className={styles.instantQuote}
                 style={{
+                  backgroundColor: black,
                   position: 'relative',
-                  height: isMediumScreen || isSmallScreen ? 100 : 'auto',
-                  width: isMediumScreen || isSmallScreen ? '100%' : logoWidth
+                  height: isSmallOrMedium ? 40 : 'auto',
+                  width: logoWidth
                 }}
                 m={0}
-                px={isMediumScreen || isSmallScreen ? 2 : 0}
+                px={isSmallOrMedium ? 2 : 0}
               >
-                <Box px={1}>
+                <Box pr={1}>
                   <InfoIcon style={{ color: primary }} />
                 </Box>
                 <Box>
@@ -59,54 +63,54 @@ export default class Home extends Component {
                     </span>
                   </Heading>
                 </Box>
-                <If condition={!(isMediumScreen || isSmallScreen)}>
-                  <span
-                    style={{
-                      borderStyle: 'solid',
-                      borderColor: `transparent ${darkGray} transparent transparent`,
-                      borderTopWidth: 0,
-                      borderRightWidth: 40,
-                      borderBottomWidth: 100,
-                      borderLeftWidth: 0,
-                      position: 'absolute',
-                      right: 0
-                    }}
-                  />
-                </If>
+                <span
+                  style={{
+                    borderStyle: 'solid',
+                    borderColor: `transparent ${darkGray} transparent transparent`,
+                    borderTopWidth: 0,
+                    borderRightWidth: 40,
+                    borderBottomWidth: 100,
+                    borderLeftWidth: 0,
+                    position: 'absolute',
+                    right: 0
+                  }}
+                />
               </Flex>
               <Base
-                style={{ width: isMediumScreen || isSmallScreen ? '100%' : '75%' }}
-                py={1}
+                style={{ width: isSmallOrMedium ? '100%' : '75%' }}
                 m={0}
                 backgroundColor='darkGray'
               >
-                <Container px={0}>
-                  <LeadForm />
-                </Container>
+                <LeadForm />
               </Base>
             </Flex>
           </div>
 
-          <Block my={0} p={2} backgroundColor='white' style={{ boxShadow: shadows[0] }}>
-            <Flex is={Container} wrap px={0}>
+          <Block backgroundColor='white' style={{ boxShadow: shadows[0], zIndex: 2 }}>
+            <Flex is={Container} wrap>
               <Box
-                col={isMediumScreen || isSmallScreen ? 12 : 6}
-                pr={isMediumScreen || isSmallScreen ? 0 : 1}
-                mb={isMediumScreen || isSmallScreen ? 2 : 0}
+                col={isSmallOrMedium ? 12 : 6}
+                pr={isSmallOrMedium ? 0 : 1}
+                mb={isSmallOrMedium ? 3 : 0}
               >
-                <Heading size={1} level={2}>
+                <Heading size={1} level={2} mb={1}>
                   Lawn and Garden Professionals
                 </Heading>
-                <Text mb={2}>Gardening, Landscaping and Maintenance Services</Text>
-                <img
-                  alt
-                  src={lawnGardenImg}
-                  style={{ width: '100%' }}
-                />
+                <Text mb={1}>Gardening, Landscaping and Maintenance Services</Text>
+                <div style={{ maxHeight: 246, overflow: 'hidden' }}>
+                  <img
+                    alt
+                    src={lawnGardenImg}
+                    style={{
+                      maxWidth: '100%',
+                      width: '100%'
+                    }}
+                  />
+                </div>
               </Box>
               <Box
-                col={isMediumScreen || isSmallScreen ? 12 : 6}
-                pl={isMediumScreen || isSmallScreen ? 0 : 1}
+                col={isSmallOrMedium ? 12 : 6}
+                pl={isSmallOrMedium ? 0 : 1}
               >
                 <Flex align='center'>
                   <Circle>
@@ -119,13 +123,11 @@ export default class Home extends Component {
                 <Block
                   borderLeft
                   borderColor='lightGray'
-                  py={3}
-                  mb={0}
                   style={{
                     marginTop: -10,
                     marginLeft: 20,
-                    paddingLeft: 38,
-                    paddingRight: 38
+                    paddingLeft: 44,
+                    paddingRight: 44
                   }}
                 >
                   <Heading level={5} big mb={3}>
@@ -138,26 +140,20 @@ export default class Home extends Component {
               </Box>
             </Flex>
           </Block>
-          <Block
-            backgroundColor='lightGray'
-            m={0}
-            px={2}
-            style={{
-              backgroundImage: `url(${leavesPattern})`,
-              backgroundRepeat: 'repeat repeat',
-              zIndex: -10
-            }}
-          >
-            <Container px={0}>
+          <Block>
+            <Container>
               <Flex mb={2}>
-                <Box col={isSmallScreen ? 12 : 6} pr={isSmallScreen ? 0 : 1}>
+                <Box
+                  col={screenSize === 'small' ? 12 : (screenSize === 'medium' ? 6 : 4)}
+                  pr={screenSize === 'small' ? 0 : 1}
+                >
                   <Base
                     rounded
                     p={2}
                     backgroundColor='primary'
                     style={{ textAlign: 'center' }}
                   >
-                    <Heading level={4} style={{ color: white, position: 'relative', top: -2 }}>
+                    <Heading level={4} color='white'>
                       Why you should choose us
                     </Heading>
                   </Base>
@@ -166,8 +162,8 @@ export default class Home extends Component {
               <BrandBadgeList />
             </Container>
           </Block>
-          <Block py={3} m={2} backgroundColor='white'>
-            <Container px={0}>
+          <Block backgroundColor='white'>
+            <Container>
               <Heading level={2} mb={2} style={{ textAlign: 'center' }}>
                 Services we offer
               </Heading>
@@ -179,7 +175,7 @@ export default class Home extends Component {
               <ServiceList />
             </Container>
           </Block>
-          <Parallax bgImage={`${process.env.STATIC_ASSETS}/lawn-and-garden-professionals-of-ann-arbor-michigan.jpg`}>
+          <Parallax bgImage={`${STATIC_ASSETS}/lawn-and-garden-professionals-of-ann-arbor-michigan.jpg`}>
             <Flex
               is={Container}
               column

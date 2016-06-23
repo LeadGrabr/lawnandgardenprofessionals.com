@@ -4,10 +4,12 @@ import { breakpoints } from 'components/Theme'
 const SCREEN_DIMENSIONS = `${process.env.REDUX_PREFIX}/SCREEN_DIMENSIONS_CHANGE`
 const SUBMIT_LEAD = `${process.env.REDUX_PREFIX}/SUBMIT_LEAD`
 const client = new ApiClient()
+import { getScreenSize } from 'small-medium-large-xlarge'
 
 const intitialState = {
   height: 0,
   width: 0,
+  screenSize: 'small',
   isLargeScreen: false,
   isMediumScreen: false,
   isSmallScreen: true
@@ -40,23 +42,12 @@ export function createLead (data = {}) {
 
 export function reducer (state = intitialState, action) {
   switch (action.type) {
-    case SCREEN_DIMENSIONS: {
-      const { width, height } = action.payload
-      const { small, medium, large } = breakpoints
-      const isSmallScreen = width <= small
-      const isMediumScreen = !isSmallScreen && width <= medium
-      const isLargeScreen = !isSmallScreen && !isMediumScreen && width <= large
-      const isXLargeScreen = !isSmallScreen && !isMediumScreen && !isLargeScreen && width > large
+    case SCREEN_DIMENSIONS:
       return {
         ...state,
-        height,
-        width,
-        isSmallScreen,
-        isMediumScreen,
-        isLargeScreen,
-        isXLargeScreen
+        ...action.payload,
+        screenSize: getScreenSize(action.payload.width, breakpoints)
       }
-    }
     default:
       return state
   }

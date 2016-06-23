@@ -1,14 +1,13 @@
 import { default as React, Component, PropTypes } from 'react'
-import { Arrow, Avatar, Base, Block, Container, Divider, Heading, Space, Text } from 'rebass'
+import { Block, Container, Divider, Heading, Space, Text } from 'rebass'
 import { default as InfoIcon } from 'react-icons/lib/md/info'
 import { Flex, Box } from 'reflexbox'
 import { default as HamburgerIcon } from 'react-icons/lib/md/menu'
 import { default as CaretRightIcon } from 'react-icons/lib/fa/caret-right'
 import { default as CommentIcon } from 'react-icons/lib/fa/comment'
 import { Link } from 'react-router'
-import { testimonials } from 'data'
-import { default as QuoteIcon } from 'react-icons/lib/fa/quote-left'
 import { connect } from 'react-redux'
+import { default as TestimonialCarousel } from './TestimonialCarousel'
 
 @connect(({ app: { width } }) => ({ width }))
 
@@ -115,58 +114,14 @@ export default class BottomBar extends Component {
               </ul>
             </Box>
             <Box auto>
-              <Flex align='center' mb={3}>
+              <Flex align='center' mb={2}>
                 <CommentIcon style={{ color: primary }} />
                 <Space />
                 <Heading level={4} color={white} style={{ textTransform: 'uppercase' }}>
                   Happy Clients
                 </Heading>
               </Flex>
-              {testimonials.map(({ author, img, location, text }, key) =>
-                <Base py={2} key={key}>
-                  <Flex
-                    pb={2}
-                    style={{
-                      borderBottomColor: white,
-                      borderBottomStyle: 'solid',
-                      borderBottomWidth: 1,
-                      position: 'relative'
-                    }}
-                  >
-                    <Box mr={1}>
-                      <QuoteIcon style={{ color: primary }} size={30} />
-                    </Box>
-                    <Text mt={0} children={text} />
-                    <Arrow
-                      direction='down'
-                      style={{
-                        bottom: -8,
-                        left: 26,
-                        position: 'absolute'
-                      }}
-                    />
-                  </Flex>
-                  <Flex p={2}>
-                    <Avatar
-                      circle
-                      mr={2}
-                      size={50}
-                      src={`${process.env.STATIC_ASSETS}${img}`}
-                    />
-                    <Box>
-                      <Text color='white' bold mb={0} children={author} />
-                      <Text
-                        color='primary'
-                        bold
-                        mt={0}
-                        small
-                        children={location}
-                        style={{ textTransform: 'uppercase' }}
-                      />
-                    </Box>
-                  </Flex>
-                </Base>
-              )}
+              <TestimonialCarousel />
             </Box>
           </Flex>
         </Block>

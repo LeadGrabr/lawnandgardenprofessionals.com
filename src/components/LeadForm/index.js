@@ -8,24 +8,13 @@ import { createLead } from 'redux/modules/app'
 import { connect } from 'react-redux'
 import { default as styles } from './style.scss'
 
-@connect(
-  ({ app: { isSmallScreen, isMediumScreen } }) => ({
-    isSmallScreen,
-    isMediumScreen
-  }),
-  { submit: createLead }
-)
+@connect(({ app: { screenSize } }) => ({ screenSize }), { submit: createLead })
 
 export default class LeadForm extends Component {
 
   static propTypes = {
-    isSmallScreen: PropTypes.bool,
-    isMediumScreen: PropTypes.bool,
-    status: PropTypes.oneOf([
-      'pending',
-      'success',
-      'failure'
-    ]),
+    screenSize: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
+    status: PropTypes.oneOf(['pending', 'success', 'failure']),
     submit: PropTypes.func.isRequired
   };
 
@@ -46,12 +35,12 @@ export default class LeadForm extends Component {
   }
 
   render () {
-    const { isMediumScreen, isSmallScreen } = this.props
+    const { screenSize } = this.props
     const boxProps = {
-      mb: isSmallScreen || isMediumScreen ? 1 : 0,
-      pr: isSmallScreen || isMediumScreen ? 0 : 2,
+      mb: screenSize === 'small' || screenSize === 'medium' ? 1 : 0,
+      pr: screenSize === 'small' || screenSize === 'medium' ? 0 : 2,
       style: {
-        width: isSmallScreen || isMediumScreen ? '100%' : '25%'
+        width: screenSize === 'small' || screenSize === 'medium' ? '100%' : '25%'
       }
     }
     return (
@@ -77,7 +66,7 @@ export default class LeadForm extends Component {
       >
         <Flex
           align='center'
-          column={isSmallScreen || isMediumScreen}
+          column={screenSize === 'small' || screenSize === 'medium'}
           p={2}
         >
           <Box {...boxProps}>

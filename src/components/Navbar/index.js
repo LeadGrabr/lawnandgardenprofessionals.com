@@ -4,7 +4,6 @@ import { Flex, Box } from 'reflexbox'
 import { default as Close } from 'react-icons/lib/md/close'
 import { default as Hamburger } from 'react-icons/lib/md/menu'
 import { connect } from 'react-redux'
-import { default as logo } from './logo.png'
 import { PrimaryNav } from 'components'
 import { setDrawer } from 'redux/modules/navbar'
 import { IndexLink } from 'react-router'
@@ -13,9 +12,8 @@ import { default as styles } from './style.scss'
 export const logoWidth = 257
 
 @connect(
-  ({ app: { width }, navbar: { drawer } }) => ({
-    drawer,
-    width
+  ({ app: { screenSize, width }, navbar: { drawer } }) => ({
+    drawer, screenSize, width
   }),
   { setDrawer }
 )
@@ -36,6 +34,7 @@ export default class Navbar extends Component {
   render () {
     const { drawer, setDrawer, width } = this.props
     const { colors: { lightGray, primary, white }, scale } = this.context
+    const { STATIC_ASSETS } = process.env
     return (
       <Toolbar style={{ overflow: 'hidden' }}>
         <div style={{ width: '100%' }}>
@@ -58,19 +57,19 @@ export default class Navbar extends Component {
               >
                 <Box is={IndexLink} to='/' flex style={{ position: 'relative' }}>
                   <Block
-                    backgroundColor='green'
+                    backgroundColor='primary'
                     color='white'
-                    m={0}
+                    py={0}
                     style={{
-                      backgroundImage: `url(${logo})`,
+                      backgroundImage: `url(${STATIC_ASSETS}/logo.png)`,
                       backgroundPosition: `${scale[2]}px center`,
                       backgroundRepeat: 'no-repeat',
-                      backgroundSize: 200,
+                      backgroundSize: 165,
                       textIndent: -9999,
                       width: logoWidth
                     }}
                   >
-                    Greenskeeper
+                    Lawn and Garden Professionals
                   </Block>
                   <span
                     style={{
@@ -105,11 +104,12 @@ export default class Navbar extends Component {
               justify='space-between'
               style={{ width: '100%' }}
             >
-              <Button theme='default'>
-                Book a service
+              <Button theme='default' style={{ textTransform: 'uppercase' }}>
+                Instant quote
               </Button>
               <Button
                 onClick={() => setDrawer(true)}
+                style={{ textTransform: 'uppercase' }}
                 theme='default'
               >
                 Menu

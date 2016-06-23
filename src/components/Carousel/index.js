@@ -21,6 +21,7 @@ const Carousel = (props, { colors: { black, white } }) => {
     size: 13,
     style: { color: white }
   }
+  const { STATIC_ASSETS } = process.env
   return (
     <Slider style={{ position: 'relative' }}>
       <PrevArrow
@@ -47,7 +48,7 @@ const Carousel = (props, { colors: { black, white } }) => {
             style: { textTransform: 'uppercase' }
           }}
           style={{
-            backgroundImage: `url(${process.env.STATIC_ASSETS}/lawn-1.jpg)`
+            backgroundImage: `url(${STATIC_ASSETS}/lawn-1.jpg)`
           }}
         />
         <Slide
@@ -66,7 +67,7 @@ const Carousel = (props, { colors: { black, white } }) => {
             style: { textTransform: 'uppercase' }
           }}
           style={{
-            backgroundImage: `url(${process.env.STATIC_ASSETS}/lawn-2.jpg)`
+            backgroundImage: `url(${STATIC_ASSETS}/lawn-2.jpg)`
           }}
         />
       </Slides>
