@@ -1,11 +1,16 @@
 import { default as React, Component, PropTypes } from 'react'
-import { Arrow, Menu, NavItem } from 'rebass'
+import { Arrow, Menu, NavItem } from '@bentatum/rebass'
 import { default as Collapse } from 'react-collapse'
-import { services as servicesData } from 'data'
+import {
+  locations as locationsData,
+  services as servicesData,
+  testimonials as testimonialsData
+} from 'data'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import { default as styles } from './style.scss'
 import { setDrawer } from 'redux/modules/navbar'
+import { Flex, Box } from 'reflexbox'
 
 const initialState = {
   services: false,
@@ -18,6 +23,7 @@ const initialState = {
 export default class PrimaryNav extends Component {
 
   static propTypes = {
+    column: PropTypes.bool,
     pushState: PropTypes.func.isRequired,
     setDrawer: PropTypes.func.isRequired
   };
@@ -25,7 +31,16 @@ export default class PrimaryNav extends Component {
   state = initialState
 
   handleClick ({ target: { name } }) {
-    if (this.state[name] === true || !this.state.hasOwnProperty(name)) {
+    // if (this.state[name] === true || !this.state.hasOwnProperty(name)) {
+    //   return this.setState(
+    //     initialState,
+    //     () => {
+    //       this.props.pushState(`/${name}`)
+    //       this.props.setDrawer(false)
+    //     }
+    //   )
+    // }
+    if (!this.state.hasOwnProperty(name)) {
       return this.setState(
         initialState,
         () => {
@@ -34,58 +49,85 @@ export default class PrimaryNav extends Component {
         }
       )
     }
-    return this.setState({ [name]: true })
+    const directive = !this.state[name]
+    return this.setState(initialState, () => {
+      this.setState({ [name]: directive })
+    })
   }
 
   render () {
-    const { services, locations, testimonials } = this.state
-    const sharedProps = {
-      onClick: this.handleClick.bind(this)
+    const { column, ...props } = this.props
+    const { locations, services, testimonials } = this.state
+    const navItemProps = {
+      onClick: ::this.handleClick
+    }
+    const dropDownProps = {
+      mb: 0,
+      style: !column ? {
+        position: 'absolute',
+        zIndex: 100
+      } : null
     }
     return (
-      <Menu backgroundColor='black' color='white' className={styles.outer}>
-        <NavItem name='services' {...sharedProps}>
-          Services <Arrow direction={services ? 'up' : 'down'} />
-        </NavItem>
-        <Collapse isOpened={services}>
-          <Menu mb={0}>
-            {servicesData.map(({ path, title }, key) =>
-              <NavItem {...sharedProps} name={path} key={key}>
-                {title}
-              </NavItem>
-            )}
-          </Menu>
-        </Collapse>
-        <NavItem name='locations' {...sharedProps}>
-          Locations <Arrow direction={locations ? 'up' : 'down'} />
-        </NavItem>
-        <Collapse isOpened={locations}>
-          <Menu mb={0}>
-            <NavItem>
-              123
-            </NavItem>
-          </Menu>
-        </Collapse>
-        <NavItem name='faqs' {...sharedProps}>
-          FAQs
-        </NavItem>
-        <NavItem name='testimonials' {...sharedProps}>
-          Testimonials <Arrow direction={testimonials ? 'up' : 'down'} />
-        </NavItem>
-        <Collapse isOpened={testimonials}>
-          <Menu mb={0}>
-            <NavItem>
-              123
-            </NavItem>
-          </Menu>
-        </Collapse>
-        <NavItem name='instant-quote' {...sharedProps}>
-          Instant Quote
-        </NavItem>
-        <NavItem name='contact' {...sharedProps}>
-          Contact
-        </NavItem>
-      </Menu>
+      <Flex column={column} className={styles.outer} {...props}>
+        <Box>
+          <NavItem name='services' {...navItemProps}>
+            Services <Arrow direction={services ? 'up' : 'down'} />
+          </NavItem>
+          <Collapse isOpened={services}>
+            <Menu {...dropDownProps}>
+              {servicesData.map(({ path, title }, key) =>
+                <NavItem {...navItemProps} name={path} key={key}>
+                  {title}
+                </NavItem>
+              )}
+            </Menu>
+          </Collapse>
+        </Box>
+        <Box>
+          <NavItem name='locations' {...navItemProps}>
+            Locations <Arrow direction={locations ? 'up' : 'down'} />
+          </NavItem>
+          <Collapse isOpened={locations}>
+            <Menu {...dropDownProps}>
+              {locationsData.map(({ path, title }, key) =>
+                <NavItem {...navItemProps} name={path} key={key}>
+                  {title}
+                </NavItem>
+              )}
+            </Menu>
+          </Collapse>
+        </Box>
+        <Box>
+          <NavItem name='faqs' {...navItemProps}>
+            FAQs
+          </NavItem>
+        </Box>
+        <Box>
+          <NavItem name='testimonials' {...navItemProps}>
+            Testimonials <Arrow direction={testimonials ? 'up' : 'down'} />
+          </NavItem>
+          <Collapse isOpened={testimonials}>
+            <Menu {...dropDownProps}>
+              {testimonialsData.map(({ author, path, location }, key) =>
+                <NavItem {...navItemProps} name={path} key={key}>
+                  {`${author} (${location})`}
+                </NavItem>
+              )}
+            </Menu>
+          </Collapse>
+        </Box>
+        <Box>
+          <NavItem name='instant-quote' {...navItemProps}>
+            Instant Quote
+          </NavItem>
+        </Box>
+        <Box>
+          <NavItem name='contact' {...navItemProps}>
+            Contact
+          </NavItem>
+        </Box>
+      </Flex>
     )
   }
 }

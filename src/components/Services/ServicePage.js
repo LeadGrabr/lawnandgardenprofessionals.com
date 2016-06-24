@@ -3,11 +3,12 @@ import { find } from 'lodash'
 import { services } from 'data'
 import { PageHeader } from 'components'
 import { default as Error404 } from './404'
-import { Container, Divider, Text } from 'rebass'
+import { Block, Container, Divider, Text } from '@bentatum/rebass'
 import { Flex, Box } from 'reflexbox'
 import { default as Nav } from './Nav'
 import { default as ContactUsBlock } from './ContactUsBlock'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
 
 @connect(({ app: { screenSize } }) => ({ screenSize }))
 
@@ -17,12 +18,9 @@ export default class ServicePage extends Component {
     screenSize: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge'])
   };
 
-  galleryColumns () {
+  galleryCols () {
     const { screenSize } = this.props
-    if (screenSize === 'large') {
-      return 6
-    }
-    if (screenSize === 'medium') {
+    if (screenSize !== 'small' || screenSize !== 'medium') {
       return 6
     }
     return 12
@@ -34,45 +32,57 @@ export default class ServicePage extends Component {
       return <Error404 />
     }
     const { description, gallery, path, title } = service
-    const galleryColumns = this.galleryColumns()
+    const galleryCols = this.galleryCols()
     const { STATIC_ASSETS } = process.env
     return (
       <div>
         <PageHeader
           heading={title}
           breadcrumbs={[
-            { children: 'Home', href: '/' },
-            { children: 'Services', href: '/services' },
-            { children: title, href: `/${path}` }
+            { children: 'Home', is: Link, to: '/' },
+            { children: 'Services', is: Link, to: '/services' },
+            { children: title, is: Link, to: `/${path}` }
           ]}
         />
-        <Container>
-          <Text bold children={description} />
-          <Divider />
-          <div
-            dangerouslySetInnerHTML={{
-              __html: require(`content/${path}.md`)
-            }}
-          />
-          <If condition={gallery}>
-            <Flex wrap>
-              {gallery.map(({ img, text }, key) =>
-                <Box key={key} col={galleryColumns} pl={key === 0 ? 0 : 1} pr={key === gallery.length ? 0 : 1}>
-                  <img
-                    alt={text}
-                    src={`${STATIC_ASSETS}${img}`}
-                    style={{
-                      maxWidth: '100%'
-                    }}
-                  />
-                  <Text children={text} />
-                </Box>
-              )}
-            </Flex>
-          </If>
-          <Nav />
-          <ContactUsBlock />
-        </Container>
+        <Block backgroundColor='white'>
+          <Flex is={Container}>
+            <Box col={8} pr={2}>
+              <Text bold children={description} />
+              <Divider />
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: require(`content/${path}.md`)
+                }}
+              />
+              <If condition={gallery}>
+                <Flex wrap>
+                  {gallery.map(({ img, text }, key) =>
+                    <Box
+                      key={key}
+                      col={galleryCols}
+                      pl={key === 0 ? 0 : 1}
+                      pr={key === gallery.length ? 0 : 1}
+                      py={1}
+                    >
+                      <img
+                        alt={text}
+                        src={`${STATIC_ASSETS}${img}`}
+                        style={{
+                          maxWidth: '100%'
+                        }}
+                      />
+                      <Text children={text} />
+                    </Box>
+                  )}
+                </Flex>
+              </If>
+            </Box>
+            <Box col={4}>
+              <Nav />
+              <ContactUsBlock />
+            </Box>
+          </Flex>
+        </Block>
       </div>
     )
   }

@@ -2,7 +2,7 @@ import { default as React, Component, PropTypes } from 'react'
 import { JoifulForm, JoifulInput } from 'joiful-react-forms'
 import { default as Joi } from 'joi'
 import { Flex, Box } from 'reflexbox'
-import { Button } from 'rebass'
+import { Button } from '@bentatum/rebass'
 import { services } from 'data'
 import { createLead } from 'redux/modules/app'
 import { connect } from 'react-redux'
@@ -67,7 +67,8 @@ export default class LeadForm extends Component {
         <Flex
           align='center'
           column={screenSize === 'small' || screenSize === 'medium'}
-          p={2}
+          py={2}
+          pl={2}
         >
           <Box {...boxProps}>
             <JoifulInput

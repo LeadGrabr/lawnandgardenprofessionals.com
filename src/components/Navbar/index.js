@@ -1,5 +1,5 @@
 import { default as React, Component, PropTypes } from 'react'
-import { Base, Block, Button, Container, Drawer, Toolbar, ButtonCircle } from 'rebass'
+import { Base, Block, Button, Container, Drawer, Toolbar, ButtonCircle } from '@bentatum/rebass'
 import { Flex, Box } from 'reflexbox'
 import { default as Close } from 'react-icons/lib/md/close'
 import { default as Hamburger } from 'react-icons/lib/md/menu'
@@ -27,12 +27,13 @@ export default class Navbar extends Component {
 
   static propTypes = {
     drawer: PropTypes.bool,
+    screenSize: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']).isRequired,
     setDrawer: PropTypes.func.isRequired,
     width: PropTypes.number.isRequired
   };
 
   render () {
-    const { drawer, setDrawer, width } = this.props
+    const { drawer, screenSize, setDrawer, width } = this.props
     const { colors: { lightGray, primary, white }, scale } = this.context
     const { STATIC_ASSETS } = process.env
     return (
@@ -91,6 +92,7 @@ export default class Navbar extends Component {
             </Container>
           </div>
           <Base
+            backgroundColor='white'
             py={2}
             style={{
               borderTopColor: lightGray,
@@ -104,16 +106,23 @@ export default class Navbar extends Component {
               justify='space-between'
               style={{ width: '100%' }}
             >
-              <Button theme='default' style={{ textTransform: 'uppercase' }}>
-                Instant quote
-              </Button>
-              <Button
-                onClick={() => setDrawer(true)}
-                style={{ textTransform: 'uppercase' }}
-                theme='default'
-              >
-                Menu
-              </Button>
+              <Box col={10}>
+                <PrimaryNav />
+              </Box>
+              <Box auto>
+                <Button theme='default' style={{ width: '100%', textTransform: 'uppercase' }}>
+                  Instant quote
+                </Button>
+              </Box>
+              <If condition={screenSize === 'small'}>
+                <Button
+                  onClick={() => setDrawer(true)}
+                  style={{ textTransform: 'uppercase' }}
+                  theme='default'
+                >
+                  Menu
+                </Button>
+              </If>
             </Flex>
           </Base>
         </div>

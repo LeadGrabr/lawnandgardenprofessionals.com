@@ -1,6 +1,6 @@
 import { default as React, PropTypes } from 'react'
 import { Flex } from 'reflexbox'
-import { Heading, Text } from 'rebass'
+import { Heading, Text } from '@bentatum/rebass'
 import { Link } from 'react-router'
 
 const Slide = ({ children, cta, heading, style }) =>

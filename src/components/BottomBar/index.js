@@ -1,5 +1,5 @@
 import { default as React, Component, PropTypes } from 'react'
-import { Block, Container, Divider, Heading, Space, Text } from 'rebass'
+import { Block, Container, Divider, Heading, Space, Text } from '@bentatum/rebass'
 import { default as InfoIcon } from 'react-icons/lib/md/info'
 import { Flex, Box } from 'reflexbox'
 import { default as HamburgerIcon } from 'react-icons/lib/md/menu'
@@ -9,12 +9,12 @@ import { Link } from 'react-router'
 import { connect } from 'react-redux'
 import { default as TestimonialCarousel } from './TestimonialCarousel'
 
-@connect(({ app: { width } }) => ({ width }))
+@connect(({ app: { screenSize } }) => ({ screenSize }))
 
 export default class BottomBar extends Component {
 
   static propTypes = {
-    width: PropTypes.number.isRequired
+    screenSize: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge'])
   };
 
   static contextTypes = {
@@ -24,13 +24,12 @@ export default class BottomBar extends Component {
   };
 
   render () {
+    const { screenSize } = this.props
+
     const {
-      breakpoints: { small },
       colors: { gray, primary, white },
       scale
     } = this.context
-
-    const isSmall = this.props.width <= small
 
     const listItemStyle = {
       borderColor: gray,
@@ -60,13 +59,12 @@ export default class BottomBar extends Component {
           py={3}
         >
           <Flex
-            column={isSmall}
             is={Container}
-            style={{ width: '100%' }}
             px={0}
-            wrap={!isSmall}
+            style={{ width: '100%' }}
+            wrap
           >
-            <Box col={isSmall ? 12 : 6} mb={3} pr={2}>
+            <Box col={screenSize === 'small' || screenSize === 'medium' ? 12 : 6} mb={3} pr={2}>
               <Flex align='center' mb={3}>
                 <InfoIcon style={{ color: primary }} />
                 <Space />
@@ -82,7 +80,7 @@ export default class BottomBar extends Component {
                 The leading local landscaping and lawn care service in the Ann Arbor, Washtenaw, Canton, and Ypsilanti areas.
               </Text>
             </Box>
-            <Box col={isSmall ? 12 : 6} mb={3}>
+            <Box col={screenSize === 'small' || screenSize === 'medium' ? 12 : 6} mb={3}>
               <Flex align='center' mb={2}>
                 <HamburgerIcon style={{ color: primary }} />
                 <Space />

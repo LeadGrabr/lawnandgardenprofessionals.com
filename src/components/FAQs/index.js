@@ -1,6 +1,6 @@
 import { default as React } from 'react'
 import { faqs } from 'data'
-import { Container, Heading, Menu, NavItem, Text } from 'rebass'
+import { Container, Heading, Menu, NavItem, Text } from '@bentatum/rebass'
 import { PageHeader } from 'components'
 import { Link } from 'react-router'
 import { default as styles } from './style.scss'

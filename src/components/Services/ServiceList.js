@@ -14,8 +14,8 @@ export default class ServiceList extends Component {
 
   boxCols () {
     switch (this.props.screenSize) {
-      case 'xlarge':
-        return 3
+      // case 'xlarge':
+        // return 3
       case 'large':
         return 6
       default:
@@ -25,8 +25,8 @@ export default class ServiceList extends Component {
 
   boxPR (key) {
     switch (this.props.screenSize) {
-      case 'xlarge':
-        return key % 3 === 0 && key !== 0 ? 0 : 1
+      // case 'xlarge':
+        // return key % 3 === 0 && key !== 0 ? 0 : 1
       case 'large':
         return key % 2 === 0 ? 1 : 0
       default:

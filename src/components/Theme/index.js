@@ -25,7 +25,7 @@ const colors = {
 }
 
 const scale = [0, 10, 20, 42, 64]
-const fontSizes = [64, 32, 25, 18, 14, 12, 11]
+const fontSizes = [64, 32, 25, 18, 16, 14, 11]
 
 const shadows = [
   `0 6px 22px -3px ${color(colors.black).alpha(0.1).rgbString()}`,
@@ -107,12 +107,9 @@ export default class Theme extends Component {
           borderWidth: 0
         },
         NavItem: {
-          backgroundColor: colors.gray,
-          borderColor: colors.white,
-          borderStyle: 'solid',
-          borderWidth: 1,
-          fontWeight: 400,
-          padding: scale[2]
+          backgroundColor: colors.white,
+          color: colors.black,
+          minHeight: scale[3]
         },
         Select: {
           color: colors.darkGray

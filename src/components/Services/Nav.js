@@ -1,5 +1,5 @@
 import { default as React, PropTypes } from 'react'
-import { Menu, NavItem } from 'rebass'
+import { Menu, NavItem } from '@bentatum/rebass'
 import { Link } from 'react-router'
 import { services } from 'data'
 import { default as styles } from './style.scss'
@@ -20,7 +20,7 @@ const ServicesNav = (props, { colors: { lightGray, white } }) => {
         All Services
       </NavItem>
       {services.map(({ path, title }, key) =>
-        <NavItem {...navItemProps} is={Link} to={path} key={key}>
+        <NavItem {...navItemProps} is={Link} to={`/${path}`} key={key}>
           {title}
         </NavItem>
       )}

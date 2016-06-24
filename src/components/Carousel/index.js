@@ -3,7 +3,7 @@ import { Slider, PrevArrow, Slides, NextArrow } from 'better-react-flex-slick'
 import { Flex } from 'reflexbox'
 import { default as Slide } from './Slide'
 import { default as ArrowIcon } from 'react-icons/lib/fa/arrow-circle-right'
-import { Space } from 'rebass'
+import { Space } from '@bentatum/rebass'
 
 const arrowStyle = {
   marginTop: -10,
