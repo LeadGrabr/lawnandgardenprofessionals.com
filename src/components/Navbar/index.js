@@ -1,10 +1,10 @@
 import { default as React, Component, PropTypes } from 'react'
-import { Base, Block, Button, Container, Drawer, Toolbar, ButtonCircle } from '@bentatum/rebass'
+import { Base, Button, Drawer, Toolbar, ButtonCircle } from '@bentatum/rebass'
 import { Flex, Box } from 'reflexbox'
 import { default as Close } from 'react-icons/lib/md/close'
 import { default as Hamburger } from 'react-icons/lib/md/menu'
 import { connect } from 'react-redux'
-import { PrimaryNav } from 'components'
+import { Block, Container, PrimaryNav } from 'components'
 import { setDrawer } from 'redux/modules/navbar'
 import { IndexLink } from 'react-router'
 import { default as styles } from './style.scss'
@@ -21,8 +21,7 @@ export const logoWidth = 257
 export default class Navbar extends Component {
 
   static contextTypes = {
-    colors: PropTypes.object.isRequired,
-    scale: PropTypes.array.isRequired
+    colors: PropTypes.object.isRequired
   };
 
   static propTypes = {
@@ -34,7 +33,7 @@ export default class Navbar extends Component {
 
   render () {
     const { drawer, screenSize, setDrawer, width } = this.props
-    const { colors: { lightGray, primary, white }, scale } = this.context
+    const { colors: { lightGray, primary, white } } = this.context
     const { STATIC_ASSETS } = process.env
     return (
       <Toolbar style={{ overflow: 'hidden' }}>
@@ -45,7 +44,7 @@ export default class Navbar extends Component {
               width: '100%'
             }}
           >
-            <Container px={0} style={{ width: '100%' }}>
+            <Container style={{ width: '100%' }}>
               <Flex
                 justify='space-between'
                 className={styles.top}
@@ -63,7 +62,7 @@ export default class Navbar extends Component {
                     py={0}
                     style={{
                       backgroundImage: `url(${STATIC_ASSETS}/logo.png)`,
-                      backgroundPosition: `${scale[2]}px center`,
+                      backgroundPosition: '0px center',
                       backgroundRepeat: 'no-repeat',
                       backgroundSize: 165,
                       textIndent: -9999,
@@ -85,68 +84,60 @@ export default class Navbar extends Component {
                     }}
                   />
                 </Box>
-                <Box pr={2} flex align='center' justify='flex-end'>
-                  <Hamburger />
+                <Box flex align='center' justify='flex-end'>
+                  <Hamburger onClick={() => setDrawer(true)} />
                 </Box>
               </Flex>
             </Container>
           </div>
-          <Base
-            backgroundColor='white'
-            py={2}
-            style={{
-              borderTopColor: lightGray,
-              borderTopStyle: 'solid',
-              borderTopWidth: 1,
-              width: '100%'
-            }}
-          >
-            <Flex
-              is={Container}
-              justify='space-between'
-              style={{ width: '100%' }}
+          <If condition={screenSize !== 'small' && screenSize !== 'medium'}>
+            <Base
+              backgroundColor='white'
+              py={1}
+              style={{
+                borderTopColor: lightGray,
+                borderTopStyle: 'solid',
+                borderTopWidth: 1,
+                width: '100%'
+              }}
             >
-              <Box col={10}>
-                <PrimaryNav />
-              </Box>
-              <Box auto>
-                <Button theme='default' style={{ width: '100%', textTransform: 'uppercase' }}>
-                  Instant quote
-                </Button>
-              </Box>
-              <If condition={screenSize === 'small'}>
-                <Button
-                  onClick={() => setDrawer(true)}
-                  style={{ textTransform: 'uppercase' }}
-                  theme='default'
-                >
-                  Menu
-                </Button>
-              </If>
-            </Flex>
-          </Base>
+              <Flex
+                is={Container}
+                justify='space-between'
+                style={{ width: '100%' }}
+              >
+                <Box col={10}>
+                  <PrimaryNav />
+                </Box>
+                <Box auto>
+                  <Button theme='default' style={{ width: '100%', textTransform: 'uppercase' }}>
+                    Instant quote
+                  </Button>
+                </Box>
+              </Flex>
+            </Base>
+          </If>
         </div>
         <Drawer
-          backgroundColor='black'
+          backgroundColor='white'
           color='white'
           open={drawer}
           position='right'
-          pt={1}
           size={width}
+          p={0}
         >
-          <Flex
-            align='center'
-            justify='flex-end'
-            mb={2}
+          <ButtonCircle
+            backgroundColor='white'
+            onClick={() => setDrawer(false)}
+            style={{
+              position: 'absolute',
+              right: 0,
+              top: 0
+            }}
           >
-            <ButtonCircle
-              backgroundColor='black'
-              onClick={() => setDrawer(false)}
-            >
-              <Close style={{ color: 'white' }} />
-            </ButtonCircle>
-          </Flex>
-          <PrimaryNav />
+            <Close />
+          </ButtonCircle>
+          <PrimaryNav column />
         </Drawer>
       </Toolbar>
     )

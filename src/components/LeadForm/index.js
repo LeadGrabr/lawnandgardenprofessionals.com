@@ -36,11 +36,12 @@ export default class LeadForm extends Component {
 
   render () {
     const { screenSize } = this.props
+    const isMobile = screenSize === 'small' || screenSize === 'medium'
     const boxProps = {
-      mb: screenSize === 'small' || screenSize === 'medium' ? 1 : 0,
-      pr: screenSize === 'small' || screenSize === 'medium' ? 0 : 2,
+      mb: isMobile ? 1 : 0,
+      pr: isMobile ? 0 : 2,
       style: {
-        width: screenSize === 'small' || screenSize === 'medium' ? '100%' : '25%'
+        width: isMobile ? '100%' : '25%'
       }
     }
     return (
@@ -66,9 +67,8 @@ export default class LeadForm extends Component {
       >
         <Flex
           align='center'
-          column={screenSize === 'small' || screenSize === 'medium'}
-          py={2}
-          pl={2}
+          column={isMobile}
+          py={isMobile ? 1 : 2}
         >
           <Box {...boxProps}>
             <JoifulInput

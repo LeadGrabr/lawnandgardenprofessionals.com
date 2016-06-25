@@ -21,7 +21,7 @@ export default class Service extends Component {
       case 'xlarge':
         return 300
       case 'large':
-        return 238
+        return 205
       default:
         return 'none'
     }
@@ -31,16 +31,22 @@ export default class Service extends Component {
     const { description, img, path, title, ...props } = this.props
     return (
       <Base {...props}>
-        <div style={{ maxHeight: this.imgMaxHeight(), overflow: 'hidden' }}>
-          <img
-            src={`${STATIC_ASSETS}${img}`}
-            style={{
-              maxWidth: '100%',
-              width: '100%'
-            }}
-          />
-        </div>
-        <Heading my={2} level={4} children={title} />
+        <Link to={path}>
+          <div style={{ maxHeight: this.imgMaxHeight(), overflow: 'hidden' }}>
+            <img
+              src={`${STATIC_ASSETS}${img}`}
+              style={{
+                maxWidth: '100%',
+                width: '100%'
+              }}
+            />
+          </div>
+        </Link>
+        <Heading my={2} level={4}>
+          <Link to={path}>
+            {title}
+          </Link>
+        </Heading>
         <Text my={2} children={description} />
         <Text small bold my={2} style={{ textTransform: 'uppercase' }}>
           <Link to={path} children={title} />

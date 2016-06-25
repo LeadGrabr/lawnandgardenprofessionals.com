@@ -1,6 +1,14 @@
 [
   {
     "id": 1,
+    "author": "David Jackson",
+    "location": "Canton, MI",
+    "text": "Like anyone who is looking to update, restore, or renovate the current landscaping design for their home, I had been looking for the best experts. Luckily, I found them. Lawn and Garden Professionals of Ann Arbor lived up to their name. They were professional and attentive to my needs and goals for my home and offered numerous creative ideas on lawn layouts, pattern arrangements, and plant types. They have the expertise to work with you to convert your dream vision into reality.",
+    "path": "testimonials/landscaping-edging-design",
+    "img": "/tulips-manicured-lawn-ann-arbor-michigan.jpg"
+  },
+  {
+    "id": 2,
     "author": "James Finkelstein",
     "location": "Washtenaw County, MI",
     "text": "For years, fall leaves have been an annoyance since I had to handle the massive amounts of falling foliage. If you live in a green area densely packed with trees, you know what I am talking about. ",
@@ -8,20 +16,12 @@
     "img": "/fall-foliage-ann-arbor-michigan.jpg"
   },
   {
-    "id": 2,
+    "id": 3,
     "author": "Lorie Williams",
     "location": "Ypsilanti, MI",
     "text": "Clogged and obstructed gutters were the number one culprit causing water damage to my house. I tried maintaining the gutters on my own, but I inevitably missed a spot or had no time after a long day at work. A friend recommended Lawn and Garden Professionals of Ann Arbor, and I haven't looked back since. ",
     "path": "testimonials/gutter-cleaning",
     "img": "/clogged-gutters-ann-arbor.jpg"
-  },
-  {
-    "id": 3,
-    "author": "David Jackson",
-    "location": "Canton, MI",
-    "text": "Like anyone who is looking to update, restore, or renovate the current landscaping design for their home, I had been looking for the best experts. Luckily, I found them. Lawn and Garden Professionals of Ann Arbor lived up to their name. They were professional and attentive to my needs and goals for my home and offered numerous creative ideas on lawn layouts, pattern arrangements, and plant types. They have the expertise to work with you to convert your dream vision into reality.",
-    "path": "testimonials/landscaping-edging-design",
-    "img": "/tulips-manicured-lawn-ann-arbor-michigan.jpg"
   },
   {
     "id": 4,

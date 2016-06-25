@@ -1,11 +1,11 @@
 import { default as React, Component, PropTypes } from 'react'
-import { PageHeader, ServiceList } from 'components'
-import { Block, Container } from '@bentatum/rebass'
+import { Block, Container, PageHeader, ServiceList } from 'components'
 import { default as Nav } from './Nav'
 import { default as ContactUsBlock } from './ContactUsBlock'
 import { Flex, Box } from 'reflexbox'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
+import { default as styles } from './style.scss'
 
 @connect(({ app: { screenSize } }) => ({ screenSize }))
 
@@ -23,7 +23,7 @@ export default class AllServicesPage extends Component {
         <PageHeader
           breadcrumbs={[
             { children: 'Home', is: Link, to: '/' },
-            { children: 'Services', is: Link, to: '/services' }
+            { children: 'Services', is: Link, to: '/services', activeClassName: styles.activeNavItem }
           ]}
           heading='Our Services'
         />

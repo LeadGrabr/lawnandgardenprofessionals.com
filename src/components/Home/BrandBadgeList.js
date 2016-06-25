@@ -30,7 +30,7 @@ export default class BrandBadgeList extends Component {
     switch (this.props.screenSize) {
       case 'xlarge':
       case 'large':
-        return 300
+        return 314
       default:
         return 'auto'
     }

@@ -1,31 +1,52 @@
-import { default as React, PropTypes } from 'react'
+import { default as React, Component, PropTypes } from 'react'
 import { Flex } from 'reflexbox'
 import { Heading, Text } from '@bentatum/rebass'
 import { Link } from 'react-router'
+import { connect } from 'react-redux'
 
-const Slide = ({ children, cta, heading, style }) =>
-  <Flex
-    align='center'
-    column
-    justify='center'
-    style={{
-      backgroundSize: 'cover',
-      height: 600,
-      textAlign: 'center',
-      width: '100%',
-      ...style
-    }}
-  >
-    <Heading color='white' mb={1} {...heading} />
-    <Text color='white' is={Link} {...cta} />
-    {children}
-  </Flex>
+@connect(({ app: { screenSize } }) => ({ screenSize }))
 
-Slide.propTypes = {
-  children: PropTypes.node,
-  cta: PropTypes.object.isRequired,
-  heading: PropTypes.object.isRequired,
-  style: PropTypes.object
+export default class Slide extends Component {
+
+  static propTypes = {
+    children: PropTypes.node,
+    cta: PropTypes.object.isRequired,
+    heading: PropTypes.object.isRequired,
+    screenSize: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']).isRequired,
+    style: PropTypes.object
+  };
+
+  height () {
+    switch (this.props.screenSize) {
+      case 'xlarge':
+      case 'large':
+        return 450
+      case 'medium':
+        return 216
+      default:
+        return 194
+    }
+  }
+
+  render () {
+    const { children, cta, heading, style } = this.props
+    return (
+      <Flex
+        align='center'
+        column
+        justify='center'
+        style={{
+          backgroundSize: 'cover',
+          height: this.height(),
+          textAlign: 'center',
+          width: '100%',
+          ...style
+        }}
+      >
+        <Heading color='white' mb={1} {...heading} />
+        <Text color='white' is={Link} {...cta} />
+        {children}
+      </Flex>
+    )
+  }
 }
-
-export default Slide

@@ -1,7 +1,8 @@
 import { default as React, PropTypes, Component } from 'react'
-import { Breadcrumbs, Container, Heading } from '@bentatum/rebass'
+import { Breadcrumbs, Heading } from '@bentatum/rebass'
 import { Flex, Box } from 'reflexbox'
 import { connect } from 'react-redux'
+import { Container } from 'components'
 
 @connect(({ app: { screenSize } }) => ({ screenSize }))
 
@@ -15,20 +16,20 @@ export default class PageHeader extends Component {
 
   render () {
     const { breadcrumbs, heading, screenSize } = this.props
-    const isSmallOrMedium = screenSize === 'small' || screenSize === 'medium'
+    const isMobile = screenSize === 'small' || screenSize === 'medium'
     return (
       <Flex
         is={Container}
         align='center'
         justify='space-between'
-        style={{ minHeight: 150 }}
+        style={{ minHeight: 120 }}
         wrap
       >
-        <Box col={isSmallOrMedium ? 12 : 8}>
+        <Box col={isMobile ? 12 : 8} py={1}>
           <Heading level={2} size={1} children={heading} />
         </Box>
         <If condition={breadcrumbs}>
-          <Box>
+          <Box py={1}>
             <Breadcrumbs links={breadcrumbs} />
           </Box>
         </If>

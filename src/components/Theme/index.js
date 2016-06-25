@@ -25,7 +25,7 @@ const colors = {
 }
 
 const scale = [0, 10, 20, 42, 64]
-const fontSizes = [64, 32, 25, 18, 16, 14, 11]
+const fontSizes = [64, 30, 25, 18, 16, 14, 11]
 
 const shadows = [
   `0 6px 22px -3px ${color(colors.black).alpha(0.1).rgbString()}`,
@@ -89,12 +89,14 @@ export default class Theme extends Component {
         Block: {
           borderWidth: 1,
           marginBottom: scale[0],
-          marginTop: scale[0],
-          paddingBottom: scale[3],
-          paddingTop: scale[3]
+          marginTop: scale[0]
         },
         Breadcrumbs: {
           marginBottom: 0
+        },
+        Container: {
+          paddingLeft: scale[1],
+          paddingRight: scale[1]
         },
         Heading: {
           color: colors.darkGray

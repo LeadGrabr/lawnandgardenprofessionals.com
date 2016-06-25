@@ -1,0 +1,5 @@
+Clogged and obstructed gutters were the number one culprit causing water damage to my house. I tried maintaining the gutters on my own, but I inevitably missed a spot or had no time after a long day at work. A friend recommended Lawn and Garden Professionals of Ann Arbor, and I haven't looked back since. 
+
+They inspected my gutters and the area around my home. They made sure that the gutters are intact, correctly positioned, and attached to the downspouts. Any blockages were cleaned, and any other repairs were made. They also pointed out any damage that had occurred to my roof, home or yard as a result of poor drainage, so that I can take action as needed to correct the problem.
+
+My advice to you all is if you've been attending to your own gutters or haven't had them checked in the last couple of years, it's time to make an appointment. The cost for professional gutter cleaning is relatively cheap, and you'll receive a good return on your investment. Contact Lawn and Garden Professionals of Ann Arbor today if you live in Canton, MI, Ypsilanti, MI or Ann Arbor, MI. Make sure that your home is protected from water damage throughout the year.

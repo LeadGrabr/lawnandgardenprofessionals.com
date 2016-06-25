@@ -3,10 +3,10 @@
 .form {
   :global(.Text) {
     color: $white !important;
-    position: absolute;
-    margin-top: nth($scale, 2);
+    // position: absolute;
+    margin-top: nth($scale, 2) !important;
   }
-  :global(.Input) {
-    position: relative;
-  }
+  // :global(.Input) {
+  //   position: relative;
+  // }
 }
