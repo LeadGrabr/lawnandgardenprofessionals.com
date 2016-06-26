@@ -110,7 +110,7 @@ export default class Navbar extends Component {
                   <PrimaryNav />
                 </Box>
                 <Box auto>
-                  <Button theme='default' style={{ width: '100%', textTransform: 'uppercase' }}>
+                  <Button theme='default' style={{ width: '100%', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
                     Instant quote
                   </Button>
                 </Box>

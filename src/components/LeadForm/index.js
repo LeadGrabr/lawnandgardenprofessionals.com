@@ -5,15 +5,14 @@ import { Flex, Box } from 'reflexbox'
 import { Button } from '@bentatum/rebass'
 import { services } from 'data'
 import { createLead } from 'redux/modules/app'
-import { connect } from 'react-redux'
 import { default as styles } from './style.scss'
+import { connect } from 'react-redux'
 
-@connect(({ app: { screenSize } }) => ({ screenSize }), { submit: createLead })
+@connect(() => ({}), { submit: createLead })
 
 export default class LeadForm extends Component {
 
   static propTypes = {
-    screenSize: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
     status: PropTypes.oneOf(['pending', 'success', 'failure']),
     submit: PropTypes.func.isRequired
   };
@@ -35,13 +34,12 @@ export default class LeadForm extends Component {
   }
 
   render () {
-    const { screenSize } = this.props
-    const isMobile = screenSize === 'small' || screenSize === 'medium'
+    const { column } = this.props
     const boxProps = {
-      mb: isMobile ? 1 : 0,
-      pr: isMobile ? 0 : 2,
+      mb: column ? 1 : 0,
+      pr: column ? 0 : 2,
       style: {
-        width: isMobile ? '100%' : '25%'
+        width: column ? '100%' : '25%'
       }
     }
     return (
@@ -65,11 +63,7 @@ export default class LeadForm extends Component {
         }}
         values={this.state.formValues}
       >
-        <Flex
-          align='center'
-          column={isMobile}
-          py={isMobile ? 1 : 2}
-        >
+        <Flex column={column} align='center'>
           <Box {...boxProps}>
             <JoifulInput
               hideLabel

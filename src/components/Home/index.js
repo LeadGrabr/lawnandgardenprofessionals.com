@@ -1,5 +1,5 @@
 import { default as React, Component, PropTypes } from 'react'
-import { Block, Carousel, Circle, Container, ServiceList } from 'components'
+import { Block, Carousel, Container, IconHeadingBlock, ServiceList } from 'components'
 import { Flex, Box } from 'reflexbox'
 import { Base, Button, Divider, Heading, Text } from '@bentatum/rebass'
 import { default as MaleIcon } from 'react-icons/lib/fa/male'
@@ -60,29 +60,9 @@ export default class Home extends Component {
               pl={isMobile ? 0 : 1}
               pb={2}
             >
-              <Flex align='center'>
-                <Circle>
-                  <MaleIcon style={{ color: primary }} size={20} />
-                </Circle>
-                <Heading
-                  level={3}
-                  size={4}
-                  color='gray'
-                  style={{ textTransform: 'uppercase' }}
-                  my={2}
-                >
-                  Lawn Care, Landscaping, Leaf Removal
-                </Heading>
-              </Flex>
-              <Block
-                borderLeft
-                borderColor='lightGray'
-                style={{
-                  marginTop: -10,
-                  marginLeft: 20,
-                  paddingLeft: 44,
-                  paddingRight: 44
-                }}
+              <IconHeadingBlock
+                icon={MaleIcon}
+                heading='Lawn Care, Landscaping, Leaf Removal'
               >
                 <Heading level={5} size={2} mb={2}>
                   We Specialize in Your Lawn
@@ -90,7 +70,7 @@ export default class Home extends Component {
                 <Text>
                   If you're looking for lawn care, landscaping, or leaf removal, look no further. Lawn &amp; Garden Professionals is a national brand with local partners. We hand pick lawn and garden partners in your area to ensure only the highest quality of work. Our partners look to us to grow their business, and we look to them to guarantee their landscaping work. Our customers get the best of both worlds!
                 </Text>
-              </Block>
+              </IconHeadingBlock>
             </Box>
           </Flex>
         </Block>
