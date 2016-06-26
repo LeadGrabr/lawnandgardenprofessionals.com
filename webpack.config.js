@@ -95,7 +95,8 @@ module.exports = {
         DEVELOPMENT: JSON.stringify(process.env.DEVELOPMENT),
         DEVTOOLS: JSON.stringify(process.env.DEVTOOLS),
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-        STATIC_ASSETS: JSON.stringify(process.env.STATIC_ASSETS)
+        STATIC_ASSETS: JSON.stringify(process.env.STATIC_ASSETS),
+        GOOGLE_MAPS_APIKEY: JSON.stringify(process.env.GOOGLE_MAPS_APIKEY)
       }
     })
   ]

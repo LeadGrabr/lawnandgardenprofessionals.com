@@ -1,12 +1,13 @@
 import { default as React, Component, PropTypes } from 'react'
 import { find } from 'lodash'
 import { testimonials } from 'data'
-import { Container, PageHeader } from 'components'
+import { Block, Container, PageHeader } from 'components'
 import { default as Error404 } from './404'
 import { Text } from '@bentatum/rebass'
 // import { Flex, Box } from 'reflexbox'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
+import { default as styles } from './style.scss'
 
 @connect(({ app: { screenSize } }) => ({ screenSize }))
 
@@ -42,17 +43,19 @@ export default class TestimonialPage extends Component {
           breadcrumbs={[
             { children: 'Home', is: Link, to: '/' },
             { children: 'Testimonials', is: Link, to: '/testimonials' },
-            { children: title, is: Link, to: `/${path}` }
+            { children: title, is: Link, to: `/${path}`, activeClassName: styles.activeNavItem }
           ]}
         />
-        <Container>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: require(`content/${path}.md`)
-            }}
-          />
-          <Text children={text} />
-        </Container>
+        <Block backgroundColor='white'>
+          <Container>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: require(`content/${path}.md`)
+              }}
+            />
+            <Text children={text} />
+          </Container>
+        </Block>
       </div>
     )
   }

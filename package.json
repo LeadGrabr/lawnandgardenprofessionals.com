@@ -4,6 +4,7 @@
   "description": "",
   "main": "webpack.config.js",
   "devDependencies": {
+    "@bentatum/rebass": "^0.2.7",
     "@leadgrabr/brand-badges": "0.0.5",
     "@leadgrabr/lead-form": "0.0.11",
     "@leadgrabr/testimonials": "0.3.0",
@@ -40,7 +41,7 @@
     "react-addons-update": "^15.0.1",
     "react-collapse": "^2.2.4",
     "react-dom": "^15.0.1",
-    "react-google-maps": "^4.9.1",
+    "react-google-maps": "^4.11.0",
     "react-height": "^2.1.0",
     "react-helmet": "^3.0.2",
     "react-icons": "^2.1.0",
@@ -49,7 +50,6 @@
     "react-redux": "^4.4.5",
     "react-router": "^2.5.1",
     "react-router-redux": "^4.0.4",
-    "@bentatum/rebass": "^0.2.7",
     "redux": "^3.3.1",
     "redux-async-connect": "^1.0.0-rc4",
     "redux-await": "^5.0.1",
@@ -94,7 +94,8 @@
         "DEVELOPMENT": true,
         "DEVTOOLS": true,
         "REDUX_PREFIX": "lgp",
-        "STATIC_ASSETS": "http://lawnandgardenprofessionals.com-images.s3-website-us-east-1.amazonaws.com"
+        "STATIC_ASSETS": "http://lawnandgardenprofessionals.com-images.s3-website-us-east-1.amazonaws.com",
+        "GOOGLE_MAPS_APIKEY": "AIzaSyCOv_mVJglArDCd_VkFfvVXbZHzZ8zrAqA"
       }
     },
     "build-prod": {
@@ -105,7 +106,8 @@
         "BABEL_ENV": "production",
         "NODE_ENV": "production",
         "REDUX_PREFIX": "lgp",
-        "STATIC_ASSETS": "http://lawnandgardenprofessionals.com-images.s3-website-us-east-1.amazonaws.com"
+        "STATIC_ASSETS": "http://lawnandgardenprofessionals.com-images.s3-website-us-east-1.amazonaws.com",
+        "GOOGLE_MAPS_APIKEY": "AIzaSyCOv_mVJglArDCd_VkFfvVXbZHzZ8zrAqA"
       }
     }
   },

@@ -12,10 +12,8 @@ export default (
     <Route path='locations/:location' component={v.LocationPage} />
     <Route path='services' component={v.AllServicesPage} />
     <Route path='services/:service' component={v.ServicePage} />
-    <Route path='testimonials' component={v.Testimonials}>
-      <IndexRoute component={v.AllTestimonials} />
-      <Route path=':testimonial' component={v.Testimonial} />
-    </Route>
+    <Route path='testimonials' component={v.AllTestimonialsPage} />
+    <Route path='testimonials/:testimonial' component={v.TestimonialPage} />
     <Route path='*' component={v.Error404} />
   </Route>
 )
