@@ -9,6 +9,7 @@ import { default as PhoneIcon } from 'react-icons/lib/fa/phone'
 import { default as MapMarkerIcon } from 'react-icons/lib/fa/map-marker'
 import { Flex, Box } from 'reflexbox'
 import { connect } from 'react-redux'
+import { default as BraggingRights } from './BraggingRights'
 
 @connect(({ app: { screenSize } }) => ({ screenSize }))
 
@@ -69,6 +70,7 @@ export default class InstantQuote extends Component {
             </Flex>
           </Container>
         </Block>
+        <BraggingRights />
       </div>
     )
   }

@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { BottomBar, Input, Navbar, Select, Theme } from 'components'
+import { BottomBar, Input, Navbar, Select, Textarea, Theme } from 'components'
 import { default as Helmet } from 'react-helmet'
 import { connect } from 'react-redux'
 import { setScreenSize } from 'redux/modules/app'
@@ -23,6 +23,7 @@ export default class App extends Component {
         JoifulInput: {
           types: {
             text: Input,
+            textarea: Textarea,
             select: Select
           }
         }

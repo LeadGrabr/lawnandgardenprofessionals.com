@@ -2,19 +2,19 @@ import { default as React } from 'react'
 import { Block } from 'components'
 import { Heading, Text } from '@bentatum/rebass'
 
-const ContactInfoBlock = () =>
-  <Block border>
-    <Heading style={{ textTransform: 'uppercase' }}>
+const ContactInfoBlock = (props) =>
+  <Block border {...props}>
+    <Heading level={5} style={{ textTransform: 'uppercase' }} mb={2}>
       Contact Info
     </Heading>
-    <Text>
+    <Text mb={2} color='gray'>
       847 Sumpter Road #411<br />
       Belleville, MI 48111
     </Text>
-    <Text bold>
+    <Text bold color='gray'>
       Call us NOW
     </Text>
-    <Text>
+    <Text color='primary' bold>
       734-768-4475
     </Text>
   </Block>

@@ -9,7 +9,7 @@ import { default as styles } from './style.scss'
 
 @connect(({ app: { screenSize } }) => ({ screenSize }))
 
-export default class GetAnInstantQuote extends Component {
+export default class GetAnInstantQuoteBlock extends Component {
 
   static propTypes = {
     screenSize: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge'])
@@ -70,12 +70,13 @@ export default class GetAnInstantQuote extends Component {
             m={0}
             backgroundColor='darkGray'
             px={isMobile ? 1 : 2}
+            py={1}
             style={{
               width: isMobile ? '100%' : '75%',
               zIndex: 1
             }}
           >
-            <LeadForm />
+            <LeadForm column={isMobile} />
           </Base>
         </Flex>
       </div>

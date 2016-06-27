@@ -5,7 +5,7 @@ import { IndexRoute, Route } from 'react-router'
 export default (
   <Route path='/' component={v.App}>
     <IndexRoute component={v.Home} />
-    <Route path='contact' component={v.Contact} />
+    <Route path='contact' component={v.ContactUs} />
     <Route path='faqs' component={v.FAQs} />
     <Route path='instant-quote' component={v.InstantQuote} />
     <Route path='locations' component={v.AllLocationsPage} />

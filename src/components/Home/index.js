@@ -7,7 +7,7 @@ import { default as lawnGardenImg } from './lawn-and-garden-professionals-of-ann
 import { Parallax } from 'react-parallax'
 import { connect } from 'react-redux'
 import { default as BrandBadgeList } from './BrandBadgeList'
-import { default as GetAnInstantQuote } from './GetAnInstantQuote'
+import { default as GetAnInstantQuoteBlock } from './GetAnInstantQuoteBlock'
 
 @connect(({ app: { screenSize } }) => ({ screenSize }))
 
@@ -30,7 +30,7 @@ export default class Home extends Component {
     return (
       <div>
         <Carousel />
-        <GetAnInstantQuote />
+        <GetAnInstantQuoteBlock />
         <Block backgroundColor='white' style={{ boxShadow: shadows[0], zIndex: 2 }}>
           <Flex is={Container} wrap>
             <Box
