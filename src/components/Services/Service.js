@@ -19,9 +19,8 @@ export default class Service extends Component {
   imgMaxHeight () {
     switch (this.props.screenSize) {
       case 'xlarge':
-        return 300
       case 'large':
-        return 205
+        return 150
       default:
         return 'none'
     }

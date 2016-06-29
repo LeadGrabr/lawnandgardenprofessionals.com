@@ -11,11 +11,18 @@ import { ThreeBounce } from 'better-react-spinkit'
 import { default as SuccessIcon } from 'react-icons/lib/fa/check-square-o'
 import { default as equal } from 'deep-equal'
 
-@connect(({ await: { statuses } }) => ({ status: statuses[SUBMIT_LEAD] }), { submit: createLead })
+@connect(
+  ({ app: { screenSize }, await: { statuses } }) => ({
+    screenSize,
+    status: statuses[SUBMIT_LEAD]
+  }),
+  { submit: createLead }
+)
 
 export default class LeadForm extends Component {
 
   static propTypes = {
+    screenSize: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
     status: PropTypes.oneOf(['pending', 'success', 'failure']),
     submit: PropTypes.func.isRequired
   };
@@ -51,14 +58,45 @@ export default class LeadForm extends Component {
     return this.props.submit(formValues)
   }
 
+  boxCols () {
+    switch (this.props.screenSize) {
+      case 'xlarge':
+      case 'large':
+        return undefined
+      case 'medium':
+        return 6
+      default:
+        return 12
+    }
+  }
+
+  submitButtonCols () {
+    if (this.props.column) {
+      return 12
+    }
+    switch (this.props.screenSize) {
+      case 'xlarge':
+      case 'large':
+        return undefined
+      default:
+        return 12
+    }
+  }
+
   render () {
     const { colors: { white } } = this.context
-    const { column, status } = this.props
+    const { column, screenSize, status } = this.props
+    const isSmall = screenSize === 'small'
+    const isMedium = screenSize === 'medium'
+    const isLarge = screenSize === 'large' || screenSize === 'xlarge'
+    const isMobile = isSmall || isMedium
+    const boxSpace = 1
     const boxProps = {
-      mb: column ? 1 : 0,
-      pr: column ? 0 : 2,
-      style: {
-        width: column ? '100%' : '25%'
+      col: column ? 12 : this.boxCols(),
+      mb: column ? boxSpace : isSmall || isMedium ? boxSpace : 0,
+      pr: isSmall ? 0 : boxSpace,
+      style: isLarge && {
+        width: '25%'
       }
     }
     const inputProps = {
@@ -87,7 +125,7 @@ export default class LeadForm extends Component {
         }}
         values={this.state.formValues}
       >
-        <Flex column={column} align='center'>
+        <Flex column={column} align='center' wrap={isMobile}>
           <Box {...boxProps}>
             <JoifulInput
               hideLabel
@@ -96,7 +134,7 @@ export default class LeadForm extends Component {
               {...inputProps}
             />
           </Box>
-          <Box {...boxProps}>
+          <Box {...boxProps} pr={isMobile ? 0 : boxSpace}>
             <JoifulInput
               hideLabel
               name='email'
@@ -112,7 +150,7 @@ export default class LeadForm extends Component {
               {...inputProps}
             />
           </Box>
-          <Box {...boxProps}>
+          <Box {...boxProps} pr={isMobile ? 0 : boxSpace}>
             <JoifulInput
               is='select'
               hideLabel
@@ -124,7 +162,7 @@ export default class LeadForm extends Component {
               {...inputProps}
             />
           </Box>
-          <Box {...boxProps} mb={0} pr={0}>
+          <Box col={this.submitButtonCols()} style={isLarge && { width: '25%' }}>
             <Button style={{ width: '100%' }} disabled={status === 'pending'}>
               <Choose>
                 <When condition={status === 'pending'}>

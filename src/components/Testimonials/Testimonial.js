@@ -5,15 +5,17 @@ const { STATIC_ASSETS } = process.env
 
 const Testimonial = ({ author, img, location, path, text }) =>
   <div>
-    <img
-      src={`${STATIC_ASSETS}/${img}`}
-      style={{
-        width: '100%',
-        maxWidth: '100%'
-      }}
-    />
+    <Link to={path}>
+      <img
+        src={`${STATIC_ASSETS}/${img}`}
+        style={{
+          width: '100%',
+          maxWidth: '100%'
+        }}
+      />
+    </Link>
     <Base m={2}>
-      <Heading>
+      <Heading is={Link} to={path}>
         {author}
       </Heading>
       <Text color='primary'>

@@ -1,5 +1,5 @@
 import { default as React, Component, PropTypes } from 'react'
-import { Block, Carousel, Container, IconHeadingBlock, ServiceList } from 'components'
+import { Block, Carousel, Container, IconHeadingBlock, ServiceListCarousel } from 'components'
 import { Flex, Box } from 'reflexbox'
 import { Base, Button, Divider, Heading, Text } from '@bentatum/rebass'
 import { default as MaleIcon } from 'react-icons/lib/fa/male'
@@ -106,7 +106,7 @@ export default class Home extends Component {
               color={primary}
               mb={3}
             />
-            <ServiceList />
+            <ServiceListCarousel />
           </Container>
         </Block>
         <Parallax bgImage={`${STATIC_ASSETS}/lawn-and-garden-professionals-of-ann-arbor-michigan.jpg`}>

@@ -1,13 +1,14 @@
 import { default as React, Component, PropTypes } from 'react'
 import { find } from 'lodash'
 import { testimonials } from 'data'
-import { Block, Container, PageHeader } from 'components'
+import { Block, ContactInfoBlock, Container, PageHeader, SecondaryNav } from 'components'
 import { default as Error404 } from './404'
 import { Text } from '@bentatum/rebass'
-// import { Flex, Box } from 'reflexbox'
+import { Flex, Box } from 'reflexbox'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { default as styles } from './style.scss'
+import { default as BraggingRights } from './BraggingRights'
 
 @connect(({ app: { screenSize } }) => ({ screenSize }))
 
@@ -23,8 +24,9 @@ export default class TestimonialPage extends Component {
       return <Error404 />
     }
     const { author, location, path, text } = testimonial
-    // const { STATIC_ASSETS } = process.env
     const title = `${author} (${location})`
+    const { screenSize } = this.props
+    const isMobile = screenSize === 'small' || screenSize === 'medium'
     return (
       <div>
         <PageHeader
@@ -37,14 +39,23 @@ export default class TestimonialPage extends Component {
         />
         <Block backgroundColor='white'>
           <Container>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: require(`content/${path}.md`)
-              }}
-            />
-            <Text children={text} />
+            <Flex>
+              <Box col={isMobile ? 12 : 8} pr={isMobile ? 0 : 2}>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: require(`content/${path}.md`)
+                  }}
+                />
+                <Text children={text} />
+              </Box>
+              <Box col={isMobile ? 12 : 4}>
+                <SecondaryNav />
+                <ContactInfoBlock />
+              </Box>
+            </Flex>
           </Container>
         </Block>
+        <BraggingRights />
       </div>
     )
   }

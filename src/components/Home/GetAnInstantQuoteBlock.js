@@ -76,7 +76,7 @@ export default class GetAnInstantQuoteBlock extends Component {
               zIndex: 1
             }}
           >
-            <LeadForm column={isMobile} />
+            <LeadForm />
           </Base>
         </Flex>
       </div>

@@ -48,7 +48,7 @@ export default class ServiceList extends Component {
   render () {
     const cols = this.boxCols()
     return (
-      <Flex wrap>
+      <Flex wrap {...this.props}>
         {services.map((props, key) =>
           <Box
             col={cols}

@@ -36,6 +36,7 @@ export default class Slide extends Component {
         column
         justify='center'
         style={{
+          backgroundPosition: 'center',
           backgroundSize: 'cover',
           height: this.height(),
           textAlign: 'center',
