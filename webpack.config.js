@@ -5,7 +5,25 @@ const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin'
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const SitemapPlugin = require('sitemap-webpack-plugin')
 
-const routes = ['/']
+const routes = [
+  '/',
+  '/contact',
+  '/faqs',
+  '/instant-quote',
+  '/locations',
+  '/locations/ann-arbor-michigan',
+  '/services',
+  '/services/fall-and-spring-cleanup',
+  '/services/fall-lawn-preparation-maintenance',
+  '/services/lawn-care-fertilization-spring',
+  '/services/lawn-care-mowing-tips-services',
+  '/services/tree-shrub-planting-removal-landscaping',
+  '/testimonials',
+  '/testimonials/fall-leaves-cleanup',
+  '/testimonials/gutter-cleaning',
+  '/testimonials/landscaping-edging-design',
+  '/testimonials/lawn-care-maintenance-ann-arbor'
+]
 
 module.exports = {
 

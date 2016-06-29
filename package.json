@@ -82,7 +82,11 @@
     "lint": "standard",
     "dev": "better-npm-run start-dev",
     "build-dev": "better-npm-run build-dev",
-    "deploy-dev": "aws s3 sync ./dist s3://dev.annarbor.pictures --exclude '.DS_Store' --profile home"
+    "deploy-dev": "npm run lint && npm run build-dev && aws s3 sync ./dist s3://dev.lawnandgardenprofessionals.com --exclude '.DS_Store' --profile leadgrabr",
+    "build-qa": "better-npm-run build-qa",
+    "deploy-qa": "npm run lint && npm run build-qa && aws s3 sync ./dist s3://qa.lawnandgardenprofessionals.com --exclude '.DS_Store' --profile leadgrabr",
+    "build-prod": "better-npm-run build-prod",
+    "deploy-prod": "npm run lint && npm run build-prod && aws s3 sync ./dist s3://lawnandgardenprofessionals.com --exclude '.DS_Store' --profile leadgrabr"
   },
   "betterScripts": {
     "start-dev": {
@@ -90,11 +94,36 @@
       "env": {
         "AUDIENCE": "57256bc9178c951f54d87303",
         "API_ENDPOINT": "http://api.leadgrabr.com/api/v1",
-        "BABEL_ENV": "development",
         "DEVELOPMENT": true,
         "DEVTOOLS": true,
         "REDUX_PREFIX": "lgp",
-        "STATIC_ASSETS": "http://lawnandgardenprofessionals.com-images.s3-website-us-east-1.amazonaws.com",
+        "STATIC_ASSETS": "http://media.lawnandgardenprofessionals.com",
+        "GOOGLE_MAPS_APIKEY": "AIzaSyCOv_mVJglArDCd_VkFfvVXbZHzZ8zrAqA"
+      }
+    },
+    "build-dev": {
+      "command": "webpack -p",
+      "env": {
+        "AUDIENCE": "57256bc9178c951f54d87303",
+        "API_ENDPOINT": "http://api.leadgrabr.com/api/v1",
+        "NODE_ENV": "development",
+        "DEVELOPMENT": true,
+        "DEVTOOLS": true,
+        "REDUX_PREFIX": "lgp",
+        "STATIC_ASSETS": "http://media.lawnandgardenprofessionals.com",
+        "GOOGLE_MAPS_APIKEY": "AIzaSyCOv_mVJglArDCd_VkFfvVXbZHzZ8zrAqA"
+      }
+    },
+    "build-qa": {
+      "command": "webpack -p",
+      "env": {
+        "AUDIENCE": "57256bc9178c951f54d87303",
+        "API_ENDPOINT": "http://api.leadgrabr.com/api/v1",
+        "NODE_ENV": "production",
+        "DEVELOPMENT": false,
+        "DEVTOOLS": false,
+        "REDUX_PREFIX": "lgp",
+        "STATIC_ASSETS": "http://media.lawnandgardenprofessionals.com",
         "GOOGLE_MAPS_APIKEY": "AIzaSyCOv_mVJglArDCd_VkFfvVXbZHzZ8zrAqA"
       }
     },
@@ -103,10 +132,11 @@
       "env": {
         "AUDIENCE": "57256bc9178c951f54d87303",
         "API_ENDPOINT": "http://api.leadgrabr.com/api/v1",
-        "BABEL_ENV": "production",
         "NODE_ENV": "production",
+        "DEVELOPMENT": false,
+        "DEVTOOLS": false,
         "REDUX_PREFIX": "lgp",
-        "STATIC_ASSETS": "http://lawnandgardenprofessionals.com-images.s3-website-us-east-1.amazonaws.com",
+        "STATIC_ASSETS": "http://media.lawnandgardenprofessionals.com",
         "GOOGLE_MAPS_APIKEY": "AIzaSyCOv_mVJglArDCd_VkFfvVXbZHzZ8zrAqA"
       }
     }
