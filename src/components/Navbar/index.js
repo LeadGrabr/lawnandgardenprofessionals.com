@@ -1,13 +1,14 @@
 import { default as React, Component, PropTypes } from 'react'
 import { Base, Button, Drawer, Toolbar, ButtonCircle } from '@bentatum/rebass'
 import { Flex, Box } from 'reflexbox'
-import { default as Close } from 'react-icons/lib/md/close'
-import { default as Hamburger } from 'react-icons/lib/md/menu'
+import { default as CloseIcon } from 'react-icons/lib/md/close'
+import { default as HamburgerIcon } from 'react-icons/lib/md/menu'
 import { connect } from 'react-redux'
 import { Block, Container, PrimaryNav } from 'components'
 import { setDrawer } from 'redux/modules/navbar'
-import { IndexLink } from 'react-router'
+import { IndexLink, Link } from 'react-router'
 import { default as styles } from './style.scss'
+import { default as Badges } from './Badges'
 
 export const logoWidth = 257
 
@@ -35,6 +36,7 @@ export default class Navbar extends Component {
     const { drawer, screenSize, setDrawer, width } = this.props
     const { colors: { lightGray, primary, white } } = this.context
     const { STATIC_ASSETS } = process.env
+    const isMobile = screenSize === 'medium' || screenSize === 'small'
     return (
       <Toolbar style={{ overflow: 'hidden' }}>
         <div style={{ width: '100%' }}>
@@ -84,13 +86,22 @@ export default class Navbar extends Component {
                     }}
                   />
                 </Box>
-                <Box flex align='center' justify='flex-end'>
-                  <Hamburger onClick={() => setDrawer(true)} />
+                <Box col={8}>
+                  <Flex style={{ height: '100%' }} align='center' justify='flex-end'>
+                    <Choose>
+                      <When condition={isMobile}>
+                        <HamburgerIcon onClick={() => setDrawer(true)} />
+                      </When>
+                      <Otherwise>
+                        <Badges />
+                      </Otherwise>
+                    </Choose>
+                  </Flex>
                 </Box>
               </Flex>
             </Container>
           </div>
-          <If condition={screenSize !== 'small' && screenSize !== 'medium'}>
+          <If condition={!isMobile}>
             <Base
               backgroundColor='white'
               py={1}
@@ -110,7 +121,18 @@ export default class Navbar extends Component {
                   <PrimaryNav />
                 </Box>
                 <Box auto>
-                  <Button theme='default' style={{ width: '100%', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
+                  <Button
+                    backgroundColor='primary'
+                    color='white'
+                    is={Link}
+                    to='/instant-quote'
+                    style={{
+                      width: '100%',
+                      textAlign: 'center',
+                      textTransform: 'uppercase',
+                      whiteSpace: 'nowrap'
+                    }}
+                  >
                     Instant quote
                   </Button>
                 </Box>
@@ -135,9 +157,10 @@ export default class Navbar extends Component {
               top: 0
             }}
           >
-            <Close />
+            <CloseIcon />
           </ButtonCircle>
-          <PrimaryNav column />
+          <Badges p={3} wrap justify='flex-start' />
+          <PrimaryNav column px={3} />
         </Drawer>
       </Toolbar>
     )

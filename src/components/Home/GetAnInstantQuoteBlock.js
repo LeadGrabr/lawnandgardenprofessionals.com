@@ -58,7 +58,7 @@ export default class GetAnInstantQuoteBlock extends Component {
                 borderStyle: 'solid',
                 borderColor: `transparent ${darkGray} transparent transparent`,
                 borderTopWidth: 0,
-                borderRightWidth: 40,
+                borderRightWidth: isMobile ? 60 : 40,
                 borderBottomWidth: 100,
                 borderLeftWidth: 0,
                 position: 'absolute',

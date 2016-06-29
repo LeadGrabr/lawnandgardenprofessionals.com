@@ -3,7 +3,7 @@ import { Block } from 'components'
 import { Heading, Text } from '@bentatum/rebass'
 
 const ContactInfoBlock = (props) =>
-  <Block border {...props}>
+  <Block border borderColor='lightGray' px={2} {...props}>
     <Heading level={5} style={{ textTransform: 'uppercase' }} mb={2}>
       Contact Info
     </Heading>

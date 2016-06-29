@@ -1,6 +1,6 @@
 import { default as React, Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { Block, ContactInfoBlock, Container, PageHeader, StickyNote } from 'components'
+import { Block, ContactInfoBlock, Container, PageHeader, SecondaryNav, StickyNote } from 'components'
 import { Link } from 'react-router'
 import { default as styles } from './style.scss'
 import { GoogleMapLoader, GoogleMap, Marker } from 'react-google-maps'
@@ -74,7 +74,8 @@ export default class ContactUs extends Component {
                     )}
                   </dl>
                 </StickyNote>
-                <ContactInfoBlock px={2} borderColor='lightGray' />
+                <SecondaryNav />
+                <ContactInfoBlock px={2} border borderColor='lightGray' />
               </Box>
             </Flex>
           </Container>

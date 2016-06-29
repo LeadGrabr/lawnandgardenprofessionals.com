@@ -6,7 +6,7 @@ import { Heading } from '@bentatum/rebass'
 const IconHeadingBlock = ({ border, children, heading, icon, ...props }, { colors: { primary } }) =>
   <div style={{ marginBottom: -20 }} {...props}>
     <Flex align='center'>
-      <Circle>
+      <Circle mr={2}>
         {createElement(icon, {
           size: 20,
           style: { color: primary }

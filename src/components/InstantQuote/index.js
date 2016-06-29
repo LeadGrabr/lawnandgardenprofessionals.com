@@ -1,5 +1,5 @@
 import { default as React, Component, PropTypes } from 'react'
-import { Block, Container, IconHeadingBlock, PageHeader, LeadForm } from 'components'
+import { Block, Container, IconHeadingBlock, PageHeader, LeadForm, SecondaryNav } from 'components'
 import { Link } from 'react-router'
 import { default as styles } from './style.scss'
 import { Base, Heading, Text } from '@bentatum/rebass'
@@ -44,28 +44,31 @@ export default class InstantQuote extends Component {
                 <LeadForm column />
               </Box>
               <Box col={isMobile ? 12 : 4} pb={isMobile ? 2 : 0}>
-                <Heading level={3} my={2}>
-                  How it works
-                </Heading>
                 <Base mb={2}>
-                  <IconHeadingBlock
-                    heading='Submit Your Requirement'
-                    icon={PaperPlaneIcon}
-                  />
-                  <IconHeadingBlock
-                    heading='We Prepare an Estimate'
-                    icon={CalculatorIcon}
-                  />
-                  <IconHeadingBlock
-                    heading='You Get a Call From Us'
-                    icon={PhoneIcon}
-                  />
-                  <IconHeadingBlock
-                    border={false}
-                    heading='Our Team Visits You On Site'
-                    icon={MapMarkerIcon}
-                  />
+                  <Heading level={3} my={2}>
+                    How it works
+                  </Heading>
+                  <div>
+                    <IconHeadingBlock
+                      heading='Submit Your Requirement'
+                      icon={PaperPlaneIcon}
+                    />
+                    <IconHeadingBlock
+                      heading='We Prepare an Estimate'
+                      icon={CalculatorIcon}
+                    />
+                    <IconHeadingBlock
+                      heading='You Get a Call From Us'
+                      icon={PhoneIcon}
+                    />
+                    <IconHeadingBlock
+                      border={false}
+                      heading='Our Team Visits You On Site'
+                      icon={MapMarkerIcon}
+                    />
+                  </div>
                 </Base>
+                <SecondaryNav />
               </Box>
             </Flex>
           </Container>

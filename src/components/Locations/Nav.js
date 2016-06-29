@@ -1,10 +1,11 @@
 import { default as React } from 'react'
 import { Menu, NavItem } from '@bentatum/rebass'
 import { Link } from 'react-router'
+import { default as style } from './style.scss'
 
 const LocationsNav = () =>
   <Menu>
-    <NavItem is={Link} to='/locations'>
+    <NavItem is={Link} to='/locations' activeClassName={style.activeNavItem}>
       Locations
     </NavItem>
     <NavItem is={Link} to='/instant-quote'>

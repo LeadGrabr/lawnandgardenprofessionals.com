@@ -1,14 +1,13 @@
 import { default as React, Component, PropTypes } from 'react'
 import { find } from 'lodash'
 import { locations } from 'data'
-import { Block, ContactInfoBlock, Container, PageHeader } from 'components'
+import { Block, ContactInfoBlock, Container, PageHeader, SecondaryNav } from 'components'
 import { default as Error404 } from './404'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { default as styles } from './style.scss'
 import { Base } from '@bentatum/rebass'
 import { GoogleMapLoader, GoogleMap, Marker } from 'react-google-maps'
-import { default as Nav } from './Nav'
 import { Flex, Box } from 'reflexbox'
 
 @connect(({ app: { screenSize } }) => ({ screenSize }))
@@ -56,7 +55,7 @@ export default class ServicePage extends Component {
                 />
               </Box>
               <Box col={4}>
-                <Nav />
+                <SecondaryNav />
                 <ContactInfoBlock />
               </Box>
             </Flex>

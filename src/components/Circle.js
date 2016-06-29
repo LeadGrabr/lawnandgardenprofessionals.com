@@ -1,14 +1,13 @@
 import { default as React, PropTypes } from 'react'
 import { Base } from '@bentatum/rebass'
 
-const Circle = (props, { colors: { lightGray, white } }) =>
+const Circle = ({ borderColor, ...props }, { colors: { lightGray, white } }) =>
   <Base
     circle
-    mr={2}
     p={1}
     style={{
       backgroundColor: white,
-      borderColor: lightGray,
+      borderColor: borderColor || lightGray,
       borderStyle: 'solid',
       borderWidth: 1,
       display: 'inline-block'
@@ -18,6 +17,10 @@ const Circle = (props, { colors: { lightGray, white } }) =>
 
 Circle.contextTypes = {
   colors: PropTypes.object.isRequired
+}
+
+Circle.propTypes = {
+  borderColor: PropTypes.string
 }
 
 export default Circle

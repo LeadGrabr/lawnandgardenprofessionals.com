@@ -9,6 +9,7 @@ import { Link } from 'react-router'
 import { connect } from 'react-redux'
 import { default as TestimonialCarousel } from './TestimonialCarousel'
 import { Block, Container } from 'components'
+const { STATIC_ASSETS } = process.env
 
 @connect(({ app: { screenSize } }) => ({ screenSize }))
 
@@ -43,8 +44,12 @@ export default class BottomBar extends Component {
         color: gray
       }
     }
-    const { STATIC_ASSETS } = process.env
     const isMobile = screenSize === 'small' || screenSize === 'medium'
+    const boxProps = {
+      col: isMobile ? 12 : 4,
+      mb: 3,
+      px: isMobile ? 0 : 2
+    }
     return (
       <div>
         <Block
@@ -60,7 +65,7 @@ export default class BottomBar extends Component {
             style={{ width: '100%' }}
             wrap
           >
-            <Box col={isMobile ? 12 : 6} mb={3} pr={isMobile ? 0 : 2}>
+            <Box {...boxProps} pl={0}>
               <Flex align='center' mb={3}>
                 <InfoIcon style={{ color: primary }} />
                 <Space />
@@ -76,7 +81,7 @@ export default class BottomBar extends Component {
                 The leading local landscaping and lawn care service in the Ann Arbor, Washtenaw, Canton, and Ypsilanti areas.
               </Text>
             </Box>
-            <Box col={isMobile ? 12 : 6} mb={3}>
+            <Box {...boxProps}>
               <Flex align='center' mb={2}>
                 <HamburgerIcon style={{ color: primary }} />
                 <Space />
@@ -91,23 +96,23 @@ export default class BottomBar extends Component {
                 }}
               >
                 <li style={listItemStyle}>
-                  <Link to='instant-quote'>
+                  <Link to='/instant-quote'>
                     <CaretRightIcon {...caretProps} /> Get an Instant Quote
                   </Link>
                 </li>
                 <li style={listItemStyle}>
-                  <Link to='services'>
+                  <Link to='/services'>
                     <CaretRightIcon {...caretProps} /> All Services
                   </Link>
                 </li>
                 <li style={listItemStyle}>
-                  <Link to='faqs'>
+                  <Link to='/faqs'>
                     <CaretRightIcon {...caretProps} /> FAQs
                   </Link>
                 </li>
               </ul>
             </Box>
-            <Box auto style={{ maxWidth: '100%' }}>
+            <Box {...boxProps} pr={0} style={{ maxWidth: '100%' }}>
               <Flex align='center' mb={2}>
                 <CommentIcon style={{ color: primary }} />
                 <Space />

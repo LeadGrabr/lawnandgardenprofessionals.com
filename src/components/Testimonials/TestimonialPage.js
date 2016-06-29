@@ -17,17 +17,6 @@ export default class TestimonialPage extends Component {
     screenSize: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge'])
   };
 
-  // galleryColumns () {
-  //   const { screenSize } = this.props
-  //   if (screenSize === 'large') {
-  //     return 6
-  //   }
-  //   if (screenSize === 'medium') {
-  //     return 6
-  //   }
-  //   return 12
-  // }
-
   render () {
     const testimonial = find(testimonials, { path: `testimonials/${this.props.params.testimonial}` })
     if (!testimonial) {

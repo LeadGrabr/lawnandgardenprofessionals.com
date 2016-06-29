@@ -17,7 +17,7 @@ export default class AllServicesPage extends Component {
 
   render () {
     const { screenSize } = this.props
-    const isSmallOrMedium = screenSize === 'small' || screenSize === 'medium'
+    const isMobile = screenSize === 'small' || screenSize === 'medium'
     return (
       <div>
         <PageHeader
@@ -29,10 +29,10 @@ export default class AllServicesPage extends Component {
         />
         <Block backgroundColor='white'>
           <Flex is={Container} wrap>
-            <Box col={isSmallOrMedium ? 12 : 8} pr={isSmallOrMedium ? 0 : 2}>
+            <Box col={isMobile ? 12 : 8} pr={isMobile ? 0 : 2}>
               <ServiceList />
             </Box>
-            <Box col={isSmallOrMedium ? 12 : 4}>
+            <Box col={isMobile ? 12 : 4}>
               <Nav />
               <ContactUsBlock />
             </Box>

@@ -38,7 +38,7 @@ export default class Home extends Component {
               pr={isMobile ? 0 : 1}
               mb={isMobile ? 2 : 0}
             >
-              <Heading size={1} level={2} mt={isMobile ? 1 : 0} mb={1}>
+              <Heading size={1} level={2} mb={1}>
                 Lawn and Garden Professionals
               </Heading>
               <Text mb={2}>

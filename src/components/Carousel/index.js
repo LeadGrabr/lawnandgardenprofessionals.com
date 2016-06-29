@@ -15,7 +15,7 @@ const arrowStyle = {
 const Carousel = (props, { colors: { black, white } }) => {
   const arrowProps = {
     color: black,
-    size: 20
+    size: 0
   }
   const arrowIconProps = {
     size: 13,
@@ -34,25 +34,6 @@ const Carousel = (props, { colors: { black, white } }) => {
       <Slides>
         <Slide
           heading={{
-            children: <span>Making your surroundings<br />beautiful for 40 years</span>
-          }}
-          cta={{
-            children: (
-              <Flex align='center'>
-                Lets get started
-                <Space />
-                <ArrowIcon {...arrowIconProps} />
-              </Flex>
-            ),
-            to: '/services',
-            style: { textTransform: 'uppercase' }
-          }}
-          style={{
-            backgroundImage: `url(${STATIC_ASSETS}/lawn-1.jpg)`
-          }}
-        />
-        <Slide
-          heading={{
             children: <span>Professional Gardening, Landscaping<br />& Maintenance Services</span>
           }}
           cta={{
@@ -68,6 +49,25 @@ const Carousel = (props, { colors: { black, white } }) => {
           }}
           style={{
             backgroundImage: `url(${STATIC_ASSETS}/lawn-2.jpg)`
+          }}
+        />
+        <Slide
+          heading={{
+            children: <span>Making your surroundings<br />beautiful for 40 years</span>
+          }}
+          cta={{
+            children: (
+              <Flex align='center'>
+                Lets get started
+                <Space />
+                <ArrowIcon {...arrowIconProps} />
+              </Flex>
+            ),
+            to: '/services',
+            style: { textTransform: 'uppercase' }
+          }}
+          style={{
+            backgroundImage: `url(${STATIC_ASSETS}/lawn-1.jpg)`
           }}
         />
       </Slides>

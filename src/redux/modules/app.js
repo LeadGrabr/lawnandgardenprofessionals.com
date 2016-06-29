@@ -2,17 +2,14 @@ import ApiClient from '../../apiClient'
 import { AWAIT_MARKER } from 'redux-await'
 import { breakpoints } from 'components/Theme'
 const SCREEN_DIMENSIONS = `${process.env.REDUX_PREFIX}/SCREEN_DIMENSIONS_CHANGE`
-const SUBMIT_LEAD = `${process.env.REDUX_PREFIX}/SUBMIT_LEAD`
+export const SUBMIT_LEAD = `${process.env.REDUX_PREFIX}/SUBMIT_LEAD`
 const client = new ApiClient()
 import { getScreenSize } from 'small-medium-large-xlarge'
 
 const intitialState = {
   height: 0,
   width: 0,
-  screenSize: 'small',
-  isLargeScreen: false,
-  isMediumScreen: false,
-  isSmallScreen: true
+  screenSize: 'small'
 }
 
 export function setScreenSize ({ height, width }) {

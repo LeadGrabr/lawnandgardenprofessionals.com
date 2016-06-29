@@ -4,11 +4,14 @@ import { default as Joi } from 'joi'
 import { Flex, Box } from 'reflexbox'
 import { Button } from '@bentatum/rebass'
 import { services } from 'data'
-import { createLead } from 'redux/modules/app'
+import { createLead, SUBMIT_LEAD } from 'redux/modules/app'
 import { default as styles } from './style.scss'
 import { connect } from 'react-redux'
+import { ThreeBounce } from 'better-react-spinkit'
+import { default as SuccessIcon } from 'react-icons/lib/fa/check-square-o'
+import { default as equal } from 'deep-equal'
 
-@connect(() => ({}), { submit: createLead })
+@connect(({ await: { statuses } }) => ({ status: statuses[SUBMIT_LEAD] }), { submit: createLead })
 
 export default class LeadForm extends Component {
 
@@ -17,7 +20,22 @@ export default class LeadForm extends Component {
     submit: PropTypes.func.isRequired
   };
 
-  state = {}
+  static contextTypes = {
+    colors: PropTypes.object.isRequired
+  };
+
+  state = {
+    formValues: {},
+    submittedValues: {}
+  }
+
+  componentDidUpdate (nextProps, { submittedValues }) {
+    if (!equal(submittedValues, this.state.submittedValues)) {
+      this.setState({
+        formValues: {}
+      })
+    }
+  }
 
   handleSubmit (error) {
     if (error) {
@@ -34,7 +52,8 @@ export default class LeadForm extends Component {
   }
 
   render () {
-    const { column } = this.props
+    const { colors: { white } } = this.context
+    const { column, status } = this.props
     const boxProps = {
       mb: column ? 1 : 0,
       pr: column ? 0 : 2,
@@ -42,8 +61,13 @@ export default class LeadForm extends Component {
         width: column ? '100%' : '25%'
       }
     }
+    const inputProps = {
+      disabled: status === 'pending',
+      m: 0
+    }
     return (
       <JoifulForm
+        method='post'
         className={styles.form}
         onChange={(e, formValues) => this.setState({ formValues })}
         onSubmit={::this.handleSubmit}
@@ -69,7 +93,7 @@ export default class LeadForm extends Component {
               hideLabel
               name='name'
               placeholder='Name'
-              m={0}
+              {...inputProps}
             />
           </Box>
           <Box {...boxProps}>
@@ -77,7 +101,7 @@ export default class LeadForm extends Component {
               hideLabel
               name='email'
               placeholder='Email'
-              m={0}
+              {...inputProps}
             />
           </Box>
           <Box {...boxProps}>
@@ -85,24 +109,34 @@ export default class LeadForm extends Component {
               hideLabel
               name='phone'
               placeholder='Phone'
-              m={0}
+              {...inputProps}
             />
           </Box>
           <Box {...boxProps}>
             <JoifulInput
               is='select'
               hideLabel
-              m={0}
               name='service'
               options={[
                 { children: 'Service' },
                 ...services.map(({ title }) => ({ children: title, value: title }))
               ]}
+              {...inputProps}
             />
           </Box>
           <Box {...boxProps} mb={0} pr={0}>
-            <Button style={{ width: '100%' }}>
-              SUBMIT
+            <Button style={{ width: '100%' }} disabled={status === 'pending'}>
+              <Choose>
+                <When condition={status === 'pending'}>
+                  <ThreeBounce color={white} size={10} />
+                </When>
+                <When condition={status === 'success'}>
+                  Sent <SuccessIcon style={{ color: white }} />
+                </When>
+                <Otherwise>
+                  Submit
+                </Otherwise>
+              </Choose>
             </Button>
           </Box>
         </Flex>

@@ -2,8 +2,11 @@ import { default as React, PropTypes } from 'react'
 import { Arrow, Avatar, Base, Text } from '@bentatum/rebass'
 import { Flex, Box } from 'reflexbox'
 import { default as QuoteIcon } from 'react-icons/lib/fa/quote-left'
+import { default as TextTruncate } from 'react-text-truncate'
+import { Link } from 'react-router'
+const { STATIC_ASSETS } = process.env
 
-const Testimonial = ({ author, img, location, text }, { colors: { primary, white } }) =>
+const Testimonial = ({ author, img, location, path, text }, { colors: { primary, white } }) =>
   <Base py={2}>
     <Flex
       pb={2}
@@ -17,7 +20,7 @@ const Testimonial = ({ author, img, location, text }, { colors: { primary, white
       <Box mr={1}>
         <QuoteIcon style={{ color: primary }} size={30} />
       </Box>
-      <Text mt={0} children={text} />
+      <Text is={TextTruncate} truncateText='…' mt={0} text={text} line={3} />
       <Arrow
         direction='down'
         style={{
@@ -32,10 +35,10 @@ const Testimonial = ({ author, img, location, text }, { colors: { primary, white
         circle
         mr={2}
         size={50}
-        src={`${process.env.STATIC_ASSETS}${img}`}
+        src={`${STATIC_ASSETS}/${img}`}
       />
       <Box>
-        <Text color='white' bold mb={0} children={author} />
+        <Text is={Link} to={path} color='white' bold mb={0} children={author} />
         <Text
           color='primary'
           bold

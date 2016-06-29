@@ -16,7 +16,7 @@ export default class Block extends Component {
       case 'large':
         return 3
       default:
-        return 1
+        return 2
     }
   }
 

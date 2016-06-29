@@ -1,58 +1,45 @@
-import { default as React } from 'react'
+import { default as React, Component } from 'react'
 import { faqs } from 'data'
-import { Heading, Menu, NavItem, Text } from '@bentatum/rebass'
-import { Block, Container, PageHeader } from 'components'
+import { Heading, Text } from '@bentatum/rebass'
+import { Block, Container, PageHeader, SecondaryNav } from 'components'
 import { Link } from 'react-router'
 import { default as styles } from './style.scss'
+import { Flex, Box } from 'reflexbox'
+import { connect } from 'react-redux'
 
-const FAQs = () => {
-  const sharedNavItemProps = {
-    activeClassName: styles.activeNavItem,
-    is: Link
+@connect(({ app: { screenSize } }) => ({ screenSize }))
+
+export default class FAQs extends Component {
+  render () {
+    const { screenSize } = this.props
+    const isMobile = screenSize === 'medium' || screenSize === 'small'
+    return (
+      <div>
+        <PageHeader
+          heading='Frequently Asked Questions'
+          breadcrumbs={[
+            { children: 'Home', is: Link, to: '/' },
+            { children: 'FAQs', is: Link, to: '/faqs', activeClassName: styles.activeNavItem }
+          ]}
+        />
+        <Block backgroundColor='white'>
+          <Container>
+            <Flex>
+              <Box col={isMobile ? 12 : 8} pr={isMobile ? 0 : 1}>
+                {faqs.map(({ question, answer }, key) =>
+                  <div key={key}>
+                    <Heading pb={2} level={3} children={question} />
+                    <Text pb={2} children={answer} />
+                  </div>
+                )}
+              </Box>
+              <Box col={isMobile ? 12 : 4}>
+                <SecondaryNav />
+              </Box>
+            </Flex>
+          </Container>
+        </Block>
+      </div>
+    )
   }
-  return (
-    <div>
-      <PageHeader
-        heading='Frequently Asked Questions'
-        breadcrumbs={[
-          { children: 'Home', is: Link, to: '/' },
-          { children: 'FAQs', is: Link, to: '/faqs', activeClassName: styles.activeNavItem }
-        ]}
-      />
-      <Block backgroundColor='white'>
-        <Container>
-          {faqs.map(({ question, answer }, key) =>
-            <div key={key}>
-              <Heading pb={2} level={3} children={question} />
-              <Text pb={2} children={answer} />
-            </div>
-          )}
-          <Menu>
-            <NavItem
-              {...sharedNavItemProps}
-              to='/about'
-              children='About us'
-            />
-            <NavItem
-              {...sharedNavItemProps}
-              to='/instant-quote'
-              children='Get an instant quote'
-            />
-            <NavItem
-              {...sharedNavItemProps}
-              to='/faqs'
-              children='Frequently asked questions'
-            />
-            <NavItem
-              {...sharedNavItemProps}
-              to='/contact'
-              children='Contact us'
-            />
-          </Menu>
-        </Container>
-      </Block>
-    </div>
-  )
 }
-
-export default FAQs
