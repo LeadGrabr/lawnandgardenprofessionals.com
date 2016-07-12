@@ -4,7 +4,7 @@ import { Heading, Text } from 'rebass'
 import { Block, Container, PageHeader, SecondaryNav } from 'components'
 import { Link } from 'react-router'
 import { default as styles } from './style.scss'
-import { Flex, Box } from 'reflexbox'
+import { Flex, Box } from 'prefixed-reflexbox'
 import { connect } from 'react-redux'
 
 @connect(({ app: { screenSize } }) => ({ screenSize }))

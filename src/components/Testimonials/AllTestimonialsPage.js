@@ -1,6 +1,6 @@
 import { default as React, Component, PropTypes } from 'react'
 import { Block, ContactInfoBlock, Container, PageHeader, SecondaryNav } from 'components'
-import { Flex, Box } from 'reflexbox'
+import { Flex, Box } from 'prefixed-reflexbox'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { default as styles } from './style.scss'

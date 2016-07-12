@@ -7,7 +7,7 @@ import { default as PaperPlaneIcon } from 'react-icons/lib/fa/paper-plane'
 import { default as CalculatorIcon } from 'react-icons/lib/fa/calculator'
 import { default as PhoneIcon } from 'react-icons/lib/fa/phone'
 import { default as MapMarkerIcon } from 'react-icons/lib/fa/map-marker'
-import { Flex, Box } from 'reflexbox'
+import { Flex, Box } from 'prefixed-reflexbox'
 import { connect } from 'react-redux'
 import { default as BraggingRights } from './BraggingRights'
 

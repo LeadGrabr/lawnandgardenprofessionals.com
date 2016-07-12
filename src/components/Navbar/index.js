@@ -1,6 +1,6 @@
 import { default as React, Component, PropTypes } from 'react'
 import { Base, Button, Drawer, Toolbar, ButtonCircle } from 'rebass'
-import { Flex, Box } from 'reflexbox'
+import { Flex, Box } from 'prefixed-reflexbox'
 import { default as CloseIcon } from 'react-icons/lib/md/close'
 import { default as HamburgerIcon } from 'react-icons/lib/md/menu'
 import { connect } from 'react-redux'

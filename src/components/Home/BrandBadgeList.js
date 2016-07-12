@@ -1,5 +1,5 @@
 import { default as React, Component, PropTypes } from 'react'
-import { Flex, Box } from 'reflexbox'
+import { Flex, Box } from 'prefixed-reflexbox'
 import { BrandBadge } from 'components'
 import { default as TrophyIcon } from 'react-icons/lib/fa/trophy'
 import { default as ArrowUpIcon } from 'react-icons/lib/fa/arrow-up'

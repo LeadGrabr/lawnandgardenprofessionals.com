@@ -1,5 +1,5 @@
 import { default as React, createElement, PropTypes } from 'react'
-import { Flex } from 'reflexbox'
+import { Flex } from 'prefixed-reflexbox'
 import { Block, Circle } from 'components'
 import { Heading } from 'rebass'
 

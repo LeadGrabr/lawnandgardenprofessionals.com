@@ -8,7 +8,7 @@ import { Link } from 'react-router'
 import { default as styles } from './style.scss'
 import { Base } from 'rebass'
 import { GoogleMapLoader, GoogleMap, Marker } from 'react-google-maps'
-import { Flex, Box } from 'reflexbox'
+import { Flex, Box } from 'prefixed-reflexbox'
 
 @connect(({ app: { screenSize } }) => ({ screenSize }))
 

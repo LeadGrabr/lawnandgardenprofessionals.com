@@ -34,6 +34,7 @@
     "lodash": "^4.13.1",
     "markdown-loader": "^0.1.7",
     "node-sass": "^3.5.3",
+    "prefixed-reflexbox": "^1.1.5",
     "react": "^15.0.1",
     "react-addons-update": "^15.0.1",
     "react-collapse": "^2.2.4",

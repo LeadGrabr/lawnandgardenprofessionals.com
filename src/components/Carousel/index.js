@@ -1,6 +1,6 @@
 import { default as React, PropTypes } from 'react'
 import { Slider, PrevArrow, Slides, NextArrow } from 'better-react-flex-slick'
-import { Flex } from 'reflexbox'
+import { Flex } from 'prefixed-reflexbox'
 import { default as Slide } from './Slide'
 import { default as ArrowIcon } from 'react-icons/lib/fa/arrow-circle-right'
 import { Space } from 'rebass'

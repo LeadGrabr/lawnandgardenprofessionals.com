@@ -1,7 +1,7 @@
 import { default as React, Component, PropTypes } from 'react'
 import { JoifulForm, JoifulInput } from 'joiful-react-forms'
 import { default as Joi } from 'joi'
-import { Flex, Box } from 'reflexbox'
+import { Flex, Box } from 'prefixed-reflexbox'
 import { Button } from 'rebass'
 import { createLead, SUBMIT_LEAD } from 'redux/modules/app'
 import { default as styles } from './style.scss'

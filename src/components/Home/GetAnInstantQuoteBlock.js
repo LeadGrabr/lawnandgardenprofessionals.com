@@ -1,6 +1,6 @@
 import { default as React, Component, PropTypes } from 'react'
 import { Container, LeadForm } from 'components'
-import { Flex, Box } from 'reflexbox'
+import { Flex, Box } from 'prefixed-reflexbox'
 import { default as InfoIcon } from 'react-icons/lib/md/info'
 import { Base, Heading } from 'rebass'
 import { connect } from 'react-redux'

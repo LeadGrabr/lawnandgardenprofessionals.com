@@ -1,7 +1,7 @@
 import { default as React, Component, PropTypes } from 'react'
 import { default as Service } from './Service'
 import { connect } from 'react-redux'
-import { Flex, Box } from 'reflexbox'
+import { Flex, Box } from 'prefixed-reflexbox'
 import { services } from 'data'
 
 @connect(({ app: { screenSize } }) => ({ screenSize }))
