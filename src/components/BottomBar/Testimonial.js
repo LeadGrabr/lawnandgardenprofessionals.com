@@ -6,7 +6,7 @@ import { default as TextTruncate } from 'react-text-truncate'
 import { Link } from 'react-router'
 const { STATIC_ASSETS } = process.env
 
-const Testimonial = ({ author, img, location, path, text }, { colors: { primary, white } }) =>
+const Testimonial = ({ author, location, path, text, thumbnail }, { colors: { primary, white } }) =>
   <Base py={2}>
     <Flex
       pb={2}
@@ -35,7 +35,7 @@ const Testimonial = ({ author, img, location, path, text }, { colors: { primary,
         circle
         mr={2}
         size={50}
-        src={`${STATIC_ASSETS}/${img}`}
+        src={`${STATIC_ASSETS}/${thumbnail}`}
       />
       <Box>
         <Text is={Link} to={path} color='white' bold mb={0} children={author} />
@@ -52,7 +52,11 @@ const Testimonial = ({ author, img, location, path, text }, { colors: { primary,
   </Base>
 
 Testimonial.propTypes = {
-  author: PropTypes.string.isRequired
+  author: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  thumbnail: PropTypes.string.isRequired
 }
 
 Testimonial.contextTypes = {
