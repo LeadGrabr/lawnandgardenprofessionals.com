@@ -42,7 +42,14 @@ export default class TestimonialPage extends Component {
           <Container>
             <Flex wrap>
               <Box col={isMobile ? 12 : 8} pr={isMobile ? 0 : 2}>
-                <Base is='img' src={`${STATIC_ASSETS}/${img}`} alt={author} style={{ float: 'left' }} mr={2} mb={1} />
+                <Base
+                  is='img'
+                  src={`${STATIC_ASSETS}/${img}`}
+                  alt={author}
+                  style={isMobile ? { width: '100%' } : { float: 'left' }}
+                  mr={2}
+                  mb={1}
+                />
                 <div
                   dangerouslySetInnerHTML={{
                     __html: require(`content/${path}.md`)
@@ -50,7 +57,7 @@ export default class TestimonialPage extends Component {
                 />
                 <Text children={text} />
               </Box>
-              <Box col={isMobile ? 12 : 4}>
+              <Box pt={isMobile ? 2 : 0} col={isMobile ? 12 : 4}>
                 <SecondaryNav />
                 <ContactInfoBlock />
               </Box>
