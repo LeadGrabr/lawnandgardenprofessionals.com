@@ -84,11 +84,11 @@
     "lint": "standard",
     "dev": "better-npm-run start-dev",
     "build-dev": "better-npm-run build-dev",
-    "deploy-dev": "npm run lint && npm run build-dev && aws s3 sync ./dist s3://dev.lawnandgardenprofessionals.com --exclude '.DS_Store' --profile leadgrabr",
+    "deploy-dev": "npm run lint && npm run build-dev && aws s3 sync ./dist s3://dev.lawnandgardenprofessionals.com --exclude '.DS_Store' --profile leadgrabr --cache-control \"max-age=3600\" --expires 2100-01-01T00:00:00Z",
     "build-qa": "better-npm-run build-qa",
-    "deploy-qa": "npm run lint && npm run build-qa && aws s3 sync ./dist s3://qa.lawnandgardenprofessionals.com --exclude '.DS_Store' --profile leadgrabr",
+    "deploy-qa": "npm run lint && npm run build-qa && aws s3 sync ./dist s3://qa.lawnandgardenprofessionals.com --exclude '.DS_Store' --profile leadgrabr --cache-control \"max-age=3600\" --expires 2100-01-01T00:00:00Z",
     "build-prod": "better-npm-run build-prod",
-    "deploy-prod": "npm run lint && npm run build-prod && aws s3 sync ./dist s3://lawnandgardenprofessionals.com --exclude '.DS_Store' --profile leadgrabr"
+    "deploy-prod": "npm run lint && npm run build-prod && aws s3 sync ./dist s3://lawnandgardenprofessionals.com --exclude '.DS_Store' --profile leadgrabr --cache-control \"max-age=3600\" --expires 2100-01-01T00:00:00Z"
   },
   "betterScripts": {
     "start-dev": {
