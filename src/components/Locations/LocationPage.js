@@ -9,6 +9,7 @@ import { default as styles } from './style.scss'
 import { Base } from 'prefixed-rebass'
 import { GoogleMapLoader, GoogleMap, Marker } from 'react-google-maps'
 import { Flex, Box } from 'prefixed-reflexbox'
+const { STATIC_ASSETS } = process.env
 
 @connect(({ app: { screenSize } }) => ({ screenSize }))
 
@@ -19,13 +20,13 @@ export default class ServicePage extends Component {
   };
 
   render () {
-    const { params } = this.props
+    const { params, screenSize } = this.props
     const location = find(locations, { path: `locations/${params.location}` })
     if (!location) {
       return <Error404 />
     }
     const { coordinates, header, img, path, title } = location
-    const { STATIC_ASSETS } = process.env
+    const isMobile = screenSize === 'small' || screenSize === 'medium'
     return (
       <div>
         <PageHeader
@@ -38,8 +39,8 @@ export default class ServicePage extends Component {
         />
         <Block backgroundColor='white'>
           <Container>
-            <Flex>
-              <Box col={8} pr={2}>
+            <Flex wrap>
+              <Box col={isMobile ? 12 : 8} pr={2}>
                 <Base
                   is='img'
                   src={`${STATIC_ASSETS}/${img}`}
@@ -54,7 +55,7 @@ export default class ServicePage extends Component {
                   }}
                 />
               </Box>
-              <Box col={4}>
+              <Box col={isMobile ? 12 : 4}>
                 <SecondaryNav />
                 <ContactInfoBlock />
               </Box>

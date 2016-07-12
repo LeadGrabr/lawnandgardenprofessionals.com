@@ -10,7 +10,6 @@ import { IndexLink, Link } from 'react-router'
 import { default as styles } from './style.scss'
 import { default as Badges } from './Badges'
 const { STATIC_ASSETS } = process.env
-export const logoWidth = 257
 const height = 64
 
 @connect(
@@ -68,7 +67,7 @@ export default class Navbar extends Component {
                       backgroundRepeat: 'no-repeat',
                       backgroundSize: 165,
                       textIndent: -9999,
-                      width: logoWidth
+                      width: '100%'
                     }}
                   >
                     Lawn and Garden Professionals

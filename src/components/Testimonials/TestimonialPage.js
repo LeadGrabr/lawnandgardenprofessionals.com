@@ -46,7 +46,7 @@ export default class TestimonialPage extends Component {
                   is='img'
                   src={`${STATIC_ASSETS}/${img}`}
                   alt={author}
-                  style={isMobile ? { width: '100%' } : { float: 'left' }}
+                  style={screenSize === 'small' ? { width: '100%' } : { float: 'left' }}
                   mr={2}
                   mb={1}
                 />
