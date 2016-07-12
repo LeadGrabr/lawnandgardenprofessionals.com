@@ -1,6 +1,6 @@
 import { default as React } from 'react'
 import { StickyNote } from 'components'
-import { Heading, Button } from 'rebass'
+import { Heading, Button } from 'prefixed-rebass'
 
 const ContactUsBlock = () =>
   <StickyNote backgroundColor='primary'>

@@ -1,5 +1,5 @@
 import { default as React, Component, PropTypes } from 'react'
-import { Base, Heading, Text } from 'rebass'
+import { Base, Heading, Text } from 'prefixed-rebass'
 import { Link } from 'react-router'
 const { STATIC_ASSETS } = process.env
 import { connect } from 'react-redux'

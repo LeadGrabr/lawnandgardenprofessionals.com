@@ -1,5 +1,5 @@
 import { default as React, Component, PropTypes } from 'react'
-import { Base, Button, Drawer, Toolbar, ButtonCircle } from 'rebass'
+import { Base, Button, Drawer, Toolbar, ButtonCircle } from 'prefixed-rebass'
 import { Flex, Box } from 'prefixed-reflexbox'
 import { default as CloseIcon } from 'react-icons/lib/md/close'
 import { default as HamburgerIcon } from 'react-icons/lib/md/menu'
@@ -9,8 +9,9 @@ import { setDrawer } from 'redux/modules/navbar'
 import { IndexLink, Link } from 'react-router'
 import { default as styles } from './style.scss'
 import { default as Badges } from './Badges'
-
+const { STATIC_ASSETS } = process.env
 export const logoWidth = 257
+const height = 64
 
 @connect(
   ({ app: { screenSize, width }, navbar: { drawer } }) => ({
@@ -35,8 +36,8 @@ export default class Navbar extends Component {
   render () {
     const { drawer, screenSize, setDrawer, width } = this.props
     const { colors: { lightGray, primary, white } } = this.context
-    const { STATIC_ASSETS } = process.env
     const isMobile = screenSize === 'medium' || screenSize === 'small'
+    console.log(drawer)
     return (
       <Toolbar style={{ overflow: 'hidden' }}>
         <div style={{ width: '100%' }}>
@@ -52,7 +53,7 @@ export default class Navbar extends Component {
                 className={styles.top}
                 style={{
                   backgroundColor: white,
-                  height: 64,
+                  height,
                   position: 'relative',
                   width: '100%'
                 }}
@@ -87,7 +88,7 @@ export default class Navbar extends Component {
                   />
                 </Box>
                 <Box col={8}>
-                  <Flex style={{ height: '100%' }} align='center' justify='flex-end'>
+                  <Flex style={{ height }} align='center' justify='flex-end'>
                     <Choose>
                       <When condition={isMobile}>
                         <HamburgerIcon onClick={() => setDrawer(true)} />
@@ -145,7 +146,7 @@ export default class Navbar extends Component {
           color='white'
           open={drawer}
           position='right'
-          size={width}
+          size={drawer ? width : 0}
           p={0}
         >
           <ButtonCircle

@@ -3,7 +3,7 @@ import { Slider, PrevArrow, Slides, NextArrow } from 'better-react-flex-slick'
 import { Flex } from 'prefixed-reflexbox'
 import { default as Slide } from './Slide'
 import { default as ArrowIcon } from 'react-icons/lib/fa/arrow-circle-right'
-import { Space } from 'rebass'
+import { Space } from 'prefixed-rebass'
 const { STATIC_ASSETS } = process.env
 
 const arrowStyle = {

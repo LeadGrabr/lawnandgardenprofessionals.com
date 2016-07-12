@@ -38,8 +38,8 @@ export default class BrandBadgeList extends Component {
 
   render () {
     const { screenSize } = this.props
-    const isColumn = screenSize === 'small' || screenSize === 'medium'
-    const padding = isColumn ? 0 : 1
+    const isMobile = screenSize === 'small' || screenSize === 'medium'
+    const padding = isMobile ? 0 : 1
     const boxProps = {
       col: this.boxCols()
     }
@@ -49,7 +49,7 @@ export default class BrandBadgeList extends Component {
       }
     }
     return (
-      <Flex wrap column={isColumn}>
+      <Flex wrap>
         <Box {...boxProps} pr={padding}>
           <BrandBadge
             icon={TrophyIcon}

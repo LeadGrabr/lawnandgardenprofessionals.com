@@ -1,5 +1,5 @@
 import { default as React, PropTypes } from 'react'
-import { Base } from 'rebass'
+import { Base } from 'prefixed-rebass'
 
 const Circle = ({ borderColor, ...props }, { colors: { lightGray, white } }) =>
   <Base

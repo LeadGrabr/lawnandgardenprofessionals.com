@@ -1,7 +1,7 @@
 import { default as React, Component, PropTypes } from 'react'
 import { Block, Carousel, Container, IconHeadingBlock, ServiceListCarousel } from 'components'
 import { Flex, Box } from 'prefixed-reflexbox'
-import { Base, Button, Divider, Heading, Text } from 'rebass'
+import { Base, Button, Divider, Heading, Text } from 'prefixed-rebass'
 import { default as MaleIcon } from 'react-icons/lib/fa/male'
 import { default as lawnGardenImg } from './lawn-and-garden-professionals-of-ann-arbor-michigan@small.jpg'
 import { Parallax } from 'react-parallax'

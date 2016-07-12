@@ -1,6 +1,6 @@
 import { default as React, Component, PropTypes } from 'react'
 import { Block, Container } from 'components'
-import { Heading } from 'rebass'
+import { Heading } from 'prefixed-rebass'
 import { Flex, Box } from 'prefixed-reflexbox'
 import { default as CountUp } from 'react-countup'
 import { connect } from 'react-redux'

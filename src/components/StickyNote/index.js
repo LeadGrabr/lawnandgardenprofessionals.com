@@ -1,5 +1,5 @@
 import { default as React } from 'react'
-import { Base } from 'rebass'
+import { Base } from 'prefixed-rebass'
 import { default as styles } from './style.scss'
 
 const StickyNote = ({ style, ...props }) =>

@@ -164,7 +164,7 @@ export default class Theme extends Component {
               .Input.isInvalid .Text {
                 margin-top: ${scale[1]}px !important;
               }
-            `
+            `.replace(/\n/g, '').replace(/\s\s+/g, ' ')
           }
         </style>
         {this.props.children}

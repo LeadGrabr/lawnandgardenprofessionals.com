@@ -1,6 +1,6 @@
 import { default as React, Component, PropTypes } from 'react'
 import { Flex } from 'prefixed-reflexbox'
-import { Heading, Text } from 'rebass'
+import { Heading, Text } from 'prefixed-rebass'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
 

@@ -1,6 +1,6 @@
 import { default as React } from 'react'
 import { Block } from 'components'
-import { Heading, Text } from 'rebass'
+import { Heading, Text } from 'prefixed-rebass'
 
 const ContactInfoBlock = (props) =>
   <Block border borderColor='lightGray' px={2} {...props}>

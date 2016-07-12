@@ -1,5 +1,5 @@
 import { default as React, PropTypes, Component } from 'react'
-import { Breadcrumbs, Heading } from 'rebass'
+import { Breadcrumbs, Heading } from 'prefixed-rebass'
 import { Flex, Box } from 'prefixed-reflexbox'
 import { connect } from 'react-redux'
 import { Container } from 'components'

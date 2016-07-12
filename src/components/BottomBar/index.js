@@ -1,5 +1,5 @@
 import { default as React, Component, PropTypes } from 'react'
-import { Divider, Heading, Space, Text } from 'rebass'
+import { Divider, Heading, Space, Text } from 'prefixed-rebass'
 import { default as InfoIcon } from 'react-icons/lib/md/info'
 import { Flex, Box } from 'prefixed-reflexbox'
 import { default as HamburgerIcon } from 'react-icons/lib/md/menu'

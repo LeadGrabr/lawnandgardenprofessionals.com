@@ -1,7 +1,7 @@
 import { default as React, createElement, PropTypes } from 'react'
 import { Flex } from 'prefixed-reflexbox'
 import { Block, Circle } from 'components'
-import { Heading } from 'rebass'
+import { Heading } from 'prefixed-rebass'
 
 const IconHeadingBlock = ({ border, children, heading, icon, ...props }, { colors: { primary } }) =>
   <div style={{ marginBottom: -20 }} {...props}>

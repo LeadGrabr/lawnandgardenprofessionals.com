@@ -1,6 +1,6 @@
 import { default as React, Component } from 'react'
 import { faqs } from 'data'
-import { Heading, Text } from 'rebass'
+import { Heading, Text } from 'prefixed-rebass'
 import { Block, Container, PageHeader, SecondaryNav } from 'components'
 import { Link } from 'react-router'
 import { default as styles } from './style.scss'

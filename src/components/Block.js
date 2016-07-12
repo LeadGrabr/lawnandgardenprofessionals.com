@@ -1,6 +1,6 @@
 import { default as React, PropTypes, Component } from 'react'
 import { connect } from 'react-redux'
-import { Block as RebassBlock } from 'rebass'
+import { Block as RebassBlock } from 'prefixed-rebass'
 
 @connect(({ app: { screenSize } }) => ({ screenSize }))
 
