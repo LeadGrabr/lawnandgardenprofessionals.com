@@ -24,7 +24,7 @@ export default class FAQs extends Component {
         />
         <Block backgroundColor='white'>
           <Container>
-            <Flex>
+            <Flex wrap>
               <Box col={isMobile ? 12 : 8} pr={isMobile ? 0 : 1}>
                 {faqs.map(({ question, answer }, key) =>
                   <div key={key}>
