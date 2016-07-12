@@ -40,7 +40,7 @@ export default class TestimonialPage extends Component {
         />
         <Block backgroundColor='white'>
           <Container>
-            <Flex>
+            <Flex wrap>
               <Box col={isMobile ? 12 : 8} pr={isMobile ? 0 : 2}>
                 <Base is='img' src={`${STATIC_ASSETS}/${img}`} alt={author} style={{ float: 'left' }} mr={2} mb={1} />
                 <div
