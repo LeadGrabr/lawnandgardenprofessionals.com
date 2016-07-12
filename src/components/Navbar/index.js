@@ -37,7 +37,6 @@ export default class Navbar extends Component {
     const { drawer, screenSize, setDrawer, width } = this.props
     const { colors: { lightGray, primary, white } } = this.context
     const isMobile = screenSize === 'medium' || screenSize === 'small'
-    console.log(drawer)
     return (
       <Toolbar style={{ overflow: 'hidden' }}>
         <div style={{ width: '100%' }}>
@@ -58,7 +57,7 @@ export default class Navbar extends Component {
                   width: '100%'
                 }}
               >
-                <Box is={IndexLink} to='/' flex style={{ position: 'relative' }}>
+                <Box col={isMobile ? 8 : 4} is={IndexLink} to='/' flex style={{ position: 'relative' }}>
                   <Block
                     backgroundColor='primary'
                     color='white'
@@ -87,7 +86,7 @@ export default class Navbar extends Component {
                     }}
                   />
                 </Box>
-                <Box col={8}>
+                <Box col={isMobile ? 4 : 8}>
                   <Flex style={{ height }} align='center' justify='flex-end'>
                     <Choose>
                       <When condition={isMobile}>
@@ -151,6 +150,7 @@ export default class Navbar extends Component {
         >
           <ButtonCircle
             backgroundColor='white'
+            mt={2}
             onClick={() => setDrawer(false)}
             style={{
               position: 'absolute',
@@ -160,8 +160,8 @@ export default class Navbar extends Component {
           >
             <CloseIcon />
           </ButtonCircle>
-          <Badges p={3} wrap justify='flex-start' />
-          <PrimaryNav column px={3} />
+          <Badges p={2} wrap justify='flex-start' />
+          <PrimaryNav column px={2} />
         </Drawer>
       </Toolbar>
     )
