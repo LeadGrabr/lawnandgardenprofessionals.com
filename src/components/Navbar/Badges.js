@@ -4,7 +4,7 @@ import { default as PhoneIcon } from 'react-icons/lib/fa/phone'
 import { default as ClockIcon } from 'react-icons/lib/fa/clock-o'
 import { Flex, Box } from 'reflexbox'
 import { Circle } from 'components'
-import { Text } from '@bentatum/rebass'
+import { Text } from 'rebass'
 
 const NavbarBadges = (props, { colors: { primary } }) => {
   const badgeProps = {

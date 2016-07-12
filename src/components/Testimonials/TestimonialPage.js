@@ -3,12 +3,13 @@ import { find } from 'lodash'
 import { testimonials } from 'data'
 import { Block, ContactInfoBlock, Container, PageHeader, SecondaryNav } from 'components'
 import { default as Error404 } from './404'
-import { Text } from '@bentatum/rebass'
+import { Text, Base } from 'rebass'
 import { Flex, Box } from 'reflexbox'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { default as styles } from './style.scss'
 import { default as BraggingRights } from './BraggingRights'
+const { STATIC_ASSETS } = process.env
 
 @connect(({ app: { screenSize } }) => ({ screenSize }))
 
@@ -23,7 +24,7 @@ export default class TestimonialPage extends Component {
     if (!testimonial) {
       return <Error404 />
     }
-    const { author, location, path, text } = testimonial
+    const { author, img, location, path, text } = testimonial
     const title = `${author} (${location})`
     const { screenSize } = this.props
     const isMobile = screenSize === 'small' || screenSize === 'medium'
@@ -41,6 +42,7 @@ export default class TestimonialPage extends Component {
           <Container>
             <Flex>
               <Box col={isMobile ? 12 : 8} pr={isMobile ? 0 : 2}>
+                <Base is='img' src={`${STATIC_ASSETS}/${img}`} alt={author} style={{ float: 'left' }} mr={2} mb={1} />
                 <div
                   dangerouslySetInnerHTML={{
                     __html: require(`content/${path}.md`)

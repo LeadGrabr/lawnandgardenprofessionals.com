@@ -1,5 +1,5 @@
 import { default as React, PropTypes } from 'react'
-import { Base, Divider, Heading, Text } from '@bentatum/rebass'
+import { Base, Divider, Heading, Text } from 'rebass'
 import { Link } from 'react-router'
 const { STATIC_ASSETS } = process.env
 

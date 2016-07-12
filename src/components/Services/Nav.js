@@ -1,5 +1,5 @@
 import { default as React, PropTypes } from 'react'
-import { Menu, NavItem } from '@bentatum/rebass'
+import { Menu, NavItem } from 'rebass'
 import { Link } from 'react-router'
 import { services } from 'data'
 import { default as styles } from './style.scss'

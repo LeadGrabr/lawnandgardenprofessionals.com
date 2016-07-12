@@ -1,5 +1,5 @@
 import { default as React, createElement, PropTypes } from 'react'
-import { Base, Heading, Text } from '@bentatum/rebass'
+import { Base, Heading, Text } from 'rebass'
 import { Circle } from 'components'
 import { default as styles } from './style.scss'
 

@@ -1,5 +1,5 @@
 import { default as React, Component, PropTypes } from 'react'
-import { Arrow, Menu, NavItem } from '@bentatum/rebass'
+import { Arrow, Menu, NavItem } from 'rebass'
 import { default as Collapse } from 'react-collapse'
 import {
   locations as locationsData,

@@ -1,6 +1,6 @@
 import { default as React } from 'react'
 import { Block } from 'components'
-import { Heading, Text } from '@bentatum/rebass'
+import { Heading, Text } from 'rebass'
 
 const ContactInfoBlock = (props) =>
   <Block border borderColor='lightGray' px={2} {...props}>

@@ -5,7 +5,8 @@
     "location": "Canton, MI",
     "text": "Like anyone who is looking to update, restore, or renovate the current landscaping design for their home, I had been looking for the best experts. Luckily, I found them. Lawn and Garden Professionals of Ann Arbor lived up to their name. They were professional and attentive to my needs and goals for my home and offered numerous creative ideas on lawn layouts, pattern arrangements, and plant types. They have the expertise to work with you to convert your dream vision into reality.",
     "path": "testimonials/landscaping-edging-design",
-    "img": "tulips-manicured-lawn-ann-arbor-michigan.jpg"
+    "img": "david-jackson-medium.jpg",
+    "thumbnail": "david-jackson-thumbnail.jpg"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "location": "Washtenaw County, MI",
     "text": "For years, fall leaves have been an annoyance since I had to handle the massive amounts of falling foliage. If you live in a green area densely packed with trees, you know what I am talking about. ",
     "path": "testimonials/fall-leaves-cleanup",
-    "img": "fall-foliage-ann-arbor-michigan.jpg"
+    "img": "james-finkelstein-medium.jpg",
+    "thumbnail": "james-finkelstein-thumbnail.jpg"
   },
   {
     "id": 3,
@@ -21,7 +23,8 @@
     "location": "Ypsilanti, MI",
     "text": "Clogged and obstructed gutters were the number one culprit causing water damage to my house. I tried maintaining the gutters on my own, but I inevitably missed a spot or had no time after a long day at work. A friend recommended Lawn and Garden Professionals of Ann Arbor, and I haven't looked back since. ",
     "path": "testimonials/gutter-cleaning",
-    "img": "clogged-gutters-ann-arbor.jpg"
+    "img": "lorie-williams-medium.jpg",
+    "thumbnail": "lorie-williams-thumbnail.jpg"
   },
   {
     "id": 4,
@@ -29,6 +32,7 @@
     "location": "Ann Arbor, MI",
     "text": "Having a nice looking, a well-manicured lawn is a big source of pride for me. We all enjoy being able to come home to a beautiful yard, and the frequent compliments from friends and family regarding our yard do not hurt either! ",
     "path": "testimonials/lawn-care-maintenance-ann-arbor",
-    "img": "lawn-care-ann-arbor-michigan.jpg"
+    "img": "austin-brown-medium.jpg",
+    "thumbnail": "austin-brown-thumbnail.jpg"
   }
 ]

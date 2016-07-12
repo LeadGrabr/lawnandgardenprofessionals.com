@@ -6,7 +6,7 @@ import { default as Error404 } from './404'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { default as styles } from './style.scss'
-import { Base } from '@bentatum/rebass'
+import { Base } from 'rebass'
 import { GoogleMapLoader, GoogleMap, Marker } from 'react-google-maps'
 import { Flex, Box } from 'reflexbox'
 

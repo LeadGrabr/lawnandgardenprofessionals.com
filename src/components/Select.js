@@ -1,5 +1,5 @@
 import { default as React } from 'react'
-import { Select } from '@bentatum/rebass'
+import { Select } from 'rebass'
 
 export default ({ error, ...props }) =>
   <Select

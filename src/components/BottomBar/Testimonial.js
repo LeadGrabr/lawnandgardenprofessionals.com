@@ -1,5 +1,5 @@
 import { default as React, PropTypes } from 'react'
-import { Arrow, Avatar, Base, Text } from '@bentatum/rebass'
+import { Arrow, Avatar, Base, Text } from 'rebass'
 import { Flex, Box } from 'reflexbox'
 import { default as QuoteIcon } from 'react-icons/lib/fa/quote-left'
 import { default as TextTruncate } from 'react-text-truncate'

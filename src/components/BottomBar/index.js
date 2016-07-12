@@ -1,5 +1,5 @@
 import { default as React, Component, PropTypes } from 'react'
-import { Divider, Heading, Space, Text } from '@bentatum/rebass'
+import { Divider, Heading, Space, Text } from 'rebass'
 import { default as InfoIcon } from 'react-icons/lib/md/info'
 import { Flex, Box } from 'reflexbox'
 import { default as HamburgerIcon } from 'react-icons/lib/md/menu'

@@ -1,5 +1,5 @@
 import { default as React, PropTypes } from 'react'
-import { Base } from '@bentatum/rebass'
+import { Base } from 'rebass'
 
 const Circle = ({ borderColor, ...props }, { colors: { lightGray, white } }) =>
   <Base
