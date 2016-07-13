@@ -33,6 +33,7 @@
     "jsx-control-statements": "^3.1.2",
     "lodash": "^4.13.1",
     "markdown-loader": "^0.1.7",
+    "minify-css-string": "^1.0.0",
     "node-sass": "^3.5.3",
     "prefixed-rebass": "^0.3.0",
     "prefixed-reflexbox": "^1.1.5",
