@@ -134,7 +134,7 @@ export default class LeadForm extends Component {
               {...inputProps}
             />
           </Box>
-          <Box {...boxProps} pr={isMobile ? 0 : boxSpace}>
+          <Box {...boxProps} pr={column ? 0 : isMobile ? 0 : boxSpace}>
             <JoifulInput
               hideLabel
               name='email'
@@ -150,7 +150,7 @@ export default class LeadForm extends Component {
               {...inputProps}
             />
           </Box>
-          <Box {...boxProps} pr={isMobile ? 0 : boxSpace}>
+          <Box {...boxProps} pr={column ? 0 : isMobile ? 0 : boxSpace}>
             <JoifulInput
               is='select'
               hideLabel
