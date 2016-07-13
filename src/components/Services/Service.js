@@ -27,13 +27,13 @@ export default class Service extends Component {
   }
 
   render () {
-    const { description, img, path, title, ...props } = this.props
+    const { description, path, thumbnail, title, ...props } = this.props
     return (
       <Base {...props}>
         <Link to={path}>
           <div style={{ maxHeight: this.imgMaxHeight(), overflow: 'hidden' }}>
             <img
-              src={`${STATIC_ASSETS}${img}`}
+              src={`${STATIC_ASSETS}${thumbnail}`}
               style={{
                 maxWidth: '100%',
                 width: '100%'
