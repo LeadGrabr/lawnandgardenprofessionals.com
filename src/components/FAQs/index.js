@@ -1,10 +1,10 @@
 import { default as React, Component } from 'react'
 import { faqs } from 'data'
-import { Heading, Text } from '@bentatum/rebass'
+import { Heading, Text } from 'prefixed-rebass'
 import { Block, Container, PageHeader, SecondaryNav } from 'components'
 import { Link } from 'react-router'
 import { default as styles } from './style.scss'
-import { Flex, Box } from 'reflexbox'
+import { Flex, Box } from 'prefixed-reflexbox'
 import { connect } from 'react-redux'
 
 @connect(({ app: { screenSize } }) => ({ screenSize }))
@@ -24,7 +24,7 @@ export default class FAQs extends Component {
         />
         <Block backgroundColor='white'>
           <Container>
-            <Flex>
+            <Flex wrap>
               <Box col={isMobile ? 12 : 8} pr={isMobile ? 0 : 1}>
                 {faqs.map(({ question, answer }, key) =>
                   <div key={key}>

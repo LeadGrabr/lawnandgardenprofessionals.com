@@ -1,5 +1,5 @@
 import { default as React, Component, PropTypes } from 'react'
-import { Flex, Box } from 'reflexbox'
+import { Flex, Box } from 'prefixed-reflexbox'
 import { BrandBadge } from 'components'
 import { default as TrophyIcon } from 'react-icons/lib/fa/trophy'
 import { default as ArrowUpIcon } from 'react-icons/lib/fa/arrow-up'
@@ -38,8 +38,8 @@ export default class BrandBadgeList extends Component {
 
   render () {
     const { screenSize } = this.props
-    const isColumn = screenSize === 'small' || screenSize === 'medium'
-    const padding = isColumn ? 0 : 1
+    const isMobile = screenSize === 'small' || screenSize === 'medium'
+    const padding = isMobile ? 0 : 1
     const boxProps = {
       col: this.boxCols()
     }
@@ -49,7 +49,7 @@ export default class BrandBadgeList extends Component {
       }
     }
     return (
-      <Flex wrap column={isColumn}>
+      <Flex wrap>
         <Box {...boxProps} pr={padding}>
           <BrandBadge
             icon={TrophyIcon}

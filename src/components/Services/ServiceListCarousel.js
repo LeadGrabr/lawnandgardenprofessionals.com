@@ -4,7 +4,7 @@ import { services } from 'data'
 import { default as Service } from './Service'
 import { connect } from 'react-redux'
 import { chunk } from 'lodash'
-import { Flex, Box } from 'reflexbox'
+import { Flex, Box } from 'prefixed-reflexbox'
 
 @connect(({ app: { screenSize } }) => ({ screenSize }))
 

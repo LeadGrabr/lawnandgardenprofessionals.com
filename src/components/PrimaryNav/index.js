@@ -1,5 +1,5 @@
 import { default as React, Component, PropTypes } from 'react'
-import { Arrow, Menu, NavItem } from '@bentatum/rebass'
+import { Arrow, Menu, NavItem } from 'prefixed-rebass'
 import { default as Collapse } from 'react-collapse'
 import {
   locations as locationsData,
@@ -10,7 +10,7 @@ import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import { default as styles } from './style.scss'
 import { setDrawer } from 'redux/modules/navbar'
-import { Flex, Box } from 'reflexbox'
+import { Flex, Box } from 'prefixed-reflexbox'
 
 const initialState = {
   services: false,

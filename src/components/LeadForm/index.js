@@ -1,8 +1,8 @@
 import { default as React, Component, PropTypes } from 'react'
 import { JoifulForm, JoifulInput } from 'joiful-react-forms'
 import { default as Joi } from 'joi'
-import { Flex, Box } from 'reflexbox'
-import { Button } from '@bentatum/rebass'
+import { Flex, Box } from 'prefixed-reflexbox'
+import { Button } from 'prefixed-rebass'
 import { services } from 'data'
 import { createLead, SUBMIT_LEAD } from 'redux/modules/app'
 import { default as styles } from './style.scss'
@@ -134,7 +134,7 @@ export default class LeadForm extends Component {
               {...inputProps}
             />
           </Box>
-          <Box {...boxProps} pr={isMobile ? 0 : boxSpace}>
+          <Box {...boxProps} pr={column ? 0 : isMobile ? 0 : boxSpace}>
             <JoifulInput
               hideLabel
               name='email'
@@ -150,7 +150,7 @@ export default class LeadForm extends Component {
               {...inputProps}
             />
           </Box>
-          <Box {...boxProps} pr={isMobile ? 0 : boxSpace}>
+          <Box {...boxProps} pr={column ? 0 : isMobile ? 0 : boxSpace}>
             <JoifulInput
               is='select'
               hideLabel

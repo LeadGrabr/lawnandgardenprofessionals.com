@@ -1,10 +1,9 @@
 import { default as React, Component, PropTypes } from 'react'
 import { Container, LeadForm } from 'components'
-import { Flex, Box } from 'reflexbox'
+import { Flex, Box } from 'prefixed-reflexbox'
 import { default as InfoIcon } from 'react-icons/lib/md/info'
-import { Base, Heading } from '@bentatum/rebass'
+import { Base, Heading } from 'prefixed-rebass'
 import { connect } from 'react-redux'
-import { logoWidth } from 'components/Navbar'
 import { default as styles } from './style.scss'
 
 @connect(({ app: { screenSize } }) => ({ screenSize }))
@@ -38,7 +37,7 @@ export default class GetAnInstantQuoteBlock extends Component {
               backgroundColor: black,
               position: 'relative',
               height: isMobile ? 40 : 'auto',
-              width: isMobile ? '100%' : logoWidth
+              width: isMobile ? '100%' : 260
             }}
             m={0}
             px={isMobile ? 1 : 2}

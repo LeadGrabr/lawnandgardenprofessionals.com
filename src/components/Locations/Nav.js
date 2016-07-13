@@ -1,5 +1,5 @@
 import { default as React } from 'react'
-import { Menu, NavItem } from '@bentatum/rebass'
+import { Menu, NavItem } from 'prefixed-rebass'
 import { Link } from 'react-router'
 import { default as style } from './style.scss'
 

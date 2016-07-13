@@ -1,6 +1,8 @@
 import './style.scss'
 import { default as React, Component, PropTypes } from 'react'
 import { default as color } from 'color'
+import { default as css } from 'minify-css-string'
+const { STATIC_ASSETS } = process.env
 
 const baseColors = {
   green: '#a5c243',
@@ -69,17 +71,9 @@ export default class Theme extends Component {
       colors,
       reactIconBase: {
         size: 24,
-        color: colors.black
+        color: colors.primary
       },
-      reflexbox: {
-        breakpoints: {
-          ...breakpoints,
-          mobile: `(min-width: ${breakpoints.small})`,
-          tablet: `(min-width: ${breakpoints.medium})`,
-          desktop: `(min-width: ${breakpoints.large})`
-        },
-        scale
-      },
+      reflexbox: { scale },
       rebass: {
         bold: 700,
         colors,
@@ -131,38 +125,46 @@ export default class Theme extends Component {
     return (
       <div>
         <style>
-          {
-            `
-              * { box-sizing: border-box; }
-              html, body {
-                background-color: ${colors.lightGray};
-                background-image: url(${process.env.STATIC_ASSETS}/leaves-pattern.png);
-                color: ${colors.black};
-              }
-              h1 { font-size: ${fontSizes[1]}px; }
-              h2 { font-size: ${fontSizes[2]}px; }
-              h3 { font-size: ${fontSizes[3]}px; }
-              h4 { font-size: ${fontSizes[4]}px; }
-              h5 { font-size: ${fontSizes[5]}px; }
-              h6 { font-size: ${fontSizes[6]}px; }
-              p { font-size: ${fontSizes[4]}px; }
-              a {
-                color: ${colors.primary};
-                text-decoration: none;
-              }
-              input, select {
-                background-color: ${colors.white} !important;
-                color: ${colors.darkGray} !important;
-              }
-              ::-webkit-input-placeholder,
-              :-moz-placeholder,
-              ::-moz-placeholder,
-              :-ms-input-placeholder {
-                color: ${colors.darkGray};
-                font-weight: ${fontWeightBase};
-              }
-            `
-          }
+          {css(`
+            * { box-sizing: border-box; }
+            html, body {
+              background-color: ${colors.lightGray};
+              background-image: url(${STATIC_ASSETS}/leaves-pattern.png);
+              color: ${colors.black};
+              font-weight: 300;
+              line-height: 1.5;
+            }
+            h1 { font-size: ${fontSizes[1]}px; }
+            h2 { font-size: ${fontSizes[2]}px; }
+            h3 { font-size: ${fontSizes[3]}px; }
+            h4 { font-size: ${fontSizes[4]}px; }
+            h5 { font-size: ${fontSizes[5]}px; }
+            h6 { font-size: ${fontSizes[6]}px; }
+            p  {
+              font-size: ${fontSizes[4]}px;
+              margin-top: 0;
+              margin-bottom: ${scale[1]}px;
+            }
+            a {
+              color: ${colors.primary};
+              text-decoration: none;
+            }
+            input, select {
+              background-color: ${colors.white} !important;
+              color: ${colors.darkGray} !important;
+            }
+            ::-webkit-input-placeholder,
+            :-moz-placeholder,
+            ::-moz-placeholder,
+            :-ms-input-placeholder {
+              color: ${colors.darkGray};
+              font-weight: ${fontWeightBase};
+            }
+
+            .Input.isInvalid .Text {
+              margin-top: ${scale[1]}px !important;
+            }
+          `)}
         </style>
         {this.props.children}
       </div>

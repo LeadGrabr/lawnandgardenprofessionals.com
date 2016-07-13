@@ -4,9 +4,9 @@ import { Block, ContactInfoBlock, Container, PageHeader, SecondaryNav, StickyNot
 import { Link } from 'react-router'
 import { default as styles } from './style.scss'
 import { GoogleMapLoader, GoogleMap, Marker } from 'react-google-maps'
-import { Base, Heading, Text } from '@bentatum/rebass'
+import { Base, Heading, Text } from 'prefixed-rebass'
 import { hours } from 'data'
-import { Flex, Box } from 'reflexbox'
+import { Flex, Box } from 'prefixed-reflexbox'
 import { default as Form } from './Form'
 
 const coordinates = { lat: 42.195199, lng: -83.483737 }

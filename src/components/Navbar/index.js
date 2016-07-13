@@ -1,6 +1,6 @@
 import { default as React, Component, PropTypes } from 'react'
-import { Base, Button, Drawer, Toolbar, ButtonCircle } from '@bentatum/rebass'
-import { Flex, Box } from 'reflexbox'
+import { Base, Button, Drawer, Toolbar, ButtonCircle } from 'prefixed-rebass'
+import { Flex, Box } from 'prefixed-reflexbox'
 import { default as CloseIcon } from 'react-icons/lib/md/close'
 import { default as HamburgerIcon } from 'react-icons/lib/md/menu'
 import { connect } from 'react-redux'
@@ -9,8 +9,8 @@ import { setDrawer } from 'redux/modules/navbar'
 import { IndexLink, Link } from 'react-router'
 import { default as styles } from './style.scss'
 import { default as Badges } from './Badges'
-
-export const logoWidth = 257
+const { STATIC_ASSETS } = process.env
+const height = 64
 
 @connect(
   ({ app: { screenSize, width }, navbar: { drawer } }) => ({
@@ -35,7 +35,6 @@ export default class Navbar extends Component {
   render () {
     const { drawer, screenSize, setDrawer, width } = this.props
     const { colors: { lightGray, primary, white } } = this.context
-    const { STATIC_ASSETS } = process.env
     const isMobile = screenSize === 'medium' || screenSize === 'small'
     return (
       <Toolbar style={{ overflow: 'hidden' }}>
@@ -52,12 +51,12 @@ export default class Navbar extends Component {
                 className={styles.top}
                 style={{
                   backgroundColor: white,
-                  height: 64,
+                  height,
                   position: 'relative',
                   width: '100%'
                 }}
               >
-                <Box is={IndexLink} to='/' flex style={{ position: 'relative' }}>
+                <Box col={isMobile ? 8 : 4} is={IndexLink} to='/' flex style={{ position: 'relative' }}>
                   <Block
                     backgroundColor='primary'
                     color='white'
@@ -68,7 +67,7 @@ export default class Navbar extends Component {
                       backgroundRepeat: 'no-repeat',
                       backgroundSize: 165,
                       textIndent: -9999,
-                      width: logoWidth
+                      width: '100%'
                     }}
                   >
                     Lawn and Garden Professionals
@@ -86,8 +85,8 @@ export default class Navbar extends Component {
                     }}
                   />
                 </Box>
-                <Box col={8}>
-                  <Flex style={{ height: '100%' }} align='center' justify='flex-end'>
+                <Box col={isMobile ? 4 : 8}>
+                  <Flex style={{ height }} align='center' justify='flex-end'>
                     <Choose>
                       <When condition={isMobile}>
                         <HamburgerIcon onClick={() => setDrawer(true)} />
@@ -145,11 +144,12 @@ export default class Navbar extends Component {
           color='white'
           open={drawer}
           position='right'
-          size={width}
+          size={drawer ? width : 0}
           p={0}
         >
           <ButtonCircle
             backgroundColor='white'
+            mt={2}
             onClick={() => setDrawer(false)}
             style={{
               position: 'absolute',
@@ -159,8 +159,8 @@ export default class Navbar extends Component {
           >
             <CloseIcon />
           </ButtonCircle>
-          <Badges p={3} wrap justify='flex-start' />
-          <PrimaryNav column px={3} />
+          <Badges p={2} wrap justify='flex-start' />
+          <PrimaryNav column px={2} />
         </Drawer>
       </Toolbar>
     )

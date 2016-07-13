@@ -1,3 +1,4 @@
+import 'babel-polyfill'
 import { default as React } from 'react'
 import { render } from 'react-dom'
 import { renderToString } from 'react-dom/server'
