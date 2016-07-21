@@ -9,7 +9,6 @@ import {
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import { default as styles } from './style.scss'
-import { setDrawer } from 'redux/modules/navbar'
 import { Flex, Box } from 'prefixed-reflexbox'
 
 const initialState = {
@@ -18,41 +17,28 @@ const initialState = {
   testimonials: false
 }
 
-@connect(() => ({}), { pushState: push, setDrawer })
+@connect(() => ({}), { pushState: push })
 
 export default class PrimaryNav extends Component {
 
   static propTypes = {
     column: PropTypes.bool,
-    pushState: PropTypes.func.isRequired,
-    setDrawer: PropTypes.func.isRequired
+    pushState: PropTypes.func.isRequired
   };
 
   state = initialState
 
   handleClick ({ target: { name } }) {
-    // if (this.state[name] === true || !this.state.hasOwnProperty(name)) {
-    //   return this.setState(
-    //     initialState,
-    //     () => {
-    //       this.props.pushState(`/${name}`)
-    //       this.props.setDrawer(false)
-    //     }
-    //   )
-    // }
     if (!this.state.hasOwnProperty(name)) {
       return this.setState(
         initialState,
-        () => {
-          this.props.pushState(`/${name}`)
-          this.props.setDrawer(false)
-        }
+        () => this.props.pushState(`/${name}`)
       )
     }
     const directive = !this.state[name]
-    return this.setState(initialState, () => {
+    return this.setState(initialState, () =>
       this.setState({ [name]: directive })
-    })
+    )
   }
 
   render () {

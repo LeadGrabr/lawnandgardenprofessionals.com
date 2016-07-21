@@ -115,7 +115,8 @@ module.exports = {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
         STATIC_ASSETS: JSON.stringify(process.env.STATIC_ASSETS),
         GOOGLE_MAPS_APIKEY: JSON.stringify(process.env.GOOGLE_MAPS_APIKEY),
-        REDUX_PREFIX: JSON.stringify(process.env.REDUX_PREFIX)
+        REDUX_PREFIX: JSON.stringify(process.env.REDUX_PREFIX),
+        SEGMENT_KEY: JSON.stringify(process.env.SEGMENT_KEY)
       }
     })
   ]

@@ -3,11 +3,11 @@ import { Block, Carousel, Container, IconHeadingBlock, ServiceListCarousel } fro
 import { Flex, Box } from 'prefixed-reflexbox'
 import { Base, Button, Divider, Heading, Text } from 'prefixed-rebass'
 import { default as MaleIcon } from 'react-icons/lib/fa/male'
-import { default as lawnGardenImg } from './lawn-and-garden-professionals-of-ann-arbor-michigan@small.jpg'
 import { Parallax } from 'react-parallax'
 import { connect } from 'react-redux'
 import { default as BrandBadgeList } from './BrandBadgeList'
 import { default as GetAnInstantQuoteBlock } from './GetAnInstantQuoteBlock'
+const { STATIC_ASSETS } = process.env
 
 @connect(({ app: { screenSize } }) => ({ screenSize }))
 
@@ -25,7 +25,6 @@ export default class Home extends Component {
   render () {
     const { colors: { primary, white }, shadows } = this.context
     const { screenSize } = this.props
-    const { STATIC_ASSETS } = process.env
     const isMobile = screenSize === 'medium' || screenSize === 'small'
     return (
       <div>
@@ -46,8 +45,8 @@ export default class Home extends Component {
               </Text>
               <div style={{ maxHeight: 246, overflow: 'hidden' }}>
                 <img
-                  alt
-                  src={lawnGardenImg}
+                  alt='Person on riding mower'
+                  src={`${STATIC_ASSETS}/lawn-and-garden-professionals-of-ann-arbor-michigan@small.jpg`}
                   style={{
                     maxWidth: '100%',
                     width: '100%'

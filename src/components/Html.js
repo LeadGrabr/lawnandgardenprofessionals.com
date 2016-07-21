@@ -1,7 +1,7 @@
 import { default as React, PropTypes } from 'react'
 import { renderToString } from 'react-dom/server'
 import { default as Helmet } from 'react-helmet'
-const { GOOGLE_MAPS_APIKEY } = process.env
+const { GOOGLE_MAPS_APIKEY, SEGMENT_KEY } = process.env
 
 const Html = ({ assets, component }) => {
   const content = component ? renderToString(component) : ''
@@ -50,6 +50,12 @@ const Html = ({ assets, component }) => {
               "hasMap": "https://goo.gl/maps/XgpHXqsQupn",
               "openingHours": "Mo, Tu, We, Th, Fr, Sa, Su 06:00-18:00"
             }
+          ` }}
+        />
+        <script
+          dangerouslySetInnerHTML={{ __html: `
+            !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+            analytics.load("${SEGMENT_KEY}");}}();
           ` }}
         />
       </head>

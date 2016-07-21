@@ -35,7 +35,8 @@ export default class Navbar extends Component {
   render () {
     const { drawer, screenSize, setDrawer, width } = this.props
     const { colors: { lightGray, primary, white } } = this.context
-    const isMobile = screenSize === 'medium' || screenSize === 'small'
+    const isSmall = screenSize === 'small'
+    const isMobile = isSmall || screenSize === 'medium'
     return (
       <Toolbar style={{ overflow: 'hidden' }}>
         <div style={{ width: '100%' }}>
@@ -144,7 +145,7 @@ export default class Navbar extends Component {
           color='white'
           open={drawer}
           position='right'
-          size={drawer ? width : 0}
+          size={isSmall ? width : 300}
           p={0}
         >
           <ButtonCircle
